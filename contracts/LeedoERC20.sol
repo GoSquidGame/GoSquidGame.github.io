@@ -902,10 +902,10 @@ contract LeedoERC20 is ERC20, Ownable, ReentrancyGuard {
     address private _raffleAddr;
     uint public claimBlocksRequired = 200000; //about 31 days
     uint private _decimal = 10**uint(decimals());    
-    uint public rafflePrize = (100000 * 20) * _decimal;
-    uint public nftMintableAmount = (138000000 - 21000000) * _decimal; //117,000,000
-    uint public daoMintableAmount = (175000000 + 70000000 + 70000000 + 210000000) * _decimal; //525,000,000
-    uint public marketingMintableAmount = 35000000 * _decimal;
+    uint public rafflePrize = 100000 * 20;
+    uint public nftMintableWeiAmount = (138000000 - 21000000) * _decimal; //117,000,000
+    uint public daoMintableAmount = 175000000 + 70000000 + 70000000 + 210000000; //525,000,000
+    uint public marketingMintableAmount = 35000000;
     uint public daoTimelock;
     uint public timeLockDuration = 24 hours;
     //uint public timeLockDuration = 1 minutes;
@@ -944,8 +944,9 @@ contract LeedoERC20 is ERC20, Ownable, ReentrancyGuard {
     }
     
     function mintNftVaultRewards(address _to, uint _amount) external onlyNftVault returns (bool) {
-        require(_amount <= nftMintableAmount, 'ERC20: Amount is more than allowed');
-        nftMintableAmount = nftMintableAmount.sub(_amount);
+        //_amount is in wei
+        require(_amount <= nftMintableWeiAmount, 'ERC20: Amount is more than allowed');
+        nftMintableWeiAmount = nftMintableWeiAmount.sub(_amount);
         require(_safeMint(_to, _amount), 'ERC20: Minting failed');
         return true;
     }
@@ -953,7 +954,7 @@ contract LeedoERC20 is ERC20, Ownable, ReentrancyGuard {
     function mintDev(address _devAddr, uint _amount) external onlyOwner returns (bool) {
         require(_amount <= marketingMintableAmount, 'ERC20: Amount is more than allowed');
         marketingMintableAmount = marketingMintableAmount.sub(_amount);
-        require(_safeMint(_devAddr, _amount), 'ERC20: Minting failed');
+        require(_safeMint(_devAddr, _amount.mul(_decimal)), 'ERC20: Minting failed');
         return true;
     }
 
@@ -976,7 +977,7 @@ contract LeedoERC20 is ERC20, Ownable, ReentrancyGuard {
         require(daoTimelock != 0 && daoTimelock <= block.timestamp, 'ERC20: Wait _daoTimelock passes');
         require(_amount <= daoMintableAmount, 'ERC20:  Amount is more than allowed');
         daoMintableAmount = daoMintableAmount.sub(_amount); 
-        require(_safeMint(_daoAddr, _amount), 'ERC20: Minting failed');
+        require(_safeMint(_daoAddr, _amount.mul(_decimal)), 'ERC20: Minting failed');
         daoTimelock = 0;
         return true;
     }

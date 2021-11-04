@@ -1716,6 +1716,7 @@ interface ILeedoERC20 {
 }
 
 contract LeedoNftVault is ERC721Enumerable, Ownable, ReentrancyGuard { 
+    using SafeMath for uint;
     
     bool public daoInitialized = false;
     bool public transferAllowed = false; //by default regular transfer of staked NFTs are not allowed except bridge transfer
@@ -1767,12 +1768,14 @@ contract LeedoNftVault is ERC721Enumerable, Ownable, ReentrancyGuard {
     
     function calcRewards(address account) public view returns (uint) {
         require(Math.min(block.number, expiration) >= lastBlocks[account], "Invalid blocks");
-        return rate * balanceOf(account) * (Math.min(block.number, expiration) - lastBlocks[account]);
+        uint blockCount = Math.min(block.number, expiration) - lastBlocks[account];
+        return rate.mul(balanceOf(account)).mul(blockCount) ;
     }
     
     function calcBridgeRewards(uint tokenId) public view returns (uint) {
-      require(Math.min(block.number, expiration) >= bridgeBlocks[tokenId], "Invalid blocks");
-      return rate * (Math.min(block.number, expiration) - bridgeBlocks[tokenId]);
+        require(Math.min(block.number, expiration) >= bridgeBlocks[tokenId], "Invalid blocks");
+        uint blockCount = Math.min(block.number, expiration) - bridgeBlocks[tokenId];
+        return rate.mul(blockCount);
     }    
     
     function claimRewards() public {
@@ -1784,7 +1787,7 @@ contract LeedoNftVault is ERC721Enumerable, Ownable, ReentrancyGuard {
         uint blockCur = Math.min(block.number, expiration);
         lastBlocks[_msgSender()] = blockCur;
         if (amount > 0) {
-            totalClaims[_msgSender()] += amount;
+            totalClaims[_msgSender()] = totalClaims[_msgSender()].add(amount);
             require(ILeedoERC20(_erc20Addr).mintNftVaultRewards(account, amount), 'NftVault: Leedo Minting failed');
         }        
     }  
@@ -1794,7 +1797,7 @@ contract LeedoNftVault is ERC721Enumerable, Ownable, ReentrancyGuard {
         uint blockCur = Math.min(block.number, expiration);
         bridgeBlocks[tokenId] = blockCur;
         if (amount > 0) {
-            totalClaims[to] += amount;
+            totalClaims[to] = totalClaims[to].add(amount);
             require(ILeedoERC20(_erc20Addr).mintNftVaultRewards(to, amount), 'NftVault: Leedo Minting failed');
         }        
     }       
@@ -1840,7 +1843,6 @@ contract LeedoNftVault is ERC721Enumerable, Ownable, ReentrancyGuard {
         }
         return tokenIds;
     }       
-    
     
     function safeMint(address _to, uint _tokenId) private nonReentrant returns (bool) {
         _safeMint(_to, _tokenId);
@@ -1918,6 +1920,5 @@ contract LeedoNftVault is ERC721Enumerable, Ownable, ReentrancyGuard {
         ) pure external returns(bytes4) {
         return bytes4(keccak256("onERC721Received(address,address,uint256,bytes)"));
     }       
-    
 }
 
