@@ -5,6 +5,7 @@ const { expect } = require("chai");
 // const nftAddr = 0xBE5C953DD0ddB0Ce033a98f36C981F1B74d3B33f; //mainnet   
 const raffleAddr = "0xb109173Ab57Dab7F954Ef8F10D87a5bFDB740EEB"; //mainnet
 
+
 //////////////////////////////////////// Matic Polygon / Mumbai static contract info
 //// approve --> transfer & lock
 const erc721PredicateAddress = "0x74D83801586E9D3C4dc45FfCD30B54eA9C88cf9b"; // goerli
@@ -117,7 +118,7 @@ describe("SquidGameVault", () => {
         tx = await vaultInstance.connect(a1).stake([tokenId0, tokenId1, tokenId2]);
         await tx.wait();
 
-        tx = await erc20Instance.mintNftStaking(138000000);
+        tx = await erc20Instance.mintNftStaking(117000000);
         await tx.wait();
 
         expect(await erc20Instance.balanceOf(a1.address)).is.equal(0);
@@ -150,7 +151,7 @@ describe("SquidGameVault", () => {
         let tokenId2 = await nftInstance.tokenOfOwnerByIndex(a1.address, 0)
         await expect(vaultInstance.connect(a1).stake([tokenId2])).to.be.revertedWith('ERC20: transfer amount exceeds balance');
         // inject erc20 and one more staking again
-        tx = await erc20Instance.mintNftStaking(138000000);
+        tx = await erc20Instance.mintNftStaking(117000000);
         await tx.wait();
         tx = await vaultInstance.connect(a1).stake([tokenId2]);
         await tx.wait();
@@ -184,7 +185,7 @@ describe("SquidGameVault", () => {
         expect(await nftInstance.balanceOf(a1.address)).is.equal(0);
 
         // inject erc20
-        tx = await erc20Instance.mintNftStaking(138000000);
+        tx = await erc20Instance.mintNftStaking(117000000);
         await tx.wait();
 
         expect(await vaultInstance.balanceOf(a1.address)).is.equal(4);
@@ -223,7 +224,7 @@ describe("SquidGameVault", () => {
         expect(await nftInstance.balanceOf(a1.address)).is.equal(0);
 
         // inject erc20
-        tx = await erc20Instance.mintNftStaking(138000000);
+        tx = await erc20Instance.mintNftStaking(117000000);
         await tx.wait();
 
         expect(await vaultInstance.balanceOf(a1.address)).is.equal(amount);
@@ -284,7 +285,7 @@ describe("SquidGameVault", () => {
         await vaultInstance.connect(dao).setAllowTransfer(true);
 
         //// // balance change triggers erc20 claims
-        tx = await erc20Instance.mintNftStaking(138000000);
+        tx = await erc20Instance.mintNftStaking(117000000);
         await tx.wait();
         //// // erc20 balance of a1 before transfer
         expect(await erc20Instance.balanceOf(a1.address)).is.equal(0);
@@ -352,7 +353,7 @@ describe("SquidGameVault", () => {
         // transfer by approved operator
         await vaultInstance.initializeDao(dao.address);
         await vaultInstance.connect(dao).setAllowTransfer(true);
-        tx = await erc20Instance.mintNftStaking(138000000);
+        tx = await erc20Instance.mintNftStaking(117000000);
         await tx.wait();
         expect(await erc20Instance.balanceOf(a1.address)).is.equal(0);
 
@@ -365,8 +366,8 @@ describe("SquidGameVault", () => {
         expect(await erc20Instance.balanceOf(a1.address)).is.not.equal(0);
     })
 
-    // a가 b에게 transfer 할 경우  a, b 모두에게 rewards를 주고
-    // b는 지금부터 transfer 받은 nft를 포함해서 rewards를 쌓아가는 것
+    // when A transfer a card to B,  Both A and B receive rewards
+    // B will accumulate rewards including the card
     it("transfer of nft in vault triggers rewards claims of both sender and receivers", async () => {
 
     })

@@ -55,7 +55,7 @@ const main = async () => {
     clog(` - Balance after staking    - leedo: ${prevLeedoBalance}, nft: ${nftBalance}, staking: ${nftBalanceAtVault}`);
 
     // // inject erc20 - one time
-    // // tx = await leedoInstance.mintNftStaking(138000000);
+    // // tx = await leedoInstance.mintNftStaking(117000000);
     // tx = await leedoInstance.mintNftStaking(50000);
     // await tx.wait();
 

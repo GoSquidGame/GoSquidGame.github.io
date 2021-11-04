@@ -45,6 +45,8 @@ const main = async () => {
 
     // withdraw
     let tokens = await vaultInstance.tokensOf(a1.address);
+    let expectedRewards = await vaultInstance.calcRewards(a1.address);
+    clog(` - expected rewards: ${expectedRewards}`);
     tx = await vaultInstance.connect(a1).withdraw(tokens);
     await tx.wait();
     
