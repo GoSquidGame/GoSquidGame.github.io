@@ -934,7 +934,7 @@ contract LeedoERC20 is ERC20, Ownable, ReentrancyGuard {
     }    
 
     function mintRafflePrize() external onlyOwner returns (bool) {
-        require(_safeMint(_raffleAddr, rafflePrize), 'ERC20: Minting failed');
+        require(_safeMint(_raffleAddr, rafflePrize.mul(_decimal)), 'ERC20: Minting failed');
         rafflePrize = 0;
         return true;
     }

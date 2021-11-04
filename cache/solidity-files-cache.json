@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/brian/Work/GoSquidGame.github.io/contracts/LeedoERC20.sol": {
-      "lastModificationDate": 1636064822789,
-      "contentHash": "e0c432fe46d4ceeda33193fea926887e",
+      "lastModificationDate": 1636068230024,
+      "contentHash": "e19d8960455fd45dce0dc4874f03a242",
       "sourceName": "contracts/LeedoERC20.sol",
       "solcConfig": {
         "version": "0.8.9",
@@ -103,8 +103,8 @@
       ]
     },
     "/Users/brian/Work/GoSquidGame.github.io/contracts/LeedoNftVault.sol": {
-      "lastModificationDate": 1636064864044,
-      "contentHash": "cab392c0a5cfcfcd72d5a677c61ae4d1",
+      "lastModificationDate": 1636066747500,
+      "contentHash": "5ec71e04c576b13f584fd1ec8daf8a12",
       "sourceName": "contracts/LeedoNftVault.sol",
       "solcConfig": {
         "version": "0.8.9",

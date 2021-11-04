@@ -40,10 +40,10 @@ describe("SquidGameVault", () => {
     });
 
     it("address consistency check between erc20 and vault contracts", async () => {
-        expect(await erc20Instance.getNftAddr()).is.equal(nftInstance.address);
-        expect(await vaultInstance.getNftAddr()).is.equal(nftInstance.address);
-        expect(await vaultInstance.getErc20Addr()).is.equal(erc20Instance.address);
-        expect(await erc20Instance.getNftVaultAddr()).is.equal(vaultInstance.address);
+        expect(await erc20Instance.nftAddr()).is.equal(nftInstance.address);
+        expect(await vaultInstance.nftAddr()).is.equal(nftInstance.address);
+        expect(await vaultInstance.erc20Addr()).is.equal(erc20Instance.address);
+        expect(await erc20Instance.nftVaultAddr()).is.equal(vaultInstance.address);
     })
 
 
