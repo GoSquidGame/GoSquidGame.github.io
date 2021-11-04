@@ -902,12 +902,12 @@ contract LeedoERC20 is ERC20, Ownable, ReentrancyGuard {
     address public raffleAddr;
     uint public claimBlocksRequired = 200000; //about 31 days
     uint public rafflePrize = 100000 * 20;
-    uint public nftMintableAmount = 138000000;
-    uint public daoMintableAmount = 560000000;
+    uint public nftMintableAmount = 138000000 - 21000000; //117,000,000
+    uint public daoMintableAmount = 175000000 + 70000000 + 70000000 + 210000000; //525,000,000
     uint public marketingMintableAmount = 35000000;
     uint public daoTimelock;
-    uint public timeLockDuraction = 24 hours;
-    //uint public timeLockDuraction = 1 minutes;
+    uint public timeLockDuration = 24 hours;
+    //uint public timeLockDuration = 1 minutes;
     uint private _decimal = 10**uint(decimals());    
     uint public season = 0;
 
@@ -962,7 +962,7 @@ contract LeedoERC20 is ERC20, Ownable, ReentrancyGuard {
     }    
 
     function unlockDaoMint() public onlyDao {
-        daoTimelock = block.timestamp + timeLockDuraction;
+        daoTimelock = block.timestamp + timeLockDuration;
     }
 
     function daoMint(uint _amount) public onlyDao returns (bool) {
@@ -992,7 +992,7 @@ contract LeedoERC20 is ERC20, Ownable, ReentrancyGuard {
     }
     
     function claim(uint[] calldata _tokenIds) external returns (uint) {
-        require(_tokenIds.length < 20, 'ERC20: maximum bulk claims is 20 cards per tx');
+        //require(_tokenIds.length < 20, 'ERC20: maximum bulk claims is 20 cards per tx');
         ILeedoNftVault sNFT = ILeedoNftVault(nftVaultAddr); //only Staked NFT can claim  
         require(sNFT.lastBlocks(_msgSender()) + claimBlocksRequired < block.number, 'ERC20: does not meet claimBlockRequired');
         uint total;
