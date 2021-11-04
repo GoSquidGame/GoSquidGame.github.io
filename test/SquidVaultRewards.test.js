@@ -42,7 +42,7 @@ describe("SquidGameVault Rewards", () => {
     });
 
     it("claimed rewards are equal to expected ones by calcRewards", async () => {
-        let tx = await erc20Instance.mintNftStaking(117000000);
+        //let tx = await erc20Instance.mintNftStaking(117000000);
         tx = await nftInstance.connect(a1).claim();
         tx = await nftInstance.connect(a1).claim();
         tx = await nftInstance.connect(a1).claim();
@@ -76,15 +76,15 @@ describe("SquidGameVault Rewards", () => {
 
     // stake 2 cards --> stake 1 card --> unstake 2 cards
     it("automatic rewards (on staking or on unstaking) are equal to expected ones by calcRewards", async () => {
-        let tx = await erc20Instance.mintNftStaking(117000000);
+        //let tx = await erc20Instance.mintNftStaking(117000000);
         tx = await nftInstance.connect(a1).claim();
         tx = await nftInstance.connect(a1).claim();
         tx = await nftInstance.connect(a1).claim();
-        await tx.wait();
+        //await tx.wait();
 
         // approve
         tx = await nftInstance.connect(a1).setApprovalForAll(vaultInstance.address, true);
-        await tx.wait();
+        //await tx.wait();
 
         let tokenId0 = await nftInstance.tokenOfOwnerByIndex(a1.address, 0)
         let tokenId1 = await nftInstance.tokenOfOwnerByIndex(a1.address, 1)
@@ -92,7 +92,7 @@ describe("SquidGameVault Rewards", () => {
 
         //// staking 2 cards
         tx = await vaultInstance.connect(a1).stake([tokenId0, tokenId1]); // stake 2 cards
-        await tx.wait();
+        //await tx.wait();
 
         await network.provider.send("evm_mine");
 
@@ -101,7 +101,7 @@ describe("SquidGameVault Rewards", () => {
         let expectedRewards1 = (await vaultInstance.calcRewards(a1.address)).add(diffs); // will be claimed after a block
 
         tx = await vaultInstance.connect(a1).stake([tokenId2]); // stake 1 card
-        await tx.wait();
+        //await tx.wait();
 
         expect(await erc20Instance.balanceOf(a1.address)).is.equal(expectedRewards1);
 
@@ -118,22 +118,22 @@ describe("SquidGameVault Rewards", () => {
     })
 
     it("rewards are given for both a exited token from bridge and existing tokens in vault", async () => {
-        let tx = await erc20Instance.mintNftStaking(117000000);
+        //let tx = await erc20Instance.mintNftStaking(117000000);
         tx = await nftInstance.connect(a1).claim();
         tx = await nftInstance.connect(a1).claim();
         tx = await nftInstance.connect(a1).claim();
-        await tx.wait();
+        //await tx.wait();
 
         // approve
         tx = await nftInstance.connect(a1).setApprovalForAll(vaultInstance.address, true);
-        await tx.wait();
+        //await tx.wait();
 
         //// staking
         let tokenId0 = await nftInstance.tokenOfOwnerByIndex(a1.address, 0)
         let tokenId1 = await nftInstance.tokenOfOwnerByIndex(a1.address, 1)
         let tokenId2 = await nftInstance.tokenOfOwnerByIndex(a1.address, 2)
         tx = await vaultInstance.connect(a1).stake([tokenId0, tokenId1, tokenId2]);
-        await tx.wait();
+        //await tx.wait();
 
         await network.provider.send("evm_mine");
 
@@ -142,10 +142,10 @@ describe("SquidGameVault Rewards", () => {
 
         // Deposit into L2 - see the detailed logic in SquidVaultBridge.test.js
         tx = await vaultInstance.connect(a1).approve(bridge.address, tokenId1);
-        await tx.wait()
+        //await tx.wait()
         let depositor = a1; // in the bridge contract, the original owner (depositor) is recorded as an owner of tokenId1
         tx = await vaultInstance.connect(bridge).transferFrom(a1.address, bridge.address, tokenId1);
-        await tx.wait();
+        //await tx.wait();
 
         expect(await erc20Instance.balanceOf(a1.address)).is.equal(expectedRewards1);
 
@@ -156,7 +156,7 @@ describe("SquidGameVault Rewards", () => {
 
         // Withdraw from L2 - see the detailed logic in SquidVaultBridge.test.js
         tx = await vaultInstance.connect(bridge).transferFrom(bridge.address, depositor.address, tokenId1);
-        await tx.wait();
+        //await tx.wait();
 
         let expectedBridgeRewards = (await vaultInstance.calcBridgeRewards(tokenId1)); // determined, not 1 block forward
 

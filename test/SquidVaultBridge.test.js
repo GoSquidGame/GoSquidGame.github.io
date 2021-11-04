@@ -70,9 +70,9 @@ describe("SquidGameVault Bridge", () => {
 
     // owner(a1) withdraw L2 token into vault
     it("bridge exits the locked token, then the owner recevies a token in vault and bridge does not receive rewards", async () => {
-        let tx = await erc20Instance.mintNftStaking(117000000);
-        tx = await nftInstance.connect(a1).claim(); // mint a token
-        await tx.wait();
+        //let tx = await erc20Instance.mintNftStaking(117000000);
+        //tx = await nftInstance.connect(a1).claim(); // mint a token
+        //await tx.wait();
 
         // NFTContract approve and stake
         tx = await nftInstance.connect(a1).setApprovalForAll(vaultInstance.address, true);

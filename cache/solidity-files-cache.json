@@ -1,9 +1,9 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/home/kbae/src/squid/GoSquidGame.github.io/contracts/LeedoERC20.sol": {
-      "lastModificationDate": 1636027876060,
-      "contentHash": "2402510c657f7327e9d9229659249ffb",
+    "/Users/brian/Work/GoSquidGame.github.io/contracts/LeedoERC20.sol": {
+      "lastModificationDate": 1636064822789,
+      "contentHash": "e0c432fe46d4ceeda33193fea926887e",
       "sourceName": "contracts/LeedoERC20.sol",
       "solcConfig": {
         "version": "0.8.9",
@@ -59,8 +59,8 @@
         "SafeMath"
       ]
     },
-    "/home/kbae/src/squid/GoSquidGame.github.io/contracts/LeedoNftOwner.sol": {
-      "lastModificationDate": 1636027876060,
+    "/Users/brian/Work/GoSquidGame.github.io/contracts/LeedoNftOwner.sol": {
+      "lastModificationDate": 1636027387556,
       "contentHash": "76dc29b602734bc9033add9ad167185d",
       "sourceName": "contracts/LeedoNftOwner.sol",
       "solcConfig": {
@@ -102,9 +102,9 @@
         "NftOwner"
       ]
     },
-    "/home/kbae/src/squid/GoSquidGame.github.io/contracts/LeedoNftVault.sol": {
-      "lastModificationDate": 1636027876060,
-      "contentHash": "3f72d20e3cabcc8170a1c56ec4267ddf",
+    "/Users/brian/Work/GoSquidGame.github.io/contracts/LeedoNftVault.sol": {
+      "lastModificationDate": 1636064864044,
+      "contentHash": "cab392c0a5cfcfcd72d5a677c61ae4d1",
       "sourceName": "contracts/LeedoNftVault.sol",
       "solcConfig": {
         "version": "0.8.9",
@@ -168,6 +168,7 @@
         "IERC721Enumerable",
         "IERC721Metadata",
         "IERC721Receiver",
+        "ILeedoERC20",
         "ILeedoNft",
         "LeedoNftVault",
         "Math",
@@ -177,8 +178,8 @@
         "Strings"
       ]
     },
-    "/home/kbae/src/squid/GoSquidGame.github.io/contracts/SquidNFT.sol": {
-      "lastModificationDate": 1636027876060,
+    "/Users/brian/Work/GoSquidGame.github.io/contracts/SquidNFT.sol": {
+      "lastModificationDate": 1636027387558,
       "contentHash": "2744e758d218a62582a7a96083b6fe2b",
       "sourceName": "contracts/SquidNFT.sol",
       "solcConfig": {
@@ -233,8 +234,8 @@
         "Strings"
       ]
     },
-    "/home/kbae/src/squid/GoSquidGame.github.io/contracts/SquidRaffle.sol": {
-      "lastModificationDate": 1636027876070,
+    "/Users/brian/Work/GoSquidGame.github.io/contracts/SquidRaffle.sol": {
+      "lastModificationDate": 1636027387557,
       "contentHash": "eabd2f81b2c6d9d6c8b6f248fb6bb1db",
       "sourceName": "contracts/SquidRaffle.sol",
       "solcConfig": {
