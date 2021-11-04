@@ -106,5 +106,6 @@ dist
 # my config
 .gitignore
 .git
+cache/
 contracts/
 artifacts/
