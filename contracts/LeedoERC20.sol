@@ -1083,19 +1083,19 @@ contract LeedoERC20 is ERC20, Ownable, ReentrancyGuard {
         return  (geneSSum * tokenIdFactor * consFactor * timeFactor) / 2000;  
     }
     
-    function getDaoAddr() external view returns (address) {
+    function daoAddr() external view returns (address) {
         return _daoAddr;
     }
     
-    function getNftAddr() external view returns (address) {
+    function nftAddr() external view returns (address) {
         return _nftAddr;
     }
     
-    function getNftVaultAddr() external view returns (address) {
+    function nftVaultAddr() external view returns (address) {
         return _nftVaultAddr;
     }
     
-    function getRaffleAddr() external view returns (address) {
+    function raffleAddr() external view returns (address) {
         return _raffleAddr;
     }
 }

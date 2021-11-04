@@ -1896,19 +1896,19 @@ contract LeedoNftVault is ERC721Enumerable, Ownable, ReentrancyGuard {
         }
     }
     
-    function getDaoAddr() external view returns (address) {
+    function daoAddr() external view returns (address) {
         return _daoAddr;
     }
     
-    function getNftAddr() external view returns (address) {
+    function nftAddr() external view returns (address) {
         return _nftAddr;
     }
     
-    function getErc20Addr() external view returns (address) {
+    function erc20Addr() external view returns (address) {
         return _erc20Addr;
     }
     
-    function getBridgeAddr() external view returns (address) {
+    function bridgeAddr() external view returns (address) {
         return _bridgeAddr;
     }    
     
