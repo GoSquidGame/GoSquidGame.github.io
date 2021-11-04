@@ -366,8 +366,8 @@ describe("SquidGameVault", () => {
         expect(await erc20Instance.balanceOf(a1.address)).is.not.equal(0);
     })
 
-    // a가 b에게 transfer 할 경우  a, b 모두에게 rewards를 주고
-    // b는 지금부터 transfer 받은 nft를 포함해서 rewards를 쌓아가는 것
+    // when A transfer a card to B,  Both A and B receive rewards
+    // B will accumulate rewards including the card
     it("transfer of nft in vault triggers rewards claims of both sender and receivers", async () => {
 
     })

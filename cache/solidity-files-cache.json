@@ -1,0 +1,292 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/home/kbae/src/squid/GoSquidGame.github.io/contracts/LeedoERC20.sol": {
+      "lastModificationDate": 1636027876060,
+      "contentHash": "2402510c657f7327e9d9229659249ffb",
+      "sourceName": "contracts/LeedoERC20.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Context",
+        "ERC20",
+        "IERC20",
+        "IERC20Metadata",
+        "ILeedoNft",
+        "ILeedoNftVault",
+        "LeedoERC20",
+        "Ownable",
+        "ReentrancyGuard",
+        "SafeMath"
+      ]
+    },
+    "/home/kbae/src/squid/GoSquidGame.github.io/contracts/LeedoNftOwner.sol": {
+      "lastModificationDate": 1636027876060,
+      "contentHash": "76dc29b602734bc9033add9ad167185d",
+      "sourceName": "contracts/LeedoNftOwner.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "INft",
+        "NftOwner"
+      ]
+    },
+    "/home/kbae/src/squid/GoSquidGame.github.io/contracts/LeedoNftVault.sol": {
+      "lastModificationDate": 1636027876060,
+      "contentHash": "3f72d20e3cabcc8170a1c56ec4267ddf",
+      "sourceName": "contracts/LeedoNftVault.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Address",
+        "Context",
+        "ERC165",
+        "ERC721",
+        "ERC721Enumerable",
+        "IERC165",
+        "IERC20",
+        "IERC721",
+        "IERC721Enumerable",
+        "IERC721Metadata",
+        "IERC721Receiver",
+        "ILeedoNft",
+        "LeedoNftVault",
+        "Math",
+        "Ownable",
+        "ReentrancyGuard",
+        "SafeMath",
+        "Strings"
+      ]
+    },
+    "/home/kbae/src/squid/GoSquidGame.github.io/contracts/SquidNFT.sol": {
+      "lastModificationDate": 1636027876060,
+      "contentHash": "2744e758d218a62582a7a96083b6fe2b",
+      "sourceName": "contracts/SquidNFT.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Address",
+        "Base64",
+        "Context",
+        "ERC165",
+        "ERC721",
+        "ERC721Enumerable",
+        "IERC165",
+        "IERC721",
+        "IERC721Enumerable",
+        "IERC721Metadata",
+        "IERC721Receiver",
+        "Ownable",
+        "ReentrancyGuard",
+        "SquidGameCard",
+        "Strings"
+      ]
+    },
+    "/home/kbae/src/squid/GoSquidGame.github.io/contracts/SquidRaffle.sol": {
+      "lastModificationDate": 1636027876070,
+      "contentHash": "eabd2f81b2c6d9d6c8b6f248fb6bb1db",
+      "sourceName": "contracts/SquidRaffle.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.7"
+      ],
+      "artifacts": [
+        "Context",
+        "ISquidERC20",
+        "ISquidNFT",
+        "LinkTokenInterface",
+        "Ownable",
+        "ReentrancyGuard",
+        "SquidRaffle",
+        "VRFConsumerBase",
+        "VRFRequestIDBase"
+      ]
+    }
+  }
+}
