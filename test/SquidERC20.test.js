@@ -19,7 +19,7 @@ describe("SquidERC20", () => {
     let nftInstance, erc20Instance, vaultInstance;
 
     beforeEach( async () => {   // accounts, deploy, add badge tokens
-        [owner, dev] = await hre.ethers.getSigners();
+        [owner, dev, dao] = await hre.ethers.getSigners();
 
         const SquidGameCard = await ethers.getContractFactory("SquidGameCard");
         nftInstance = await SquidGameCard.deploy();
@@ -44,5 +44,50 @@ describe("SquidERC20", () => {
         await tx.wait();
         let balance = ethers.utils.formatUnits(await erc20Instance.balanceOf(dev.address), 18);
         expect(parseInt(balance)).is.equal(amount);
-    })
+    });
+
+    it("initializeDao cannot be called twice", async () => {
+        let tx = await erc20Instance.initializeDao(dao.address);
+        await tx.wait();
+        await expect(erc20Instance.initializeDao(dao.address)).to.be.revertedWith('ERC20: DAO is already initialized');
+    });
+
+    it("setDaoAddr cannot be called prior to initializeDao nor by other than dao", async () => {
+        await expect(erc20Instance.setDaoAddr(dao.address)).to.be.revertedWith('ERC20: caller is not the DAO address!');
+        let tx = await erc20Instance.initializeDao(dao.address);
+        await tx.wait();
+        await expect(erc20Instance.setDaoAddr(dao.address)).to.be.revertedWith('ERC20: caller is not the DAO address!');
+        await erc20Instance.connect(dao).setDaoAddr(dev.address);
+    });
+
+    it("unlockDaoMint cannot be called by other than dao", async () => {
+        let tx = await erc20Instance.initializeDao(dao.address);
+        await tx.wait();
+        await expect(erc20Instance.unlockDaoMint()).to.be.revertedWith('ERC20: caller is not the DAO address!');
+        await erc20Instance.connect(dao).unlockDaoMint();
+    });
+
+    it("daoMint cannnot be called prior to timeLockDuration nor by other than dao nor more than daoMintableAmount", async () => {
+        let tx = await erc20Instance.initializeDao(dao.address);
+        tx = await erc20Instance.connect(dao).unlockDaoMint();
+        await tx.wait();
+
+        await expect(erc20Instance.connect(dao).daoMint(1000000)).to.be.revertedWith('ERC20: Wait _daoTimelock passes');
+
+        await ethers.provider.send('evm_increaseTime', [24*60*60]);
+        // await ethers.provider.send('evm_mine');
+
+        await expect(erc20Instance.connect(dao).daoMint(560000000+1)).to.be.revertedWith('ERC20:  Amount is more than allowed');
+        await expect(erc20Instance.daoMint(1000000)).to.be.revertedWith('ERC20: caller is not the DAO address!');
+
+        let amount = 1000000
+        tx = await erc20Instance.connect(dao).daoMint(amount);
+        await tx.wait();
+
+        let balance = ethers.utils.formatUnits(await erc20Instance.balanceOf(dao.address), 18);
+        expect(parseInt(balance)).is.equal(amount);
+    });
+
+    // calcRewards
+    // claim
 });

@@ -118,7 +118,7 @@ describe("SquidGameVault", () => {
         tx = await vaultInstance.connect(a1).stake([tokenId0, tokenId1, tokenId2]);
         await tx.wait();
 
-        tx = await erc20Instance.mintNftStaking(138000000);
+        tx = await erc20Instance.mintNftStaking(117000000);
         await tx.wait();
 
         expect(await erc20Instance.balanceOf(a1.address)).is.equal(0);
@@ -151,7 +151,7 @@ describe("SquidGameVault", () => {
         let tokenId2 = await nftInstance.tokenOfOwnerByIndex(a1.address, 0)
         await expect(vaultInstance.connect(a1).stake([tokenId2])).to.be.revertedWith('ERC20: transfer amount exceeds balance');
         // inject erc20 and one more staking again
-        tx = await erc20Instance.mintNftStaking(138000000);
+        tx = await erc20Instance.mintNftStaking(117000000);
         await tx.wait();
         tx = await vaultInstance.connect(a1).stake([tokenId2]);
         await tx.wait();
@@ -185,7 +185,7 @@ describe("SquidGameVault", () => {
         expect(await nftInstance.balanceOf(a1.address)).is.equal(0);
 
         // inject erc20
-        tx = await erc20Instance.mintNftStaking(138000000);
+        tx = await erc20Instance.mintNftStaking(117000000);
         await tx.wait();
 
         expect(await vaultInstance.balanceOf(a1.address)).is.equal(4);
@@ -224,7 +224,7 @@ describe("SquidGameVault", () => {
         expect(await nftInstance.balanceOf(a1.address)).is.equal(0);
 
         // inject erc20
-        tx = await erc20Instance.mintNftStaking(138000000);
+        tx = await erc20Instance.mintNftStaking(117000000);
         await tx.wait();
 
         expect(await vaultInstance.balanceOf(a1.address)).is.equal(amount);
@@ -285,7 +285,7 @@ describe("SquidGameVault", () => {
         await vaultInstance.connect(dao).setAllowTransfer(true);
 
         //// // balance change triggers erc20 claims
-        tx = await erc20Instance.mintNftStaking(138000000);
+        tx = await erc20Instance.mintNftStaking(117000000);
         await tx.wait();
         //// // erc20 balance of a1 before transfer
         expect(await erc20Instance.balanceOf(a1.address)).is.equal(0);
@@ -353,7 +353,7 @@ describe("SquidGameVault", () => {
         // transfer by approved operator
         await vaultInstance.initializeDao(dao.address);
         await vaultInstance.connect(dao).setAllowTransfer(true);
-        tx = await erc20Instance.mintNftStaking(138000000);
+        tx = await erc20Instance.mintNftStaking(117000000);
         await tx.wait();
         expect(await erc20Instance.balanceOf(a1.address)).is.equal(0);
 
