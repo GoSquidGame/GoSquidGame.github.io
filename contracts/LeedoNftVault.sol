@@ -1711,14 +1711,18 @@ interface ILeedoNft {
     function tokenOfOwnerByIndex(address _owner, uint256 _index) external view returns (uint256);
 }
 
-contract LeedoNftVault is ERC721Enumerable, Ownable { 
+interface ILeedoERC20 {
+    function mintNftVaultRewards(address _to, uint _amount) external returns (bool);
+}
+
+contract LeedoNftVault is ERC721Enumerable, Ownable, ReentrancyGuard { 
     
     bool public daoInitialized = false;
     bool public transferAllowed = false; //by default regular transfer of staked NFTs are not allowed except bridge transfer
-    address public nftAddr;
-    address public erc20Addr; 
-    address public bridgeAddr;
-    address public daoAddr;
+    address private _nftAddr;
+    address private _erc20Addr; 
+    address private _bridgeAddr;
+    address private _daoAddr;
     
     uint public expiration = block.number + 365 days;
     uint public rate = 5194874553201880; //per card per block reward rate in wei        
@@ -1727,21 +1731,21 @@ contract LeedoNftVault is ERC721Enumerable, Ownable {
     mapping(uint => uint) private bridgeBlocks; //brodge tokenId => lastBlock claimed
 
     modifier onlyDao() {
-        require(daoAddr == _msgSender(), "VAULT: caller is not the DAO address!");
+        require(_daoAddr == _msgSender(), "VAULT: caller is not the DAO address!");
         _;
     } 
     
     //nftAddr = 0xed8a775Fde8454c99Eb4e511D7D4D6b969024C5d; //mainnet
-    constructor(address _nftAddr, address _erc20Addr, address _bridgeAddr) 
-        ERC721("Squid Game Card LP", "SquidGameCardLP") Ownable() {
-        nftAddr = _nftAddr;
-        erc20Addr = _erc20Addr;
-        bridgeAddr = _bridgeAddr;
+    constructor(address _nftAddress, address _erc20Address, address _bridgeAddress) 
+        ERC721("Squid Game Card LP", "SquidGameCardLP") {
+        _nftAddr = _nftAddress;
+        _erc20Addr = _erc20Address;
+        _bridgeAddr = _bridgeAddress;
     }    
     
-    function initializeDao(address _daoAddr) public onlyOwner {
+    function initializeDao(address _daoAddress) public onlyOwner {
         require(!daoInitialized, 'NftVault: DAO is already initialized');
-        daoAddr = _daoAddr;
+        _daoAddr = _daoAddress;
         daoInitialized = true;
     }
     
@@ -1749,8 +1753,8 @@ contract LeedoNftVault is ERC721Enumerable, Ownable {
         transferAllowed = _bool;
     }
     
-    function setDaoAddr(address _daoAddr) public onlyDao() {
-        daoAddr = _daoAddr;
+    function setDaoAddr(address _daoAddress) public onlyDao() {
+        _daoAddr = _daoAddress;
     }
     
     function setRate(uint256 _rate) public onlyDao() {
@@ -1775,36 +1779,35 @@ contract LeedoNftVault is ERC721Enumerable, Ownable {
         _claimRewards(_msgSender());
     } 
     
-    function _claimRewards(address account) private  {
+    function _claimRewards(address account) private nonReentrant {
         uint amount = calcRewards(account);
         uint blockCur = Math.min(block.number, expiration);
         lastBlocks[_msgSender()] = blockCur;
         if (amount > 0) {
             totalClaims[_msgSender()] += amount;
-            require(IERC20(erc20Addr).transfer(account, amount), 'NftVault: Leedo Transfer failed');
+            require(ILeedoERC20(_erc20Addr).mintNftVaultRewards(account, amount), 'NftVault: Leedo Minting failed');
         }        
     }  
     
-    function _claimBridgeRewards(uint tokenId, address to) private {
+    function _claimBridgeRewards(uint tokenId, address to) private nonReentrant {
         uint amount = calcBridgeRewards(tokenId);
         uint blockCur = Math.min(block.number, expiration);
         bridgeBlocks[tokenId] = blockCur;
         if (amount > 0) {
             totalClaims[to] += amount;
-            require(IERC20(erc20Addr).transfer(to, amount), 'NftVault: Leedo Transfer failed');
+            require(ILeedoERC20(_erc20Addr).mintNftVaultRewards(to, amount), 'NftVault: Leedo Minting failed');
         }        
     }       
     
-    
     function stake(uint256[] calldata tokenIds) external returns (bool) {
         claimRewards();
-        ILeedoNft nft = ILeedoNft(nftAddr);
+        ILeedoNft nft = ILeedoNft(_nftAddr);
 
         for (uint256 i; i < tokenIds.length; i++) {
             uint tokenId = tokenIds[i];
             require(!_exists(tokenId), 'NftVault: The tokenId already exists');
             require(nft.ownerOf(tokenId) == _msgSender(), 'NftVault: Owner is differenent' );
-            ILeedoNft(nftAddr).safeTransferFrom(
+            ILeedoNft(_nftAddr).safeTransferFrom(
                 _msgSender(),
                 address(this),
                 tokenId,
@@ -1817,7 +1820,7 @@ contract LeedoNftVault is ERC721Enumerable, Ownable {
     
     function stakeByCount(uint256 _count) external returns (uint256[] memory){
         claimRewards();
-        ILeedoNft nft = ILeedoNft(nftAddr);
+        ILeedoNft nft = ILeedoNft(_nftAddr);
         
         require(_count <= nft.balanceOf(_msgSender()), 'NftVault: Count is more than the owner has');
         uint256[] memory tokenIds = new uint256[] (_count);
@@ -1827,7 +1830,7 @@ contract LeedoNftVault is ERC721Enumerable, Ownable {
         }
         
         for (uint256 i; i < tokenIds.length; i++) {
-            ILeedoNft(nftAddr).safeTransferFrom(
+            ILeedoNft(_nftAddr).safeTransferFrom(
                 _msgSender(),
                 address(this),
                 tokenIds[i],
@@ -1839,7 +1842,7 @@ contract LeedoNftVault is ERC721Enumerable, Ownable {
     }       
     
     
-    function safeMint(address _to, uint _tokenId) private returns (bool) {
+    function safeMint(address _to, uint _tokenId) private nonReentrant returns (bool) {
         _safeMint(_to, _tokenId);
         return true;
     }   
@@ -1851,7 +1854,7 @@ contract LeedoNftVault is ERC721Enumerable, Ownable {
             uint tokenId = _tokenIds[i];
             require(ownerOf(tokenId) == _msgSender(), 'NftVault: LP owner is different');            
             _burn(tokenId);
-            ILeedoNft(nftAddr).safeTransferFrom(
+            ILeedoNft(_nftAddr).safeTransferFrom(
                 address(this),
                 _msgSender(),
                 tokenId,
@@ -1875,20 +1878,36 @@ contract LeedoNftVault is ERC721Enumerable, Ownable {
     ) internal virtual override {
         super._beforeTokenTransfer(from, to, tokenId);    
         if (from != address(0) && to != address(0)) {
-            if (from != bridgeAddr && to != bridgeAddr) {
+            if (from != _bridgeAddr && to != _bridgeAddr) {
                 require(transferAllowed, 'NftVault: Regular transfer is not allowed');
                 _claimRewards(from);
                 _claimRewards(to);
                 
-            } else if (to == bridgeAddr) {
+            } else if (to == _bridgeAddr) {
                 _claimRewards(from);
                 bridgeBlocks[tokenId] = Math.min(block.number, expiration);
                 
-            } else if (from == bridgeAddr) {
+            } else if (from == _bridgeAddr) {
                 _claimRewards(to);
                 _claimBridgeRewards(tokenId, to);
             }
         }
+    }
+    
+    function getDaoAddr() external view returns (address) {
+        return _daoAddr;
+    }
+    
+    function getNftAddr() external view returns (address) {
+        return _nftAddr;
+    }
+    
+    function getErc20Addr() external view returns (address) {
+        return _erc20Addr;
+    }
+    
+    function getBridgeAddr() external view returns (address) {
+        return _bridgeAddr;
     }    
     
     function onERC721Received(

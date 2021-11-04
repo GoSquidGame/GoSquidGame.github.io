@@ -896,69 +896,76 @@ contract LeedoERC20 is ERC20, Ownable, ReentrancyGuard {
     using SafeMath for uint;
 
     bool public daoInitialized = false;
-    address public daoAddr;
-    address public nftAddr;
-    address public nftVaultAddr;
-    address public raffleAddr;
+    address private _daoAddr;
+    address private _nftAddr;
+    address private _nftVaultAddr;
+    address private _raffleAddr;
     uint public claimBlocksRequired = 200000; //about 31 days
-    uint public rafflePrize = 100000 * 20;
-    uint public nftMintableAmount = 138000000 - 21000000; //117,000,000
-    uint public daoMintableAmount = 175000000 + 70000000 + 70000000 + 210000000; //525,000,000
-    uint public marketingMintableAmount = 35000000;
+    uint private _decimal = 10**uint(decimals());    
+    uint public rafflePrize = (100000 * 20) * _decimal;
+    uint public nftMintableAmount = (138000000 - 21000000) * _decimal; //117,000,000
+    uint public daoMintableAmount = (175000000 + 70000000 + 70000000 + 210000000) * _decimal; //525,000,000
+    uint public marketingMintableAmount = 35000000 * _decimal;
     uint public daoTimelock;
     uint public timeLockDuration = 24 hours;
     //uint public timeLockDuration = 1 minutes;
-    uint private _decimal = 10**uint(decimals());    
+    
     uint public season = 0;
 
     mapping(uint => mapping(uint => bool)) public claims; //season => (tokendId => bool)
     mapping(uint => uint) public claimCount; //seaon => count
 
     modifier onlyDao() {
-        require(daoAddr == _msgSender(), "ERC20: caller is not the DAO address!");
+        require(_daoAddr == _msgSender(), "ERC20: caller is not the DAO address!");
         _;
     } 
     
+    modifier onlyNftVault() {
+        require(_nftVaultAddr == _msgSender(), "ERC20: caller is not the NftVault address!");
+        _;
+    } 
+        
+    
     //nftAddr = 0xBE5C953DD0ddB0Ce033a98f36C981F1B74d3B33f; //mainnet   
     //raffleAddr = 0xb109173Ab57Dab7F954Ef8F10D87a5bFDB740EEB; //mainnet
-    constructor(address _nftAddr, address _raffleAddr) ERC20('LEEDO Project ERC20', 'LEEDO') {
-        nftAddr = _nftAddr;
-        raffleAddr = _raffleAddr;
+    constructor(address _nftAddress, address _raffleAddress) ERC20('LEEDO Project ERC20', 'LEEDO') {
+        _nftAddr = _nftAddress;
+        _raffleAddr = _raffleAddress;
     }    
 
     function mintRafflePrize() external onlyOwner returns (bool) {
-        require(_safeMint(raffleAddr, rafflePrize.mul(_decimal)), 'ERC20: Minting failed');
+        require(_safeMint(_raffleAddr, rafflePrize), 'ERC20: Minting failed');
         rafflePrize = 0;
         return true;
     }
     
     function setNftVaultAddr(address _vault) external onlyOwner {
-        nftVaultAddr = _vault;
+        _nftVaultAddr = _vault;
     }
     
-    function mintNftStaking(uint _amount) external onlyOwner returns (bool) {
+    function mintNftVaultRewards(address _to, uint _amount) external onlyNftVault returns (bool) {
         require(_amount <= nftMintableAmount, 'ERC20: Amount is more than allowed');
         nftMintableAmount = nftMintableAmount.sub(_amount);
-        require(_safeMint(nftVaultAddr, _amount.mul(_decimal)), 'ERC20: Minting failed');
+        require(_safeMint(_to, _amount), 'ERC20: Minting failed');
         return true;
     }
     
     function mintDev(address _devAddr, uint _amount) external onlyOwner returns (bool) {
         require(_amount <= marketingMintableAmount, 'ERC20: Amount is more than allowed');
         marketingMintableAmount = marketingMintableAmount.sub(_amount);
-        require(_safeMint(_devAddr, _amount.mul(_decimal)), 'ERC20: Minting failed');
+        require(_safeMint(_devAddr, _amount), 'ERC20: Minting failed');
         return true;
     }
 
-    function initializeDao(address _daoAddr) public onlyOwner {
+    function initializeDao(address _daoAddress) public onlyOwner {
         require(!daoInitialized, 'ERC20: DAO is already initialized');
-        daoAddr = _daoAddr;
+        _daoAddr = _daoAddress;
         daoInitialized = true;
     }
     
-    function setDaoAddr(address _daoAddr) public onlyDao {
+    function setDaoAddr(address _daoAddress) public onlyDao {
         require(daoInitialized, 'ERC20: DAO is not initialized');
-        daoAddr = _daoAddr;
+        _daoAddr = _daoAddress;
     }    
 
     function unlockDaoMint() public onlyDao {
@@ -969,7 +976,7 @@ contract LeedoERC20 is ERC20, Ownable, ReentrancyGuard {
         require(daoTimelock != 0 && daoTimelock <= block.timestamp, 'ERC20: Wait _daoTimelock passes');
         require(_amount <= daoMintableAmount, 'ERC20:  Amount is more than allowed');
         daoMintableAmount = daoMintableAmount.sub(_amount); 
-        require(_safeMint(daoAddr, _amount.mul(_decimal)), 'ERC20: Minting failed');
+        require(_safeMint(_daoAddr, _amount), 'ERC20: Minting failed');
         daoTimelock = 0;
         return true;
     }
@@ -978,12 +985,12 @@ contract LeedoERC20 is ERC20, Ownable, ReentrancyGuard {
         season = _season;
     }    
     
-    function setDaoMintable(uint _amount ) external onlyDao {
+    function setDaoMintable(uint _amount) external onlyDao {
         daoMintableAmount = _amount;
     }
 
-    function setNftAddress(address _newAddr) external onlyDao {
-        nftAddr = _newAddr;
+    function setNftAddress(address _newAddress) external onlyDao {
+        _nftAddr = _newAddress;
     }
     
     function _safeMint(address _to, uint _amount) private nonReentrant returns (bool) {
@@ -992,8 +999,8 @@ contract LeedoERC20 is ERC20, Ownable, ReentrancyGuard {
     }
     
     function claim(uint[] calldata _tokenIds) external returns (uint) {
-        //require(_tokenIds.length < 20, 'ERC20: maximum bulk claims is 20 cards per tx');
-        ILeedoNftVault sNFT = ILeedoNftVault(nftVaultAddr); //only Staked NFT can claim  
+        require(_tokenIds.length <= 20, 'ERC20: maximum bulk claims is 20 cards per tx');
+        ILeedoNftVault sNFT = ILeedoNftVault(_nftVaultAddr); //only Staked NFT can claim  
         require(sNFT.lastBlocks(_msgSender()) + claimBlocksRequired < block.number, 'ERC20: does not meet claimBlockRequired');
         uint total;
         for (uint i=0; i<_tokenIds.length; i++) {
@@ -1012,7 +1019,7 @@ contract LeedoERC20 is ERC20, Ownable, ReentrancyGuard {
     }    
     
     function calcRewards(uint _tokenId) public view returns (uint) {        
-        ILeedoNft NFT = ILeedoNft(nftAddr);        
+        ILeedoNft NFT = ILeedoNft(_nftAddr);        
         uint8[3] memory consonants = NFT.getConsonantsIndex(_tokenId);
         uint8[8] memory genes = NFT.getGenes(_tokenId);        
         
@@ -1073,6 +1080,22 @@ contract LeedoERC20 is ERC20, Ownable, ReentrancyGuard {
             consFactor = 1;
         }
         return  (geneSSum * tokenIdFactor * consFactor * timeFactor) / 2000;  
+    }
+    
+    function getDaoAddr() external view returns (address) {
+        return _daoAddr;
+    }
+    
+    function getNftAddr() external view returns (address) {
+        return _nftAddr;
+    }
+    
+    function getNftVaultAddr() external view returns (address) {
+        return _nftVaultAddr;
+    }
+    
+    function getRaffleAddr() external view returns (address) {
+        return _raffleAddr;
     }
 }
 
