@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- link rel="stylesheet" href="modal.css" -->
+    <link rel="icon" type="image/png" href="fav.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Monoton&display=swap" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic"> -->
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+    <!-- script src= "https://unpkg.com/micromodal/dist/micromodal.min.js"></script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>ㅇ△ㅁ</title>
+    <style>
+        body {
+            /* background-image: url("https://raw.githubusercontent.com/GoSquidGame/GoSquidGame.github.io/main/docs/SGC%20Landing%20Page.png"); */
+            background-color: #ce113b;
+            margin-left: 1em;
+            margin-right: 1em;
+            font-size: 1.4em;
+            font-weight: 300;
+            line-height: 1.4;
+        }
+
+        #siteName {
+            color: #e6b121;
+            font-family: system-ui;
+            font-weight: 400;
+            font-size: 3.2rem;
+        }
+
+        #subTitle {
+            color: #000000;
+            font-size: 65%;
+            margin-left: 1rem;
+        }
+
+        ::placeholder {
+            /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: lightgray;
+            opacity: 1;
+            /* Firefox */
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        .ui-widget button {
+            font-size: 0.7em;
+        }
+
+        .ui-tabs .ui-tabs-nav li {
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .item {
+            background-color: #f0f0f5;
+            padding: 2rem;
+            border-radius: 5px;
+            margin-bottom: 2rem;
+        }
+
+        .ui-widget.ui-widget-content {
+            border: none;
+            font-family: 'Inter';
+        }
+
+        .itemHead span {
+            padding-right: 0.5rem;
+        }
+
+        .itemBetCount {
+            display: inline-block;
+        }
+
+        ul {
+            margin-bottom: 1rem;
+        }
+
+        .itemChoices {
+            margin-top: 1rem;
+        }
+
+        input.itemChoice {
+            width: 30%;
+        }
+
+        input.itemChoiceUrl {
+            max-width: 60%;
+        }
+
+        img.choiceImg {
+            display: block;
+            margin-top: -0.7rem;
+            max-width: 300px;
+            max-height: 300px;
+            border-radius: 10px;
+        }
+
+        .itemResult {
+            text-align: right;
+        }
+
+        ;
+
+        td.resultChoice {
+            text-align: left;
+        }
+
+        #spinner2 {
+            position: fixed;
+            left: 33%;
+            opacity: 0.5;
+            top: 45%;
+            display: none;
+        }
+
+        .urlImg {
+            float: right;
+        }
+
+        ul.summary li {
+            display: inline;
+            margin-right: 0.5em;
+        }
+
+        span.legend {
+            display: inline-block;
+            background-color: lightblue;
+            width: 0.5em;
+            height: 0.5em;
+            margin-right: 0.5em;
+        }
+
+        /* 이벤트 글 */
+        ul.event-content{
+            margin-top: 50px;
+            background-color: #3e6e6830;
+            padding: 40px;
+            border-radius: 20px 20px 20px 20px;
+        }
+
+        ul.event-content li {
+            /* list-style-type: circle; */
+            color: rgb(0, 0, 0);
+        }
+
+        ul.faq li {
+            list-style-type: circle;
+        }
+
+        .ui-state-active,
+        .ui-widget-content .ui-state-active,
+        .ui-widget-header .ui-state-active {
+            background-color: #ce113b;
+            border: solid 1px #dddddd;
+        }
+
+        /* .ui-widget-header {
+            border: 0px solid #dddddd;
+            background: #f0f0f5;
+            color: #333333;
+            font-weight: bold;
+            background-color: rgba(255, 255, 255, 0);
+        } */
+
+        input.solid {
+            border: solid 1px #9b4dca;
+        }
+
+        #btnConnect {
+            margin-bottom: 0px;
+        }
+
+        /* tr.myAddrRow {
+            background-color: #cbcbf1
+        } */
+
+        .min600 {
+            display: none
+        }
+
+        ;
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+            position: relative;
+        }
+
+        .topnav a {
+            font-family: 'Monoton';
+            font-weight: 600;
+            font-size: 1.5em;
+            color: white;
+            padding: 10px 12px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .active {
+            background-color: #9b4dca;
+            color: white;
+        }
+
+        /* Bottom squid game card*/
+        .squid_card{
+            width: auto; 
+            height: auto; 
+            max-width: 40%; 
+            max-height: 40%; 
+            border-radius: 20px 20px 20px 20px;      
+        }
+
+        .tab{
+            padding-left: 20%;
+
+        }
+        @media only screen and (min-width: 600px) {
+            body {
+                margin-left: 50px;
+                margin-top: 30px;
+                margin-right: 50px;
+                font-size: 1.6em;
+                font-weight: 400;
+                line-height: 1.6;
+            }
+
+            #siteName {
+                color: #e6b121;
+                font-family: 'Monoton';
+                font-weight: 400;
+                font-size: 4rem;
+            }
+
+            #subTitle {
+                color: #000000;
+                font-size: 65%;
+                margin-left: 0.5rem;
+            }
+
+
+            #content {
+                max-width: 80%;
+                margin: auto;
+            }
+
+            .max600 {
+                display: none;
+            }
+
+            .min600 {
+                display: block
+            }
+
+            ;
+
+        }
+    </style>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EYTVS0R64X"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-EYTVS0R64X');
+    </script>
+</head>
+
+<body>
+    <div id="content">
+        <div class="min600">
+            <h2 id="title"><span id="siteName">Squid Game Card</span> <span id="subTitle"> NFT </span></h2>
+        </div>
+        <div class="max600">
+            <div class="topnav">
+                <a href="" class="active">Squid Game Card <span id="subTitle"> NFT </span></a>
+            </div>
+        </div>
+
+        <!-- Top Navigation Menu -->
+
+        <p></p>
+        <div id="tabs">
+            <ul>
+                <li><a href="#tabs-1">Current Events</a></li>
+                <li><a href="#tabs-2">2</a></li>
+                <li><a href="#tabs-3" id="tab-3-menu">3</a></li>
+                <li><a href="#tabs-4" id="tab-4-menu">4</a></li>
+                <li><a href="#tabs-5">5</a></li>
+                <li><a href="#tabs-6">6</a></li>
+                <li><a href="#tabs-7">7</a></li>
+            </ul>
+
+            <div id="tabs-1" class="tab">
+                <div>                    
+                    <div id="eventing" style="padding-left: 10%; padding-right: 10%;">
+                        <!-- 글자색 변환 -->
+                        <h2 style="text-align: center;margin-top: 20px;"><strong>Current Events</strong></h2>
+
+                        <ul class="event-content">
+                            <h3><strong>Minting Round Winner Event</strong> </h3>
+                            
+
+                            <li> One random out of 456 cards for each round <strong>(randomly selected using a random seed provided by Chainlink Oracle)</strong>, a total of 20 winners.</li>
+                            <li> All winners receive <strong>10,000 SQUID (ERC20)</strong> tokens per winner card.    </li>
+                            <li > <strong>winner Bonus: </strong> </li>
+                            <p style="padding-left: 10%;">If the Winner card for each round is ‘ㅇ△ㅁ’, additional <strong>1 ETH</strong>  will be paid.    </p>
+                            <li>  <strong>Grand winner Bonus: </strong>    </li>
+                            <p style="padding-left: 10%;">If the Winner card consists of 3 identical consonants, such as ‘ㅁㅁㅁ’, <Strong>5 ETH</Strong> will be added to the first winner after 5 rounds. <br>As it is only paid once, after the winner comes out and the prize is paid in the previous round, only 1 ETH is paid if the conditions are met in the subsequent round.</p>
+                            
+                            <li> ETH winnings are automatically paid by the contract.    </li>
+                            <li> SQUID winnings are individually claimed after SQUID Token issuance (the claim method will be announced later).    </li>
+
+                        </ul>
+                        <ul class="event-content">
+                            <h3><strong>Squid Game Card NFT Free Minting</strong> </h3>
+                            <li>
+                                <li><Strong>Participation Eligibility:</Strong> Anyone</li>
+                                <li><Strong>Price:</Strong> Free (Gas fee paid by users)</li>
+                                <li><Strong>Total amount that can be minted:</Strong> 9,576 cards</li>
+                                <li></li><Strong>Distribution method:</Strong> Individual participants directly mint 456 Squid Game Cards per round</li>
+                                <li><Strong>Round composition:</Strong> 20 participant rounds (#11~#9120) and one developer round (#9121~#9,576)</li>
+                                <li><Strong>Developer Setup Card:</Strong> Issue a total of 10 cards (#1~#10) when deploying the contract</li>
+                                <li><Strong>Round process method: </Strong>When one round ends, the next round starts after a round break of 6 hours.</li>
+                                <li><Strong>Card verification method:</Strong> After confirming the issuance transaction, connect the Ethereum wallet used for the issuance transaction to the OpenSea site and check in the [Profile] menu</li>
+                                <li>For details on how to participate in the event, refer to the video in the [Minting Method] menu on the homepage</li>
+                                <li>Squid Game Card NFT form: 3 ‘Hangul’ initials + 8 numbers</li>
+                            </li>
+                            <p>
+                                <img class="squid_card" src="https://storage.opensea.io/files/fdcfabf56a201a347be2568614455a9b.svg" type="image/svg+xml" aria-label="(Example, Squid Game Card #1356)" >
+                            </p>
+    
+                        </ul>
+
+
+                    </div>
+                </div>
+            </div>
+            <div id="tabs-2" class="tab">
+                <div id="pastitems">
+                </div>
+            </div>
+            <div id="tabs-3" class="tab">
+                
+            </div>
+            <div id="tabs-4" class="tab">
+
+            </div>
+            <div id="tabs-5">
+                
+            </div>
+            <div id="tabs-6">
+
+
+
+            </div>
+            <div id="tabs-7">
+                <div id="accordion">
+                    <h3>h3
+                    </h3>
+                    <div>
+                        <p>
+                        <ul class="faq">
+                            <li> li
+                            </li>
+                        </ul>
+
+                        </p>
+                    </div>
+
+                    <h3>h3
+                    </h3>
+                    <div>
+                        <p>
+                        <ul class="faq">
+                            <li>li</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <img id="spinner2" src="">
+
+        <script>
+            $(function () {
+                $("#tabs").tabs({ active: 0 });
+            });
+        </script>
+        <div id="footer">
+            <p></p>
+            <p style="text-align: center;"> © 2021- </p>
+        </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/web3@1.2.11/dist/web3.min.js"></script>
+        <!-- script src="https://unpkg.com/@metamask/detect-provider/dist/detect-provider.min.js"></script -->
+
+        <script>
+            window.addEventListener("load", function () {
+                loadWeb3();
+            });
+            
+            function loadWeb3() {
+                // window.web3 = new Web3(window.ethereum);
+            }
+            
+            async function getContracts() {
+
+            }
+
+            /* helper function */
+            function getElem(elemId) {
+                return document.getElementById(elemId);
+            }
+
+            jQuery.fn.valAnimate = function () {
+                this.fadeOut().fadeIn('slow');
+            }
+           
+            
+            $("#accordion").accordion();
+
+        </script>
+
+    </div>
+</body>
+
+</html>

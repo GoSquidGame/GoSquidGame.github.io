@@ -1,0 +1,45 @@
+{
+  "name": "gosquidgame.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "hardhat.config.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rimraf ./cache ./artifacts ./deployments"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GoSquidGame/GoSquidGame.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GoSquidGame/GoSquidGame.github.io/issues"
+  },
+  "homepage": "https://github.com/GoSquidGame/GoSquidGame.github.io#readme",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.1",
+    "@nomiclabs/hardhat-etherscan": "^2.1.4",
+    "@nomiclabs/hardhat-truffle5": "^2.0.0",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "@nomiclabs/hardhat-web3": "^2.0.0",
+    "@openzeppelin/contracts": "^4.3.2",
+    "chai": "4.3.4",
+    "chai-as-promised": "^7.1.1",
+    "ethereum-waffle": "^3.2.1",
+    "ethers": "^5.5.1",
+    "hardhat": "^2.0.7",
+    "hardhat-deploy": "^0.7.0-beta.49",
+    "mocha": "^8.2.1",
+    "web3": "^1.4.0"
+  },
+  "dependencies": {
+    "chai-bn": "^0.2.2",
+    "dotenv": "^10.0.0"
+  }
+}
