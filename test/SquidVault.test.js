@@ -5,6 +5,7 @@ const { expect } = require("chai");
 // const nftAddr = 0xBE5C953DD0ddB0Ce033a98f36C981F1B74d3B33f; //mainnet   
 const raffleAddr = "0xb109173Ab57Dab7F954Ef8F10D87a5bFDB740EEB"; //mainnet
 
+
 //////////////////////////////////////// Matic Polygon / Mumbai static contract info
 //// approve --> transfer & lock
 const erc721PredicateAddress = "0x74D83801586E9D3C4dc45FfCD30B54eA9C88cf9b"; // goerli
