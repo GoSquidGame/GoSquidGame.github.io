@@ -1709,6 +1709,9 @@ interface ILeedoNft {
     function totalSupply() external view returns (uint256);
     function getConsonantsIndex(uint256 _tokenId) external view returns (uint8[3] memory);  
     function tokenOfOwnerByIndex(address _owner, uint256 _index) external view returns (uint256);
+    function getConsonants(uint256 _tokenId) external view returns (string[3] memory);
+    function getGenes(uint256 _tokenId) external view returns (uint8[8] memory);    
+    function tokenURI(uint256 _tokenId) external view returns (string memory);    
 }
 
 interface ILeedoERC20 {
@@ -1911,7 +1914,23 @@ contract LeedoNftVault is ERC721Enumerable, Ownable, ReentrancyGuard {
     function bridgeAddr() external view returns (address) {
         return _bridgeAddr;
     }    
-    
+
+    function getConsonantsIndex(uint256 _tokenId) external view returns (uint8[3] memory) {
+        return ILeedoNft(_nftAddr).getConsonantsIndex(_tokenId);
+    }  
+
+    function getConsonants(uint256 _tokenId) external view returns (string[3] memory) {
+        return ILeedoNft(_nftAddr).getConsonants(_tokenId);
+    }
+
+    function getGenes(uint256 _tokenId) external view returns (uint8[8] memory) {
+        return ILeedoNft(_nftAddr).getGenes(_tokenId);
+    } 
+       
+    function tokenURI(uint256 _tokenId) public override view returns (string memory) {
+        return ILeedoNft(_nftAddr).tokenURI(_tokenId);
+    }    
+
     function onERC721Received(
         address, 
         address, 

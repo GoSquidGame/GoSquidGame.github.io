@@ -21,8 +21,8 @@ interface INft {
 
 contract NftOwner {
     
-    address nftAddr;
-    address nftVaultAddr;
+    address public nftAddr;
+    address public nftVaultAddr;
 
     constructor(address _nftAddr, address _nftVaultAddr) {
         nftAddr = _nftAddr;
