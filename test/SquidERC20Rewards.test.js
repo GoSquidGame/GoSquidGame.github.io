@@ -1,5 +1,5 @@
 require("dotenv").config({path: "../.env"});
-const { ethers } = require("hardhat");
+const { ethers, network } = require("hardhat");
 const { expect } = require("chai");
 
 // const nftAddr = 0xBE5C953DD0ddB0Ce033a98f36C981F1B74d3B33f; //mainnet   
@@ -17,7 +17,9 @@ describe("SquidERC20", () => {
 
     let owner, a1;
     let nftInstance, erc20Instance, vaultInstance;
-    let numOfCards = 22;
+    let numOfCards = 132;
+    let onetimeClaimLimit = 19;
+    let claimBlocksRequired = 20; // 200000 in the real contract
     let tokens = [];
 
     before( async () => {   // accounts, deploy, add badge tokens
@@ -42,7 +44,12 @@ describe("SquidERC20", () => {
             tx = await nftInstance.connect(a1).claim();
             tokens.push(await nftInstance.connect(a1).tokenOfOwnerByIndex(a1.address, i))
         }
-        // console.log(tokens.length);
+        await tx.wait();
+        // approve
+        tx = await nftInstance.connect(a1).setApprovalForAll(vaultInstance.address, true);
+        await tx.wait();
+        // staking
+        tx = await vaultInstance.connect(a1).stake(tokens);
         await tx.wait();
     });
 
@@ -55,23 +62,29 @@ describe("SquidERC20", () => {
 
 
     it("owner cannot claim one-time rewards for more than 20 cards at once", async () => {
-        expect(await nftInstance.balanceOf(a1.address)).is.equal(numOfCards);
+        expect(await vaultInstance.balanceOf(a1.address)).is.equal(numOfCards);
         expect(tokens.length).to.be.equal(numOfCards);
-        // await expect(erc20Instance.connect(a1).claim(tokens[0,21])).to.be.revertedWith('ERC20: maximum bulk claims is 20 cards per tx');
+        await expect(erc20Instance.connect(a1).claim(tokens.slice(0,onetimeClaimLimit+1))).to.be.revertedWith('ERC20: maximum bulk claims is 20 cards per tx');
     });
 
     it("owner cannot claim one-time rewards for her cards before claimBlockRequired from staking", async () => {
-
+        await expect(erc20Instance.connect(a1).claim(tokens.slice(0,onetimeClaimLimit))).to.be.revertedWith('ERC20: does not meet claimBlockRequired');
     });
 
-    it("owner can claim one-time rewards up to 20 cards at once", async () => {
+    it("owner can claim one-time rewards up to 20 cards at once after claimBlockRequired from staking and total rewards should be equal to sum of expected rewards for each card calculated by calcRewards", async () => {
+        for (let j=0; j<20; j++) {
+            await ethers.provider.send('evm_mine');
+        }
 
+        let expectedRewards = ethers.BigNumber.from(0);
+        for (let i=0; i<tokens.length; i++) {
+            expectedRewards.add(await erc20Instance.connect(a1).calcRewards(tokens[i]));
+        }
+
+        expect(await erc20Instance.balanceOf(a1.address)).to.be.equal(0);
+        for (let i = 0; i<numOfCards; i += onetimeClaimLimit) {
+            await erc20Instance.connect(a1).claim(tokens.slice(i,onetimeClaimLimit));
+        }
+        expect(await erc20Instance.balanceOf(a1.address)).to.be.not.equal(expectedRewards);
     });
-
-    it("total rewards should be equal to sum of expected rewards for each card calculated by calcRewards", async () => {
-
-    });
-
-    // calcRewards
-    // claim
 });

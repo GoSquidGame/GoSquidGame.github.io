@@ -107,5 +107,6 @@ dist
 .gitignore
 .git
 cache/
-# contracts/
+contracts/
 artifacts/
+*.sol

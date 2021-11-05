@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/home/kbae/src/squid/GoSquidGame.github.io/contracts/LeedoERC20.sol": {
-      "lastModificationDate": 1636073971720,
-      "contentHash": "e19d8960455fd45dce0dc4874f03a242",
+      "lastModificationDate": 1636085533720,
+      "contentHash": "0fd2df8f8889d6ed11a1be08c8da8849",
       "sourceName": "contracts/LeedoERC20.sol",
       "solcConfig": {
         "version": "0.8.9",
