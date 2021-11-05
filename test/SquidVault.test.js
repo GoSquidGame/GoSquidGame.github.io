@@ -147,12 +147,12 @@ describe("SquidGameVault", () => {
         // 0 erc20 balance
         expect(await erc20Instance.balanceOf(a1.address)).is.equal(0);
 
-        // one more staking without erc20 in vault
         let tokenId2 = await nftInstance.tokenOfOwnerByIndex(a1.address, 0)
-        await expect(vaultInstance.connect(a1).stake([tokenId2])).to.be.revertedWith('ERC20: transfer amount exceeds balance');
-        // inject erc20 and one more staking again
-        //tx = await erc20Instance.mintNftStaking(117000000);
-        //await tx.wait();
+        // we do not need this step anymore
+        // //// inject erc20 and one more staking again
+        //// await expect(vaultInstance.connect(a1).stake([tokenId2])).to.be.revertedWith('ERC20: transfer amount exceeds balance');
+        //// tx = await erc20Instance.mintNftStaking(117000000);
+        //// await tx.wait();
         tx = await vaultInstance.connect(a1).stake([tokenId2]);
         await tx.wait();
 
