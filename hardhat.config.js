@@ -118,7 +118,7 @@ module.exports = {
     ganache: {
       url: `http://192.168.55.78:7545`,
       accounts: {
-        mnemonic: 'fit capable jeans fitness tiny seat mother dove crop train ignore immune'
+        mnemonic: 'opinion tissue boat leisure eager riot pull spirit debate absent kiwi elevator'
       },
       // gasPrice: 0,
     },

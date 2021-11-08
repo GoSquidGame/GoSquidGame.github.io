@@ -35,6 +35,7 @@ describe("SquidGameCard", () => {
 
         let tokenId = await nftInstance.tokenOfOwnerByIndex(owner.address, 3);
         let ownerBalance = await nftInstance.balanceOf(owner.address);
+        let receiverBalance = await nftInstance.balanceOf(a1.address);
 
         let tx = await nftInstance.transferFrom(owner.address, a1.address, tokenId)
         await tx.wait();
@@ -42,7 +43,7 @@ describe("SquidGameCard", () => {
         // sender
         expect(await nftInstance.balanceOf(owner.address)).is.equal(ownerBalance - 1);
         // receiver
-        expect(await nftInstance.balanceOf(a1.address)).to.equal(1);
-        expect(await nftInstance.tokenOfOwnerByIndex(a1.address, 0)).to.equal(tokenId);
+        expect(await nftInstance.balanceOf(a1.address)).to.equal(receiverBalance + 1);
+        expect(await nftInstance.tokenOfOwnerByIndex(a1.address, receiverBalance + 1 - 1)).to.equal(tokenId);
     })
 });

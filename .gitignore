@@ -110,3 +110,5 @@ cache/
 contracts/
 artifacts/
 *.sol
+myscripts/
+.env.2
