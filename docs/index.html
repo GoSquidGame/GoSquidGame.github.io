@@ -2075,6 +2075,10 @@
                 cardInfoList.forEach((info, i) => {
                     arr.push({tokenId : tokenId[i], image : info.image})
                 })
+
+                arr.sort(function(a, b) {
+                    return parseFloat(a.tokenId) - parseFloat(b.tokenId);
+                });
                 // console.log(arr)
                 function Deck(arr){
                     document.getElementById("deck").innerHTML = "";
