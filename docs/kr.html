@@ -1094,6 +1094,7 @@
             </div>
         </div>
 
+        <div id="space-shuttle" style="text-align: center;" class = "space-shuttle"></div>
         <div id="msgAlert" style="display: none;"></div>
 
         <!-- <div id="clockdiv" class="clock_div" onclick="routeToFreeMinting()"></div> -->
@@ -1715,7 +1716,17 @@
 
             var RewardCounterInterval;
 
+            const space_shuttle_img = [
+                "Nuri4_will_launch_homebanner_01.jpg",
+                "Nuri4_will_launch_homebanner_02.jpg",
+                "Nuri4_will_launch_homebanner_03.jpg",
+                "Nuri4_will_launch_homebanner_04.jpg"
+            ];
+            
+            showBanner();
+            
             window.addEventListener("load", function () {
+                
                 loadWeb3();
                 if (typeof window.web3 !== "undefined") {
                     startApp();
@@ -1874,6 +1885,18 @@
                     // showMsg("<p>네트워크(체인)가 변경되었습니다!</p><button onclick='location.reload()'>다시 로딩하기</button>");
                     // console.log('aa');                    
                 });
+            }
+
+            function showBanner(){
+                let loop_cnt = 0;
+                let banner = '';
+                $("#space-suttle").show();      
+                setInterval(function(){
+                    banner = '<img width="auto" height="250" src="' + space_shuttle_img[loop_cnt] + '" />'
+                    $(".space-shuttle").html(banner);
+                    loop_cnt = loop_cnt+1;
+                    loop_cnt == 4 ? loop_cnt=0 : loop_cnt;
+                    },4000);        
             }
 
             function initStakingBody(){

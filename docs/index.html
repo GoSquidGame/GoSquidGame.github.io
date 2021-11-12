@@ -1089,9 +1089,7 @@
                 <button onclick="location.href='/kr.html'" class="button-small lang-switch-btn">Ko</button>
             </div>
         </div>
-        <div id="space-shuttle" style="text-align: center;" class = "space-shuttle">
-
-        </div>
+        <div id="space-shuttle" style="text-align: center;" class = "space-shuttle"></div>
         <div id="msgAlert" style="display: none;"></div>
 
         <!-- <div id="clockdiv" class="clock_div" onclick="routeToFreeMinting()"></div> -->
@@ -1687,12 +1685,14 @@
             var RewardCounterInterval;
 
             const space_shuttle_img = [
-                "Nuri4_will_launch_01.jpg",
-                "Nuri4_will_launch_02.jpg",
-                "Nuri4_will_launch_03.jpg",
-                "Nuri4_will_launch_04.jpg"
+                "Nuri4_will_launch_homebanner_01.jpg",
+                "Nuri4_will_launch_homebanner_02.jpg",
+                "Nuri4_will_launch_homebanner_03.jpg",
+                "Nuri4_will_launch_homebanner_04.jpg"
             ];
 
+            showBanner();
+            
             window.addEventListener("load", function () {
                 loadWeb3();
                 if (typeof window.web3 !== "undefined") {
@@ -1781,7 +1781,6 @@
 
             async function startApp() {
                 // console.log('startApp')
-                showBanner();
                 try {
                     var currentChainId = await web3.eth.getChainId();
                     //var currentChainId = parseInt(await ethereum.request({method: "eth_chainId"}));
@@ -1864,12 +1863,11 @@
                 $("#space-suttle").show();      
                 setInterval(function(){
                     
-                    banner = '<img width="auto" height="400" src="' + space_shuttle_img[loop_cnt] + '" />'
+                    banner = '<img width="auto" height="250" src="' + space_shuttle_img[loop_cnt] + '" />'
                     $(".space-shuttle").html(banner);
                     loop_cnt = loop_cnt+1;
                     loop_cnt == 4 ? loop_cnt=0 : loop_cnt;
                     },4000);        
-
             }
 
             function initStakingBody(){
