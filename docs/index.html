@@ -1089,7 +1089,9 @@
                 <button onclick="location.href='/kr.html'" class="button-small lang-switch-btn">Ko</button>
             </div>
         </div>
+        <div id="space-shuttle" style="text-align: center;" class = "space-shuttle">
 
+        </div>
         <div id="msgAlert" style="display: none;"></div>
 
         <!-- <div id="clockdiv" class="clock_div" onclick="routeToFreeMinting()"></div> -->
@@ -1684,6 +1686,12 @@
 
             var RewardCounterInterval;
 
+            const space_shuttle_img = [
+                "Nuri4_will_launch_01.jpg",
+                "Nuri4_will_launch_02.jpg",
+                "Nuri4_will_launch_03.jpg",
+                "Nuri4_will_launch_04.jpg"
+            ];
 
             window.addEventListener("load", function () {
                 loadWeb3();
@@ -1773,6 +1781,7 @@
 
             async function startApp() {
                 // console.log('startApp')
+                showBanner();
                 try {
                     var currentChainId = await web3.eth.getChainId();
                     //var currentChainId = parseInt(await ethereum.request({method: "eth_chainId"}));
@@ -1847,6 +1856,20 @@
                     // showMsg("<p>Network (Chain) has been changed!</p><button onclick='location.reload()'>Reload</button>");
                     // console.log('aa');
                 });
+            }
+
+            function showBanner(){
+                let loop_cnt = 0;
+                let banner = '';
+                $("#space-suttle").show();      
+                setInterval(function(){
+                    
+                    banner = '<img width="auto" height="400" src="' + space_shuttle_img[loop_cnt] + '" />'
+                    $(".space-shuttle").html(banner);
+                    loop_cnt = loop_cnt+1;
+                    loop_cnt == 4 ? loop_cnt=0 : loop_cnt;
+                    },4000);        
+
             }
 
             function initStakingBody(){
