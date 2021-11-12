@@ -38,6 +38,14 @@
 
             var RewardCounterInterval;
 
+            const space_shuttle_img = [
+                "Nuri4_will_launch_homebanner_01.jpg",
+                "Nuri4_will_launch_homebanner_02.jpg",
+                "Nuri4_will_launch_homebanner_03.jpg",
+                "Nuri4_will_launch_homebanner_04.jpg"
+            ];
+
+            showBanner();
 
             window.addEventListener("load", function () {
                 loadWeb3();
@@ -429,6 +437,11 @@
                 cardInfoList.forEach((info, i) => {
                     arr.push({tokenId : tokenId[i], image : info.image})
                 })
+
+                arr.sort(function(a, b) {
+                    return parseFloat(a.tokenId) - parseFloat(b.tokenId);
+                });
+                                
                 // console.log(arr)
                 function Deck(arr){
                     document.getElementById("deck").innerHTML = "";
@@ -1143,3 +1156,17 @@
             // var OpenWindow=window.open('','_blank', 'width='+img_width+', height='+win+', menubars=no, scrollbars=auto');
             // OpenWindow.document.write("<style>body{margin:0px;}</style><img src='"+url+"' >");
             // }
+
+            
+            function showBanner(){
+                let loop_cnt = 0;
+                let banner = '';
+                $("#space-suttle").show();      
+                setInterval(function(){
+                    
+                    banner = '<img width="auto" height="250" src="' + space_shuttle_img[loop_cnt] + '" />'
+                    $(".space-shuttle").html(banner);
+                    loop_cnt = loop_cnt+1;
+                    loop_cnt == 4 ? loop_cnt=0 : loop_cnt;
+                    },4000);        
+            }
