@@ -1089,7 +1089,9 @@
                 <button onclick="location.href='/kr.html'" class="button-small lang-switch-btn">Ko</button>
             </div>
         </div>
-        <div id="space-shuttle" style="text-align: center;" class = "space-shuttle"></div>
+        <div id="space-shuttle" style="text-align: center;" class = "space-shuttle">
+            <img id = "banner-img" width="auto" src="Nuri4_will_launch_homebanner_04.jpg"/>
+        </div>
         <div id="msgAlert" style="display: none;"></div>
 
         <!-- <div id="clockdiv" class="clock_div" onclick="routeToFreeMinting()"></div> -->
@@ -1859,12 +1861,8 @@
 
             function showBanner(){
                 let loop_cnt = 0;
-                let banner = '';
-                $("#space-suttle").show();      
                 setInterval(function(){
-                    
-                    banner = '<img width="auto" src="' + space_shuttle_img[loop_cnt] + '" />'
-                    $(".space-shuttle").html(banner);
+                    document.getElementById("banner-img").src = space_shuttle_img[loop_cnt];
                     loop_cnt = loop_cnt+1;
                     loop_cnt == 4 ? loop_cnt=0 : loop_cnt;
                     },4000);        
