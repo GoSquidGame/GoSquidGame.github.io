@@ -43,15 +43,6 @@ var nftAbi = [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},
                 "Nuri4_will_launch_homebanner_03.jpg",
                 "Nuri4_will_launch_homebanner_04.jpg"
             ];
-
-            showBanner();
-
-            const space_shuttle_img = [
-                "Nuri4_will_launch_homebanner_01.jpg",
-                "Nuri4_will_launch_homebanner_02.jpg",
-                "Nuri4_will_launch_homebanner_03.jpg",
-                "Nuri4_will_launch_homebanner_04.jpg"
-            ];
             
             showBanner();
             
