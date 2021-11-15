@@ -93,7 +93,10 @@
     </script>
 </head>
 
-<body>
+<body id="body-style">
+    <div id="metaverse-bg" style="display: none; padding-top: 200px; position: absolute;">
+        <img width="auto" src="squid_bg2.png"/>
+    </div>
     <div class="confetti">
         <div class="confetti-piece"></div>
         <div class="confetti-piece"></div>
@@ -152,7 +155,7 @@
                 <button onclick="location.href='/kr.html'" class="button-small lang-switch-btn">Ko</button>
             </div>
         </div>
-        <div id="space-shuttle" style="text-align: center;" class = "space-shuttle">
+        <div id="space-shuttle" style="text-align: center; display: block;" class = "space-shuttle">
             <img id = "banner-img" width="auto" src="Nuri4_homebanner_04.jpg"/>
         </div>
         <div id="msgAlert" style="display: none;"></div>
@@ -161,15 +164,16 @@
 
         <!-- Top Navigation Menu -->
         <div id="tabs">
-            <ul style="background-color: #3e6e6830;">
-                <li><a href="#tabs-8">Check-in Counter</a></li>
-                <li><a href="#tabs-1">Events</a></li>
-                <li><a href="#tabs-2">Overview</a></li>
-                <li><a href="#tabs-3" id="tab-3-menu">Roadmap</a></li>
-                <li><a href="#tabs-6">Architecture</a></li>
+            <ul id="tabs-bg" style="background-color: #3e6e6830; border: 0px;">
+                <li><a href="#tabs-8" onclick="bgColorChange('white')">Check-in Counter</a></li>
+                <li><a href="#tabs-1" onclick="bgColorChange('white')">Events</a></li>
+                <li><a href="#tabs-2" onclick="bgColorChange('white')">Overview</a></li>
+                <li><a href="#tabs-3" id="tab-3-menu" onclick="bgColorChange('white')">Roadmap</a></li>
+                <li><a href="#tabs-6" onclick="bgColorChange('white')">Architecture</a></li>
                 <!-- <li><a href="#tabs-4" id="tab-4-menu">Free Minting</a></li> -->
-                <li><a href="#tabs-7" id="tab-4-menu">LEEDO Plan</a></li>
-                <li><a href="#tabs-5">FAQ</a></li>
+                <li><a href="#tabs-7" id="tab-4-menu" onclick="bgColorChange('white')">LEEDO Plan</a></li>
+                <li><a href="#tabs-5" onclick="bgColorChange('white')">FAQ</a></li>
+                <li><a href="#tabs-9" onclick="bgColorChange('pupple')">Leedorian Metaverse </a></li>
             </ul>
 
             <div id="tabs-1" class="tab">
@@ -682,7 +686,8 @@
                     </div>
                 </div>
             </div>
-
+            <div id="tabs-9" class="tab" style="background: transparent;">
+            </div>
         </div>
         <img id="spinner2" src="">
 
@@ -691,6 +696,7 @@
             $(function () {
                 $("#tabs").tabs({ active: 0 });
             });
+         
         </script>
         <div id="footer">
             <p></p>

@@ -1,10 +1,23 @@
 @charset "utf-8";
+:root,
+:root.red {
+  --primary-color: #ce113b;
+  --primary-active-font-color: #ffffff;
+  --primary-default-font-color: #454545;
+  --buton-font-color: #ffffff;
+}
+:root.pupple {
+  --primary-color: #ffcdfc;
+  --primary-active-font-color: #947cff;
+  --primary-default-font-color: #947cff;
+  --buton-font-color: #947cff;
+}
 
 body {
   /* background-image: url("https://raw.githubusercontent.com/GoSquidGame/GoSquidGame.github.io/main/docs/SGC%20Landing%20Page.png"); */
   /* background-color: #ce113b; */
-  margin-left: 0.5em;
-  margin-right: 0.5em;
+  margin-left: 0px;
+  margin-right: 0px;
   font-size: 1.4em;
   font-weight: 300;
   line-height: 1.4;
@@ -16,7 +29,7 @@ h2 {
 }
 
 #siteName {
-  color: #ce113b;
+  color: var(--primary-color);
   font-family: "Monoton";
   font-weight: 400;
   font-size: 3.2rem;
@@ -40,9 +53,10 @@ h2 {
   height: 2.8rem;
   line-height: 2.8rem;
   padding: 0 1.5rem;
-  background-color: #ce113b;
+  background-color: var(--primary-color);
   border-width: 0;
   margin-bottom: 0;
+  color: var(--buton-font-color);
 }
 
 /* .button-mint {
@@ -59,12 +73,13 @@ li {
 .ui-widget button {
   min-width: 150px;
   font-size: 16px;
-  background-color: #ce113b;
+  background-color: var(--primary-color);
   border-width: 0;
   border-radius: 20px;
   padding-left: 30px;
   padding-right: 30px;
   margin-bottom: 0px;
+  color: var(--buton-font-color);
 
   text-transform: none;
 }
@@ -164,6 +179,7 @@ hr.divider {
 .ui-tabs .ui-tabs-nav li {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+  border: 0px;
 }
 
 .staking-tabs .staking-tabs-panel {
@@ -438,13 +454,24 @@ p.number-p a {
   height: auto;
 }
 
+.ui-tabs .ui-tabs-active {
+  background-color: var(--primary-color);
+}
+
 .ui-state-active,
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
-  background-color: #ce113b;
+  background-color: var(--primary-color);
   border: solid 1px #dddddd;
 }
-
+.ui-state-default a,
+.ui-state-default a:link {
+  color: var(--primary-default-font-color);
+}
+.ui-state-active a,
+.ui-state-active a:link {
+  color: var(--primary-active-font-color);
+}
 /* .ui-widget-header {
             border: 0px solid #dddddd;
             background: #f0f0f5;
@@ -897,9 +924,9 @@ input:checked + label {
 
 @media only screen and (min-width: 600px) {
   body {
-    margin-left: 50px;
+    margin-left: 0px;
     margin-top: 30px;
-    margin-right: 50px;
+    margin-right: 0px;
     font-size: 1.6em;
     font-weight: 400;
     line-height: 1.6;

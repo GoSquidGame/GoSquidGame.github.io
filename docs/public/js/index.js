@@ -1,3 +1,6 @@
+const setTheme = (theme) => (document.documentElement.className = theme);
+setTheme("red"); // initialize
+
 var nftAbi = [
   { inputs: [], stateMutability: "nonpayable", type: "constructor" },
   {
@@ -6592,15 +6595,40 @@ $("#accordion").accordion();
 
 function showBanner() {
   let loop_cnt = 0;
-  let banner = "";
-  $("#space-suttle").show();
   setInterval(function () {
-    banner =
-      '<img width="auto" height="250" src="' +
-      space_shuttle_img[loop_cnt] +
-      '" />';
-    $(".space-shuttle").html(banner);
+    document.getElementById("banner-img").src = space_shuttle_img[loop_cnt];
     loop_cnt = loop_cnt + 1;
     loop_cnt == 4 ? (loop_cnt = 0) : loop_cnt;
   }, 4000);
+}
+
+function bgColorChange(bgtype) {
+  console.log("bgColorChange => ", bgtype);
+
+  const home_body = document.getElementById("body-style");
+  const tabs = document.getElementById("tabs");
+  const tabs_bg = document.getElementById("tabs-bg");
+  const metaverse_bg = document.getElementById("metaverse-bg");
+
+  switch (bgtype) {
+    case "white":
+      setTheme("red");
+      home_body.style.backgroundColor = "#FFFFFF";
+      home_body.style.backgroundImage = "none";
+      tabs_bg.style.backgroundColor = "#3e6e6830";
+      tabs_bg.style.border = "1px solid #dddddd";
+      tabs.style.backgroundColor = "#FFFFFF";
+      metaverse_bg.style.display = "none";
+
+      break;
+    case "pupple":
+      setTheme("pupple");
+      home_body.style.backgroundColor = "#947CFF";
+      tabs_bg.style.backgroundColor = "transparent";
+      tabs_bg.style.border = "0px";
+      tabs.style.backgroundColor = "transparent";
+      metaverse_bg.style.display = "block";
+
+      break;
+  }
 }
