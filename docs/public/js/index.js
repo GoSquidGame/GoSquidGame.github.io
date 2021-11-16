@@ -7102,7 +7102,6 @@ function bgColorChange(bgtype) {
 
       break;
     case "pupple":
-      switchNetwork(1); // ethereum mainnet
       //   switchNetwork(137); // matic
       switchNetwork(80001); // matic
       setTheme("pupple");
@@ -7167,10 +7166,10 @@ showMetaverseCardList = async (kind) => {
 
   switch (kind) {
     case "metaverse":
-      console.log("metaverse");
-      console.log("staked_cards => ", staked_cards);
-      console.log("stakedIds => ", stakedIds);
-      console.log("leedorianContract => ", leedorianContract);
+      //   console.log("metaverse");
+      //   console.log("staked_cards => ", staked_cards);
+      //   console.log("stakedIds => ", stakedIds);
+      //   console.log("leedorianContract => ", leedorianContract);
       myAddrBalanceOf = staked_cards;
       if (stakedIds.length == 0) {
         stakedIds = await leedorianContract.methods.tokensOf(myAddr).call();
@@ -7182,20 +7181,8 @@ showMetaverseCardList = async (kind) => {
 
       break;
   }
-  // console.log('myAddrBalanceOf => ',myAddrBalanceOf) //9
 
-  // tokenId = await nftContract.methods.tokenOfOwnerByIndex(myAddr).call();
-  // tokenId = [10,11,12,13,14,15,16,17,18,19,20] //test date
-  // let tokenId = 610
-  // console.log('tokenId =>' , tokenId)
-  //
-  // const {name, description, image} = await getCardInfo(tokenId);
-  // console.log(`name: ${name}, description: ${description}, image: ${image}`)
   let arr = [];
-  // for(i=0 ; i < tokenId.length ; i++){
-  //     const {image} = await getCardInfo(tokenId[i]);
-  //     arr.push({tokenId : tokenId[i], image : image})
-  // }
   const cardInfoList = await Promise.all(
     tokenId.map((id) => {
       // console.log('aaaaa => ',getCardInfo(id))
@@ -7217,23 +7204,23 @@ showMetaverseCardList = async (kind) => {
       let imgBox = document.createElement("div");
       let descriptionBox = document.createElement("div");
       let tokenId = document.createElement("div");
-      let checkBox = document.createElement("div");
+      //   let checkBox = document.createElement("div");
       card.className = "card";
       imgBox.className = "imgbox";
       descriptionBox.className = "descriptionBox";
       tokenId.className = "tokenID";
-      checkBox.className = "checkBox";
+      //   checkBox.className = "checkBox";
 
       imgBox.innerHTML =
         '<img style="width: auto; height: auto; max-width: 200px; "  src="' +
         arr[i].image +
         '"/>';
       tokenId.innerHTML = "#" + arr[i].tokenId;
-      checkBox.innerHTML = `<input style="width:20px;height:20px; " type="checkbox"  value="${arr[i].tokenId}" onclick ="checkBoxClick(this)"/>`;
+      //   checkBox.innerHTML = `<input style="width:20px;height:20px; " type="checkbox"  value="${arr[i].tokenId}" onclick ="checkBoxClick(this)"/>`;
       card.appendChild(imgBox);
       card.appendChild(descriptionBox);
       descriptionBox.appendChild(tokenId);
-      descriptionBox.appendChild(checkBox);
+      //   descriptionBox.appendChild(checkBox);
 
       document.getElementById("deck-metaverse").appendChild(card);
     }
