@@ -1518,6 +1518,8 @@ function connectWallet() {
     .then((accounts) => {
       myAddr = accounts[0];
       $(".account-address").html(getLink(myAddr));
+      $(".my-address").html(getLink(myAddr));
+
       $("#connect-btn").css("display", "none");
       loadWeb3();
       watchChainAccount();
@@ -1638,6 +1640,7 @@ async function getAccount() {
       myAddr = accounts[0];
       if (chainId === 137 || chainId === 80001) {
         $("#metaverse-loading").show();
+        $(".my-address").html(getLink(myAddr));
         showMetaverseCardList("metaverse");
       } else {
         $(".account-address").html(getLink(myAddr));
@@ -6007,7 +6010,7 @@ async function getContracts() {
     } else if (chainId === 137 || chainId === 80001) {
       console.log("getContract");
       leedorianContract = new web3.eth.Contract(leedorianAbi, leedorianAddress);
-      $(".leedorial-address").html(getLink(leedorianAddress));
+      $(".leedorian-address").html(getLink(leedorianAddress));
     }
   } catch (err) {
     console.log(err);
@@ -7207,7 +7210,7 @@ showMetaverseCardList = async (kind) => {
       //   let checkBox = document.createElement("div");
       card.className = "card";
       imgBox.className = "imgbox";
-      descriptionBox.className = "descriptionBox";
+      descriptionBox.className = "descriptionBox-center";
       tokenId.className = "tokenID";
       //   checkBox.className = "checkBox";
 

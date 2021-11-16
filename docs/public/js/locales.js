@@ -204,6 +204,8 @@ $.lang.en = {
   tabs_8_content_17: `cards`,
   tabs_8_content_18: `Available for staking`,
   tabs_8_content_19: `Staked`,
+
+  tabs_9_content_1: "<b>Leedorian Metaverse contract address : </b>",
 };
 
 $.lang.ko = {
@@ -419,6 +421,8 @@ $.lang.ko = {
   tabs_8_content_17: `cards`,
   tabs_8_content_18: `Available for staking`,
   tabs_8_content_19: `Staked`,
+
+  tabs_9_content_1: "<b>Leedorian Metaverse contract address : </b>",
 };
 //start en
 setLanguage(lang);

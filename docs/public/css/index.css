@@ -847,6 +847,12 @@ ul.staking-content p {
   padding-left: 5px;
   padding-right: 5px;
 }
+.card .descriptionBox-center {
+  text-align: center;
+  max-width: 900px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
 
 @-webkit-keyframes makeItRain {
   from {
@@ -884,6 +890,19 @@ ul.staking-content p {
   /* gray */
 
   background: #ffffff;
+}
+
+.frame-common-transparent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  margin-top: 20px;
+  width: 100%;
+  /* gray */
+
+  background: none;
 }
 
 .frame-content {
