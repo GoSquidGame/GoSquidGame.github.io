@@ -154,8 +154,11 @@
                 <a href="https://github.com/GoSquidGame/GoSquidGame.github.io" class="social-btn" target="_blank">
                     <img width="40" height="40" src="github-logo.png" />
                 </a>
-                <button onclick="location.href='/kr.html'" class="button-small lang-switch-btn">Ko</button>
-                <button  href="#"  class="lang-select">Click ko</button>
+                <!-- <button onclick="location.href='/kr.html'" class="button-small lang-switch-btn">Ko</button> -->
+                <button onclick="location.href='#'" class="button-small lang-switch-btn" data-lang="ko" name="btn-lang">ko</button>
+                <button onclick="location.href='#'" class="button-small lang-switch-btn" data-lang="en" name="btn-lang">en</button>
+
+                <!-- <button  href="#"  class="lang-select">Click ko</button> -->
             </div>
         </div>
         <div id="space-shuttle" style="text-align: center; display: none;" class = "space-shuttle">
@@ -683,33 +686,38 @@
             </div>
             <div id="tabs-9" class="tab" style="background: transparent;">
                 <div id="metaverse-loading"><div class="spinner"></div></div>
-                <div class="frame-common">
-                    <div class="deck-outside">
-                        <div id="deck-metaverse" class="deck"></div>
+                <div id="meta-connect-btn" class="frame-common-transparent" style="text-align: center;">
+                    <div style="background: none; margin-top: 150px;">
+                        <h3 data-langNum="tabs_8_content_1" style="color: #ffffff; margin-bottom: 20px;"></h3>
+                        <button onclick="connectWallet()" data-langNum="tabs_8_content_2" style="background-color: #ffffff; color: #5a2c99;"></button>    
+                    </div>
+                </div>    
+                <div class="frame-common" >
+                    <div class="frame-content">
+                        <p data-langNum="tabs_9_content_1"></p>
+                        <div style="display: flex; justify-items: flex-end;  align-items: center;">
+                            <span class="leedorian-address" style="margin-right: 10px;"></span>
+                            <img width="32px" height="32px" src="arrow_ico.png"/>    
+                        </div>
+                    </div>
+                    <div class="frame-content" style="margin-top: 10px;">
+                        <p data-langNum="tabs_8_content_9"></p>
+                        <div  style="display: flex; justify-items: flex-end;  align-items: center;">
+                            <span class="my-address" style="margin-right: 10px;"></span>
+                            <img width="32px" height="32px" src="arrow_ico.png"/>    
+                        </div>
                     </div>
                 </div>
-                <div class = "frame-common-transparent">
-                    <div class="frame-common" style="height: 100px;">
-                        <div class="frame-content">
-                            <p data-langNum="tabs_9_content_1"></p>
-                            <div style="display: flex; justify-items: flex-end;  align-items: center;">
-                                <span class="leedorian-address" style="margin-right: 10px;"></span>
-                                <img width="32px" height="32px" src="arrow_ico.png"/>    
-                            </div>
+
+                <div id="metaverse-body" style="display: none;">
+                    <div class="frame-common">
+                        <div class="deck-outside">
+                            <div id="deck-metaverse" class="deck"></div>
                         </div>
                     </div>
 
-                    <div class="frame-common"  style="height: 100px;">
-                        <div class="frame-content">
-                            <p data-langNum="tabs_8_content_9"></p>
-                            <div  style="display: flex; justify-items: flex-end;  align-items: center;">
-                                <span class="my-address" style="margin-right: 10px;"></span>
-                                <img width="32px" height="32px" src="arrow_ico.png"/>    
-                            </div>
-                        </div>
-                        </div>
-                    </div>   
-                </div>
+                </div>            
+
              
             </div>
             <!-- tab end -->

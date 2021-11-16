@@ -1521,6 +1521,8 @@ function connectWallet() {
       $(".my-address").html(getLink(myAddr));
 
       $("#connect-btn").css("display", "none");
+      $("#meta-connect-btn").css("display", "none");
+
       loadWeb3();
       watchChainAccount();
       startApp();
@@ -1642,9 +1644,15 @@ async function getAccount() {
         $("#metaverse-loading").show();
         $(".my-address").html(getLink(myAddr));
         showMetaverseCardList("metaverse");
+        $("#connect-btn").hide();
+        $("#meta-connect-btn").hide();
+
+        $("#metaverse-body").show();
       } else {
         $(".account-address").html(getLink(myAddr));
         $("#connect-btn").hide();
+        $("#meta-connect-btn").hide();
+
         // isMintingAvailable(true);
         // $("#btnTopAllow").show();
         $("#stake-loading").show();
@@ -1657,15 +1665,21 @@ async function getAccount() {
       }
     } else {
       $("#connect-btn").show();
+      $("#meta-connect-btn").show();
+      $("#metaverse-body").hide();
+      $("#metaverse-loading").hide();
+
       // isMintingAvailable(false);
       // $("#btnTopAllow").hide();
       console.log("No ethereum account is available!");
     }
   } catch (err) {
     $("#connect-btn").show();
+    $("#meta-connect-btn").show();
     // isMintingAvailable(false);
     $("#stake-loading").hide();
     $("#metaverse-loading").hide();
+    $("#metaverse-body").hide();
 
     console.log(err);
   }
