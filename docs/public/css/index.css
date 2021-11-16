@@ -5,12 +5,16 @@
   --primary-active-font-color: #ffffff;
   --primary-default-font-color: #454545;
   --buton-font-color: #ffffff;
+  --common-frame-bg-color: #dbe4e3;
+  --title-font-color: #ce113b;
 }
 :root.pupple {
-  --primary-color: #ffcdfc;
-  --primary-active-font-color: #947cff;
-  --primary-default-font-color: #947cff;
-  --buton-font-color: #947cff;
+  --primary-color: #5a2c99;
+  --primary-active-font-color: #ffffff;
+  --primary-default-font-color: #5a2c99;
+  --buton-font-color: #ffffff;
+  --common-frame-bg-color: #f6f6f680;
+  --title-font-color: #ffffff;
 }
 
 body {
@@ -29,7 +33,7 @@ h2 {
 }
 
 #siteName {
-  color: var(--primary-color);
+  color: var(--title-font-color);
   font-family: "Monoton";
   font-weight: 400;
   font-size: 3.2rem;
@@ -841,7 +845,7 @@ ul.staking-content p {
   margin-top: 20px;
   /* gray */
 
-  background: #dbe4e3;
+  background: var(--common-frame-bg-color);
   border-radius: 20px;
   width: 100%;
 }

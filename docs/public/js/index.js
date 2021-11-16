@@ -1253,11 +1253,218 @@ var utilityAbi = [
 var utilityAddress;
 var utilityContract;
 
+var leedorianAbi = [
+  { inputs: [], stateMutability: "nonpayable", type: "constructor" },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "previousOwner",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "newOwner",
+        type: "address",
+      },
+    ],
+    name: "OwnershipTransferred",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+    ],
+    name: "Paused",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      { indexed: true, internalType: "address", name: "from", type: "address" },
+      { indexed: true, internalType: "address", name: "to", type: "address" },
+      {
+        indexed: true,
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256",
+      },
+    ],
+    name: "Transfer",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+    ],
+    name: "Unpaused",
+    type: "event",
+  },
+  {
+    inputs: [
+      { internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" },
+      { internalType: "address[]", name: "_addrs", type: "address[]" },
+    ],
+    name: "add",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "address", name: "_addr", type: "address" }],
+    name: "balanceOf",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "address[]", name: "_froms", type: "address[]" },
+      { internalType: "address[]", name: "_tos", type: "address[]" },
+      { internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" },
+    ],
+    name: "bulkTransfer",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
+    name: "getConsonants",
+    outputs: [{ internalType: "string[3]", name: "", type: "string[3]" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
+    name: "getConsonantsIndex",
+    outputs: [{ internalType: "uint8[3]", name: "", type: "uint8[3]" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
+    name: "getGenes",
+    outputs: [{ internalType: "uint8[8]", name: "", type: "uint8[8]" }],
+    stateMutability: "pure",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "owner",
+    outputs: [{ internalType: "address", name: "", type: "address" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
+    name: "ownerOf",
+    outputs: [{ internalType: "address", name: "", type: "address" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "pause",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "paused",
+    outputs: [{ internalType: "bool", name: "", type: "bool" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" },
+    ],
+    name: "remove",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "renounceOwnership",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
+    name: "tokenURI",
+    outputs: [{ internalType: "string", name: "", type: "string" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "address", name: "_addr", type: "address" }],
+    name: "tokensOf",
+    outputs: [{ internalType: "uint256[]", name: "", type: "uint256[]" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "totalSupply",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "address", name: "_from", type: "address" },
+      { internalType: "address", name: "_to", type: "address" },
+      { internalType: "uint256", name: "_tokenId", type: "uint256" },
+    ],
+    name: "transfer",
+    outputs: [{ internalType: "bool", name: "", type: "bool" }],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "address", name: "newOwner", type: "address" }],
+    name: "transferOwnership",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "unpause",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+];
+var leedorianAddress;
+var leedorianContract;
+
 var chainId = 4;
 var networkList = {
   1: "Ethereum Mainnet",
   4: "Rinkeby Testnet",
   5: "Goerli Testnet",
+  137: "Matic Polygon Mainnet",
+  80001: "Matic Mumbai Testnet",
 };
 var myAddr;
 let checkInTokenIdList = [];
@@ -1313,12 +1520,13 @@ function connectWallet() {
       $(".account-address").html(getLink(myAddr));
       $("#connect-btn").css("display", "none");
       loadWeb3();
+      watchChainAccount();
       startApp();
-      $("#div-mintable").show();
-      isMintingAvailable(true);
+      //   $("#div-mintable").show();
+      //   isMintingAvailable(true);
     })
     .catch((err) => {
-      isMintingAvailable(false);
+      //   isMintingAvailable(false);
       if (err.code === 4001) {
         // EIP-1193 userRejectedRequest error
         // If this happens, the user rejected the connection request.
@@ -1382,16 +1590,24 @@ async function startApp() {
     var currentChainId = await web3.eth.getChainId();
     //var currentChainId = parseInt(await ethereum.request({method: "eth_chainId"}));
     // $(".networkName").html(networkList[currentChainId]);
-    if (currentChainId != 1 && currentChainId != 4 && currentChainId != 5) {
-      // var wrongChainMsg = "This site only works with " + networkList[1] + " or " + networkList[4] + ".<br> Please change the network of your Dapp browser.";
-      // showMsg(wrongChainMsg, true);
-      watchChainAccount();
-      return;
-    }
+    // if (
+    //   currentChainId != 1 &&
+    //   currentChainId != 4 &&
+    //   currentChainId != 5 &&
+    //   currentChainId != 137 &&
+    //   currentChainId != 80001
+    // ) {
+    //   // var wrongChainMsg = "This site only works with " + networkList[1] + " or " + networkList[4] + ".<br> Please change the network of your Dapp browser.";
+    //   // showMsg(wrongChainMsg, true);
+    //   watchChainAccount();
+    //   return;
+    // }
     chainId = currentChainId;
     await getAccount();
     showWinnerCard();
-    await fetchStakingInfo();
+    if (chainId != 137 && chainId != 80001) {
+      await fetchStakingInfo();
+    }
 
     // initializeClock();
   } catch (err) {
@@ -1403,31 +1619,39 @@ async function getAccount() {
   try {
     getContracts();
     web3.currentProvider.on("accountsChanged", (accounts) => {
+      console.log("getAccount accountsChanged");
       initStakingBody();
       startApp();
       // showMsg("<p>Your account has been changed!</p><button onclick='location.reload()'>Reload</button>");
     });
     web3.currentProvider.on("chainChanged", (chainId) => {
+      console.log("getAccount chainChanged");
       initStakingBody();
       startApp();
       // showMsg("<p>Network (Chain) has been changed!</p><button onclick='location.reload()'>Reload</button>");
     });
 
     var accounts = await web3.eth.getAccounts();
+    console.log("getAccount() => chainId => ", chainId);
     if (accounts.length > 0) {
       // myAddr = web3.utils.toChecksumAddress(accounts[0]);
       myAddr = accounts[0];
-      $(".account-address").html(getLink(myAddr));
-      $("#connect-btn").hide();
-      // isMintingAvailable(true);
-      // $("#btnTopAllow").show();
-      $("#stake-loading").show();
-      getApproved("leedoVault");
-      getUnstakedBalance(-1);
-      getStakedBalance(-1);
-      getRewardsBalance();
-      showCardList(stakeKind);
-      setRewardsClaimBtn();
+      if (chainId === 137 || chainId === 80001) {
+        $("#metaverse-loading").show();
+        showMetaverseCardList("metaverse");
+      } else {
+        $(".account-address").html(getLink(myAddr));
+        $("#connect-btn").hide();
+        // isMintingAvailable(true);
+        // $("#btnTopAllow").show();
+        $("#stake-loading").show();
+        getApproved("leedoVault");
+        getUnstakedBalance(-1);
+        getStakedBalance(-1);
+        getRewardsBalance();
+        showCardList(stakeKind);
+        setRewardsClaimBtn();
+      }
     } else {
       $("#connect-btn").show();
       // isMintingAvailable(false);
@@ -1436,7 +1660,9 @@ async function getAccount() {
     }
   } catch (err) {
     $("#connect-btn").show();
-    isMintingAvailable(false);
+    // isMintingAvailable(false);
+    $("#stake-loading").hide();
+    $("#metaverse-loading").hide();
 
     console.log(err);
   }
@@ -5532,23 +5758,257 @@ async function getContracts() {
           type: "function",
         },
       ];
+    } else if (chainId == 137) {
+      // Matic Polygon mainnet
+    } else if (chainId == 80001) {
+      // Matic Mombai testnet
+      leedorianAddress = "0x27A3e1e71B6f4C8f388e55C01c8Bb49139492071";
+      leedorianAbi = [
+        { inputs: [], stateMutability: "nonpayable", type: "constructor" },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "previousOwner",
+              type: "address",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "newOwner",
+              type: "address",
+            },
+          ],
+          name: "OwnershipTransferred",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "address",
+              name: "account",
+              type: "address",
+            },
+          ],
+          name: "Paused",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "from",
+              type: "address",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "to",
+              type: "address",
+            },
+            {
+              indexed: true,
+              internalType: "uint256",
+              name: "tokenId",
+              type: "uint256",
+            },
+          ],
+          name: "Transfer",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "address",
+              name: "account",
+              type: "address",
+            },
+          ],
+          name: "Unpaused",
+          type: "event",
+        },
+        {
+          inputs: [
+            { internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" },
+            { internalType: "address[]", name: "_addrs", type: "address[]" },
+          ],
+          name: "add",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [{ internalType: "address", name: "_addr", type: "address" }],
+          name: "balanceOf",
+          outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            { internalType: "address[]", name: "_froms", type: "address[]" },
+            { internalType: "address[]", name: "_tos", type: "address[]" },
+            { internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" },
+          ],
+          name: "bulkTransfer",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            { internalType: "uint256", name: "_tokenId", type: "uint256" },
+          ],
+          name: "getConsonants",
+          outputs: [{ internalType: "string[3]", name: "", type: "string[3]" }],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            { internalType: "uint256", name: "_tokenId", type: "uint256" },
+          ],
+          name: "getConsonantsIndex",
+          outputs: [{ internalType: "uint8[3]", name: "", type: "uint8[3]" }],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            { internalType: "uint256", name: "_tokenId", type: "uint256" },
+          ],
+          name: "getGenes",
+          outputs: [{ internalType: "uint8[8]", name: "", type: "uint8[8]" }],
+          stateMutability: "pure",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "owner",
+          outputs: [{ internalType: "address", name: "", type: "address" }],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            { internalType: "uint256", name: "_tokenId", type: "uint256" },
+          ],
+          name: "ownerOf",
+          outputs: [{ internalType: "address", name: "", type: "address" }],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "pause",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "paused",
+          outputs: [{ internalType: "bool", name: "", type: "bool" }],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            { internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" },
+          ],
+          name: "remove",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "renounceOwnership",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            { internalType: "uint256", name: "_tokenId", type: "uint256" },
+          ],
+          name: "tokenURI",
+          outputs: [{ internalType: "string", name: "", type: "string" }],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [{ internalType: "address", name: "_addr", type: "address" }],
+          name: "tokensOf",
+          outputs: [{ internalType: "uint256[]", name: "", type: "uint256[]" }],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "totalSupply",
+          outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            { internalType: "address", name: "_from", type: "address" },
+            { internalType: "address", name: "_to", type: "address" },
+            { internalType: "uint256", name: "_tokenId", type: "uint256" },
+          ],
+          name: "transfer",
+          outputs: [{ internalType: "bool", name: "", type: "bool" }],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            { internalType: "address", name: "newOwner", type: "address" },
+          ],
+          name: "transferOwnership",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "unpause",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+      ];
     }
 
-    nftContract = new web3.eth.Contract(nftAbi, nftAddress);
-    leedoerc20Contract = new web3.eth.Contract(
-      leedoerc20Abi,
-      leedoerc20Address
-    );
-    leedovaultContract = new web3.eth.Contract(
-      leedovaultAbi,
-      leedovaultAddress
-    );
+    if (chainId === 1 || chainId === 4 || chainId === 5) {
+      nftContract = new web3.eth.Contract(nftAbi, nftAddress);
+      leedoerc20Contract = new web3.eth.Contract(
+        leedoerc20Abi,
+        leedoerc20Address
+      );
+      leedovaultContract = new web3.eth.Contract(
+        leedovaultAbi,
+        leedovaultAddress
+      );
 
-    utilityContract = new web3.eth.Contract(utilityAbi, utilityAddress);
-
-    $(".nft-address").html(getLink(nftAddress));
-    $(".leedoerc20-address").html(getLink(leedoerc20Address));
-    $(".leedovault-address").html(getLink(leedovaultAddress));
+      utilityContract = new web3.eth.Contract(utilityAbi, utilityAddress);
+      $(".nft-address").html(getLink(nftAddress));
+      $(".leedoerc20-address").html(getLink(leedoerc20Address));
+      $(".leedovault-address").html(getLink(leedovaultAddress));
+    } else if (chainId === 137 || chainId === 80001) {
+      console.log("getContract");
+      leedorianContract = new web3.eth.Contract(leedorianAbi, leedorianAddress);
+      $(".leedorial-address").html(getLink(leedorianAddress));
+    }
   } catch (err) {
     console.log(err);
   }
@@ -5592,7 +6052,7 @@ async function mint() {
 showCard = async () => {
   await fetchRoundInfo();
   const tokenId = await getLatestCardTokenId();
-  const { name, description, image } = await getCardInfo(tokenId);
+  const { name, description, image } = await getCardInfo(tokenId, "unstaked");
   // console.log(`name: ${name}, description: ${description}, image: ${image}`)
   // Opensea url link
 
@@ -5715,7 +6175,7 @@ showCardList = async (kind) => {
   const cardInfoList = await Promise.all(
     tokenId.map((id) => {
       // console.log('aaaaa => ',getCardInfo(id))
-      return getCardInfo(id);
+      return getCardInfo(id, kind);
     })
   );
   cardInfoList.forEach((info, i) => {
@@ -5726,7 +6186,7 @@ showCardList = async (kind) => {
     return parseFloat(a.tokenId) - parseFloat(b.tokenId);
   });
 
-  // console.log(arr)
+  console.log(arr);
   function Deck(arr) {
     document.getElementById("deck").innerHTML = "";
     for (let i = 0; i < arr.length; i++) {
@@ -6363,7 +6823,7 @@ getLatestCardTokenId = async () => {
   // }
 };
 
-getCardInfo = async (tokenId) => {
+getCardInfo = async (tokenId, kind) => {
   // var nid = await this.web3.eth.net.getId();
   // if ( nid !== rootChainID ) {
   //     alert("Wrong network. Please change the network into Ethereum")
@@ -6372,14 +6832,29 @@ getCardInfo = async (tokenId) => {
 
   // var yourCardsListBox = document.getElementById("yourCards");
   // var selectedTokenId = yourCardsListBox.options[yourCardsListBox.selectedIndex].value;
-  // var tokenInfoBase64 = await nftContract.methods.tokenURI(tokenId).call();
-  // var jsonInfo = JSON.parse(atob(tokenInfoBase64.substring(29)));
-  var jsonInfo = {
-    image:
-      "https://card-image-collection.s3.ap-northeast-2.amazonaws.com/cloudfront/" +
-      tokenId +
-      ".svg",
-  };
+  switch (kind) {
+    case "staked":
+      var tokenInfoBase64 = await leedovaultContract.methods
+        .tokenURI(tokenId)
+        .call();
+      break;
+    case "unstaked":
+      var tokenInfoBase64 = await nftContract.methods.tokenURI(tokenId).call();
+      break;
+    case "metaverse":
+      var tokenInfoBase64 = await leedorianContract.methods
+        .tokenURI(tokenId)
+        .call();
+      break;
+  }
+  var jsonInfo = JSON.parse(atob(tokenInfoBase64.substring(29)));
+  console.log("getCardInfo => ", jsonInfo);
+  //   var jsonInfo = {
+  //     image:
+  //       "https://card-image-collection.s3.ap-northeast-2.amazonaws.com/cloudfront/" +
+  //       tokenId +
+  //       ".svg",
+  //   };
   return jsonInfo;
   // var htmlStr = '<table class="center" border="1"><tr>'
   // htmlStr += '<td>Name</td><td>' + jsonInfo.name + '</td>'
@@ -6542,6 +7017,10 @@ function getLink(addr) {
     explorer = "https://rinkeby.etherscan.io";
   } else if (chainId == 5) {
     explorer = "https://goerli.etherscan.io";
+  } else if (chainId == 137) {
+    explorer = "https://polygonscan.com";
+  } else if (chainId == 80001) {
+    explorer = "https://mumbai.polygonscan.com";
   } else {
     explorer = "";
     console.log("unsupported chainid " + chainId);
@@ -6612,6 +7091,7 @@ function bgColorChange(bgtype) {
 
   switch (bgtype) {
     case "white":
+      switchNetwork(1); // ethereum mainnet
       setTheme("red");
       home_body.style.backgroundColor = "#FFFFFF";
       home_body.style.backgroundImage = "none";
@@ -6622,13 +7102,147 @@ function bgColorChange(bgtype) {
 
       break;
     case "pupple":
+      switchNetwork(1); // ethereum mainnet
+      //   switchNetwork(137); // matic
+      switchNetwork(80001); // matic
       setTheme("pupple");
       home_body.style.backgroundColor = "#947CFF";
       tabs_bg.style.backgroundColor = "transparent";
       tabs_bg.style.border = "0px";
       tabs.style.backgroundColor = "transparent";
       metaverse_bg.style.display = "block";
-
+      showMetaverseCardList("metaverse");
       break;
   }
 }
+
+/* Switch Network */
+async function switchNetwork(targetNetwork) {
+  console.log("switchNetwork =>", targetNetwork);
+  let network_rpt = "https://eth-mainnet.alchemyapi.io/v2";
+  switch (targetNetwork) {
+    case 1:
+      network_rpt = "https://eth-mainnet.alchemyapi.io/v2";
+      break;
+    case 137:
+      network_rpt = "https://polygon-mainnet.g.alchemy.com/v2";
+      break;
+    case 80001:
+      network_rpt = "https://polygon-mumbai.g.alchemy.com/v2";
+      break;
+  }
+  try {
+    await ethereum.request({
+      method: "wallet_switchEthereumChain",
+      params: [{ chainId: "0x" + targetNetwork.toString(16) }],
+    });
+  } catch (switchError) {
+    console.log("switchError =>", switchError);
+    if (switchError.code === 4902) {
+      try {
+        await ethereum.request({
+          method: "wallet_addEthereumChain",
+          params: [
+            {
+              chainId: "0x" + targetNetwork.toString(16),
+              rpcUrl: network_rpt,
+            },
+          ],
+        });
+      } catch (addError) {
+        console.log(addError);
+      }
+    }
+  }
+}
+
+/* Metaverse Card List */
+showMetaverseCardList = async (kind) => {
+  $("#metaverse-loading").show();
+
+  let tokenId = [];
+  let myAddrBalanceOf = 0;
+  checkInTokenIdList = [];
+  console.log("myAddr => ", myAddr);
+
+  switch (kind) {
+    case "metaverse":
+      console.log("metaverse");
+      console.log("staked_cards => ", staked_cards);
+      console.log("stakedIds => ", stakedIds);
+      console.log("leedorianContract => ", leedorianContract);
+      myAddrBalanceOf = staked_cards;
+      if (stakedIds.length == 0) {
+        stakedIds = await leedorianContract.methods.tokensOf(myAddr).call();
+        tokenId = stakedIds;
+        // console.log('stakedIds =>',stakedIds);
+      } else {
+        tokenId = stakedIds;
+      }
+
+      break;
+  }
+  // console.log('myAddrBalanceOf => ',myAddrBalanceOf) //9
+
+  // tokenId = await nftContract.methods.tokenOfOwnerByIndex(myAddr).call();
+  // tokenId = [10,11,12,13,14,15,16,17,18,19,20] //test date
+  // let tokenId = 610
+  // console.log('tokenId =>' , tokenId)
+  //
+  // const {name, description, image} = await getCardInfo(tokenId);
+  // console.log(`name: ${name}, description: ${description}, image: ${image}`)
+  let arr = [];
+  // for(i=0 ; i < tokenId.length ; i++){
+  //     const {image} = await getCardInfo(tokenId[i]);
+  //     arr.push({tokenId : tokenId[i], image : image})
+  // }
+  const cardInfoList = await Promise.all(
+    tokenId.map((id) => {
+      // console.log('aaaaa => ',getCardInfo(id))
+      return getCardInfo(id, "metaverse");
+    })
+  );
+  cardInfoList.forEach((info, i) => {
+    arr.push({ tokenId: tokenId[i], image: info.image });
+  });
+
+  arr.sort(function (a, b) {
+    return parseFloat(a.tokenId) - parseFloat(b.tokenId);
+  });
+
+  function metaverseDeck(arr) {
+    document.getElementById("deck-metaverse").innerHTML = "";
+    for (let i = 0; i < arr.length; i++) {
+      let card = document.createElement("div");
+      let imgBox = document.createElement("div");
+      let descriptionBox = document.createElement("div");
+      let tokenId = document.createElement("div");
+      let checkBox = document.createElement("div");
+      card.className = "card";
+      imgBox.className = "imgbox";
+      descriptionBox.className = "descriptionBox";
+      tokenId.className = "tokenID";
+      checkBox.className = "checkBox";
+
+      imgBox.innerHTML =
+        '<img style="width: auto; height: auto; max-width: 200px; "  src="' +
+        arr[i].image +
+        '"/>';
+      tokenId.innerHTML = "#" + arr[i].tokenId;
+      checkBox.innerHTML = `<input style="width:20px;height:20px; " type="checkbox"  value="${arr[i].tokenId}" onclick ="checkBoxClick(this)"/>`;
+      card.appendChild(imgBox);
+      card.appendChild(descriptionBox);
+      descriptionBox.appendChild(tokenId);
+      descriptionBox.appendChild(checkBox);
+
+      document.getElementById("deck-metaverse").appendChild(card);
+    }
+  }
+
+  metaverseDeck(arr);
+
+  $("#metaverse-loading").hide();
+  // $("#staking-body").show();
+
+  checkInBody(kind);
+};
