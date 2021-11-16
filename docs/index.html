@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -83,7 +83,7 @@
     <link rel="stylesheet" type="text/css" href="./public/css/index.css">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script src="./public/js/googletagmanager.js"></script>
+    <script src="./public/js/googletagmanager.js"></script>    
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -112,7 +112,7 @@
         <div class="confetti-piece"></div>
         <div class="confetti-piece"></div>
     </div>
-    <div id="content">
+    <div id="content" class="content">  
         <div class="min600">
             <h2 id="title"><span id="siteName">Squid Game Card</span> </h2>
             <div class="social-btn-box">
@@ -131,7 +131,9 @@
                 <a href="https://github.com/GoSquidGame/GoSquidGame.github.io" class="social-btn" target="_blank">
                     <img width="40" height="40" src="github-logo.png" />
                 </a>
-                <button onclick="location.href='/kr.html'" class="button-small lang-switch-btn">Ko</button>
+                
+                <button onclick="location.href='#'" class="button-small lang-switch-btn" data-lang="ko" name="btn-lang">ko</button>
+                <button onclick="location.href='#'" class="button-small lang-switch-btn" data-lang="en" name="btn-lang">en</button>
             </div>
         </div>
         <div class="max600">
@@ -153,6 +155,7 @@
                     <img width="40" height="40" src="github-logo.png" />
                 </a>
                 <button onclick="location.href='/kr.html'" class="button-small lang-switch-btn">Ko</button>
+                <button  href="#"  class="lang-select">Click ko</button>
             </div>
         </div>
         <div id="space-shuttle" style="text-align: center; display: none;" class = "space-shuttle">
@@ -165,90 +168,86 @@
         <!-- Top Navigation Menu -->
         <div id="tabs">
             <ul id="tabs-bg" style="background-color: #3e6e6830; border: 0px;">
-                <li><a href="#tabs-8" onclick="bgColorChange('white')">Check-in Counter</a></li>
-                <li><a href="#tabs-1" onclick="bgColorChange('white')">Events</a></li>
-                <li><a href="#tabs-2" onclick="bgColorChange('white')">Overview</a></li>
-                <li><a href="#tabs-3" id="tab-3-menu" onclick="bgColorChange('white')">Roadmap</a></li>
-                <li><a href="#tabs-6" onclick="bgColorChange('white')">Architecture</a></li>
+                <li><a href="#tabs-8" onclick="bgColorChange('white')" data-langNum="tabs_8"></a></li>
+                <li><a href="#tabs-1" onclick="bgColorChange('white')" data-langNum="tabs_1">Events</a></li>
+                <li><a href="#tabs-2" onclick="bgColorChange('white')" data-langNum="tabs_2">Overview</a></li>
+                <li><a href="#tabs-3" id="tab-3-menu" onclick="bgColorChange('white')" data-langNum="tabs_3">Roadmap</a></li>
+                <li><a href="#tabs-6" onclick="bgColorChange('white')" data-langNum="tabs_6">Architecture</a></li>
                 <!-- <li><a href="#tabs-4" id="tab-4-menu">Free Minting</a></li> -->
-                <li><a href="#tabs-7" id="tab-4-menu" onclick="bgColorChange('white')">LEEDO Plan</a></li>
-                <li><a href="#tabs-5" onclick="bgColorChange('white')">FAQ</a></li>
+                <li><a href="#tabs-7" id="tab-4-menu" onclick="bgColorChange('white')" data-langNum="tabs_7">LEEDO Plan</a></li>
+                <li><a href="#tabs-5" onclick="bgColorChange('white')" data-langNum="tabs_5">FAQ</a></li>
                 <li><a href="#tabs-9" onclick="bgColorChange('pupple')">Leedorian Metaverse </a></li>
             </ul>
 
             <div id="tabs-1" class="tab">
-                <div id="eventing" class="content_body">
+                <div id="eventing" class='content_body'>
                     <ul class="winner-content">
                         <div class="winners" >
-                            <h3 style="margin-bottom: 5px; margin-right: 10px;"><strong>Round Winners !!</strong> </h3>
+                            <h3 style="margin-bottom: 5px; margin-right: 10px;" data-langNum="tabs_1_content_1"></h3>
                             <span><img  class="winners_img" src="congratulations.png" /></span>
                         </div>
                          <div style="margin-top: 20px;margin-bottom: 20px;">
-                             <li style="padding-left: 5%;">Winners can claim 100,000 SQUID ERC20 tokens after the SQUID Token issuance event.</li>
-                             <li style="padding-left: 5%;">In addition, the winners of rounds 2, 7, 9, 10, 12 and 17 were awarded 1 ETH.</li>
+                             <li style="padding-left: 5%;" data-langNum="tabs_1_content_2"></li>
+                             <li style="padding-left: 5%;" data-langNum="tabs_1_content_3"></li>
                          </div>             
                         <div class='round-winner-result'></div>
 
                     </ul>                     
                     <ul class="ama-content">
                         <div class="ama">
-                            <h3><strong>Squid Game Card AMA(Ask Me Anything) Session</strong> </h3>
+                            <h3 data-langNum="tabs_1_content_4"> </h3>
                             <span><img class="ama_img" src="ama.png" /></span>    
                         </div>
-                            <p><Strong>1. Date</Strong></p>
-                            <li style="padding-left: 5%;">October 27, 11:00 PM Seoul</li>
-                            <li style="padding-left: 5%;">October 27, 10:00 AM New York</li>
-                            <li style="padding-left: 5%;">October 27, 2:00 PM GMT</li>
-                            <p><Strong>2. Who to attend</Strong></p>
-                            <li style="padding-left: 5%;">Everyone</li>
-                            <p><Strong>3. Main question content (Discord)</Strong></p>
-                            <li style="padding-left: 5%;">How much is the ERC20 token issuance?</li>
-                            <li style="padding-left: 5%;">Where can ERC20 tokens be used?</li>
-                            <li style="padding-left: 5%;">What is the initial price of Uniswap?</li>
-                            <li style="padding-left: 5%;">Is NFT Card Staking Ranked? Is there a difference in the amount of ERC20 tokens awarded according to rarity?</li>
-                            <li style="padding-left: 5%;">Are there any games currently in development? If yes, when will it be announced?</li>
-                            <li style="padding-left: 5%;">What are your next plans for the project?</li>
-                            <li style="padding-left: 5%;">What is the ERC20 launch event?</li>
-                            <li style="padding-left: 5%;">What kind of NFT is given when minting more than 100 pieces?</li>
-                            <li style="padding-left: 5%;">Do you have any plans to activate the facebook community to attract overseas users (Philippines, Vietnam, etc.)?</li>
-
+                            <p data-langNum="tabs_1_content_5"></p>
+                            <li style="padding-left: 5%;" data-langNum="tabs_1_content_6"></li>
+                            <li style="padding-left: 5%;" data-langNum="tabs_1_content_7"></li>
+                            <li style="padding-left: 5%;" data-langNum="tabs_1_content_8"></li>
+                            <p data-langNum="tabs_1_content_9"></p>
+                            <li style="padding-left: 5%;" data-langNum="tabs_1_content_10"></li>
+                            <p data-langNum="tabs_1_content_11"></p>
+                            <li style="padding-left: 5%;" data-langNum="tabs_1_content_12"></li>
+                            <li style="padding-left: 5%;" data-langNum="tabs_1_content_13"></li>
+                            <li style="padding-left: 5%;" data-langNum="tabs_1_content_14"></li>
+                            <li style="padding-left: 5%;" data-langNum="tabs_1_content_15"></li>
+                            <li style="padding-left: 5%;" data-langNum="tabs_1_content_16"></li>
+                            <li style="padding-left: 5%;" data-langNum="tabs_1_content_17"></li>
+                            <li style="padding-left: 5%;" data-langNum="tabs_1_content_18"></li>
+                            <li style="padding-left: 5%;" data-langNum="tabs_1_content_19"></li>
+                            <li style="padding-left: 5%;" data-langNum="tabs_1_content_20"></li>
                     </ul>                    
                     <ul class="event-content">
                         <div class="squidmaster">
-                            <h3 style="margin-right: 10px;"><strong><span style="color: rosybrown;">[Event is over]</span> Who is the Last Survivor?</strong> </h3>
+                            <h3 style="margin-right: 10px;" data-langNum="tabs_1_content_21"></h3>
                             <span><img class ="squidmaster_img" src="squidmaster.png" /></span>
                         </div>
-                        <li> One out of 456 cards will be randomly selected in each round <strong>(using a random seed provided by Chainlink Oracle)</strong>. There will be a total of 20 winners.</li>                      
-                        <li> All winners receive <strong>100,000 SQUID (ERC20)</strong> tokens per winning card.    </li>
-                        <li > <strong>Ojingeo Bonus: </strong> </li>
-                        <p style="padding-left: 10%;">If the winning card in each round is <span class="hangul">‘&#12615; &#12671; &#12609;’</span>, additional <strong>1 ETH</strong>  will be paid. (Applied after round 5)    </p>
-                        <li>  <strong>Grand winner Bonus: </strong>    </li>
-                        <p style="padding-left: 10%;">If the winning card consists of 3 identical consonants, such as <span class="hangul">‘ &#12609;  &#12609;  &#12609;’</span>, <Strong>5 ETH</Strong> will be rewarded to the first winner after 5 rounds. <br> 
-                        The 5 ETH prize is one time only. Once it is claimed first time,  only 1 ETH will be paid to the next winners who qualify the grand prize. 
-                        <li> ETH winnings are automatically paid by the contract.    </li>
-                        <li> SQUID winnings are individually claimed after SQUID Token issuance (the claim method will be announced later).    </li>
+                        <li data-langNum="tabs_1_content_22"> </li>                      
+                        <li data-langNum="tabs_1_content_23">     </li>
+                        <li data-langNum="tabs_1_content_24">  </li>
+                        <p style="padding-left: 10%;" data-langNum="tabs_1_content_25"></p>
+                        <li data-langNum="tabs_1_content_26"></li>
+                        <p style="padding-left: 10%;" data-langNum="tabs_1_content_27"></p>
+                        <li data-langNum="tabs_1_content_28"></li>
+                        <li data-langNum="tabs_1_content_29"> </li>
                         
                         <!-- <p style="color: blue;
                         font-size: x-large;
                         text-decoration: underline;"><span class="minting-method-link" onclick="routeToFreeMinting()">Go Free Minting now! </span></p> -->
                     </ul>
                     <ul class="event-content">
-                        <h3><strong><span style="color: rosybrown;">[Event is over]</span> Squid Game Card NFT Free Minting</strong> </h3>
+                        <h3 data-langNum="tabs_1_content_30"></h3>
                         <li>
-                            <li><Strong>Participation Eligibility:</Strong> Anyone</li>
-                            <li><Strong>Price:</Strong> Free (Gas fee paid by users)</li>
-                            <li><Strong>Total amount that can be minted:</Strong> 9,576 cards</li>
-                            <li><Strong>Distribution method:</Strong> Individual participants directly mint 456 Squid Game Cards per round</li>
-                            <li><Strong>Round composition:</Strong> 20 participant rounds (#11~#9120) and one developer round (#9121~#9,576)</li>
-                            <li><Strong>Developer Setup Card:</Strong> Issue a total of 10 cards (#1~#10) when deploying the contract</li>
-                            <li><Strong>Round process method: </Strong>When one round ends, the next round starts after a round break of 6 hours.</li>
-                            <li><Strong>Card verification method:</Strong> After confirming the issuance transaction, connect the Ethereum wallet used for the issuance transaction to the OpenSea site and check in the [Profile] menu</li>
-                            <li>For details on how to participate in the event, refer to the video in the <span class="minting-method-link" onclick="routeToFreeMinting()">[Free Minting]</span> menu on the homepage</li>
-                            <li>Squid Game Card NFT form: 3 ‘Hangul’ initials + 8 numbers</li>
+                            <li data-langNum="tabs_1_content_31"></li>
+                            <li data-langNum="tabs_1_content_32"></li>
+                            <li data-langNum="tabs_1_content_33"></li>
+                            <li data-langNum="tabs_1_content_34"></li>
+                            <li data-langNum="tabs_1_content_35"></li>
+                            <li data-langNum="tabs_1_content_36"></li>
+                            <li data-langNum="tabs_1_content_37"></li>
+                            <li data-langNum="tabs_1_content_38"></li>
+                            <li data-langNum="tabs_1_content_39"></li>
+                            <li data-langNum="tabs_1_content_40"></li>
                         </li>
-                        <p style="color: blue;
-                        font-size: x-large;
-                        text-decoration: underline;"><span class="minting-method-link" onclick="routeToFreeMinting()">Go Free Minting now! </span></p>
+                        <p style="color: blue; font-size: x-large; text-decoration: underline;" data-langNum="tabs_1_content_41"></p>
 
                         <div style="text-align: center; margin-top: 30px;">
                             <img class="squid_card" src="https://storage.opensea.io/files/4a75a2be580f70ce985ea0ba249a3e59.svg" type="image/svg+xml" aria-label="(Example, Squid Game Card #1356)" >
@@ -262,51 +261,51 @@
             </div>
             <div id="tabs-2" class="tab">
                 <div >
-                    <h3  style="margin-top: 50px;"><strong>Project Concept and Vision</strong> </h3>
-                    <ul class="content_body">
-                            <li>The Squid Game Card NFT project aims to build a decentralized blockchain based Squid Game Metaverse by fairly distributing NFT and ERC20 token, SQUID, around the community.</li>
-                            <li>We want to provide a suitable technical environment and community fund for development teams that want to provide applications such as games, Gamified DeFi, Community, and Commerce, which are components of the Squid Game Metaverse.</li>
-                            <li>New projects are discovered and financially supported based on the community to create a decentralized game ecosystem</li>
-                            <li>It not only distributes all economic resources fairly, but also ensures long-term dispersion and balance.</li>
-                            <li>The consonants of ‘Hangul’, invented to express all sounds, are used as the symbol system for the building blocks of the metaverse.</li>
-                            <li>It provides various modular building blocks for developing secure and flexible decentralized games and services, and Metaverse UX.</li>
+                    <h3 style='margin-top: 50px;' data-langNum="tabs_2_content_1"></h3>
+                    <ul class='content_body'>
+                            <li data-langNum="tabs_2_content_2"></li>
+                            <li data-langNum="tabs_2_content_3"></li>
+                            <li data-langNum="tabs_2_content_4"></li>
+                            <li data-langNum="tabs_2_content_5"></li>
+                            <li data-langNum="tabs_2_content_6"></li>
+                            <li data-langNum="tabs_2_content_7"></li>
                     </ul>
 
-                    <ul class="content_body">
-                        <h3 style="margin-top: 50px;"><strong>Squid Game Metaverse Economy Design</strong></h3>
-                        <h4><strong>NFT Minting</strong> </h4>
-                            <li><b>Participation Eligibility:</b> Anyone</li>
-                            <li><b>Price:</b> Free (Gas fee paid by users)</li>
-                            <li><b>Total amount that can be minted:</b> 9,576 cards</li>
-                            <li><b>Distribution method:</b> Individual participants directly mint 456 Squid Game Cards per round</li>
-                            <li><b>Round composition:</b> 20 participant rounds (#11~#9120) and one developer round (#9121~#9,576)</li>
-                            <li><b>Developer Setup Card:</b> Issue a total of 10 cards (#1~#10) when deploying the contract</li>
-                            <li><b>Round process method:</b> When one round ends, the next round starts after a round break of 6 hours.</li>
-                            <li><b>Squid Game Card NFT form:</b> 3 ‘Hangul’ initials + 8 numbers</li>
-                            <li><b>Card verification method:</b> After confirming the issuance transaction, connect the Ethereum wallet used for the issuance transaction to the OpenSea site and check in the [Profile] menu</li>
-                            <p>For details on how to participate in the event, refer to the video in the [Minting Method] menu on the homepage</p>
+                    <ul class='content_body'>
+                        <h3 style='margin-top: 50px;' data-langNum="tabs_2_content_8"></h3>
+                        <h4 data-langNum="tabs_2_content_9"></h4>
+                            <li data-langNum="tabs_2_content_10"></li>
+                            <li data-langNum="tabs_2_content_11"></li>
+                            <li data-langNum="tabs_2_content_12"></li>
+                            <li data-langNum="tabs_2_content_13"></li>
+                            <li data-langNum="tabs_2_content_14"></li>
+                            <li data-langNum="tabs_2_content_15"></li>
+                            <li data-langNum="tabs_2_content_16"></li>
+                            <li data-langNum="tabs_2_content_17"></li>
+                            <li data-langNum="tabs_2_content_18"></li>
+                            <p data-langNum="tabs_2_content_19"></p>
                             
-                            <h4 style="margin-top: 30px; "><strong>LEEDO(ERC20) Distribution</strong> </h4>
-                            <p>LEEDO is the currency used in the Squid Game Card Metaverse and supports the ERC20 standard. 700,000,000 of this currency will be issued for Season 0, and 300,000,000 for Season 1 will be issued. Additional issuance may be issued by the decision of the DAO to be formed in the future.</p>
-                            <p><b>1. LEEDO Token Main Usage</b></p>                                
-                                <p>The main usages of LEEDO issued in Season 0 are,</p>
-                                <li>‘Migration Settlement Aid’ and ‘Basic Income’, which are provided free of charge for use in Metaverse</li>
-                                <li>'Community fund' to be used by the decision of the DAO within the Metaverse</li>
-                                <li>Play-to-Earn subsidy to support gamers who engage in game activities that are valuable to existing residents to bring new migrants into the Metaverse</li>
-                                <li>‘Liquidity supply fund’ used for liquidity pools of LEEDO tokens through DEX (Uniswap, etc.)</li>
-                                <li>‘Metaverse development reserve’ to cover various expenses necessary before DAO is formed</li>
-                                <li>Game developer Grant</li>
+                            <h4 style='margin-top: 30px; ' data-langNum="tabs_2_content_20"> </h4>
+                            <p data-langNum="tabs_2_content_21"></p>
+                            <p data-langNum="tabs_2_content_22"></p>                                
+                                <p data-langNum="tabs_2_content_23"></p>
+                                <li data-langNum="tabs_2_content_24"></li>
+                                <li data-langNum="tabs_2_content_25"></li>
+                                <li data-langNum="tabs_2_content_26"></li>
+                                <li data-langNum="tabs_2_content_27"></li>
+                                <li data-langNum="tabs_2_content_28"></li>
+                                <li data-langNum="tabs_2_content_29"></li>
                                 
-                            <p style="margin-top: 20px;"><b>2. LEEDO Token Allocation</b></p>
-                                <li>Distribution of LEEDO to be issued is as follows: Some of these will become claimable according to the payment schedule once individual cards are checked into the Metaverse, and will be issued at the time of the user's claim. However, DAO-controlled funds exist in the DAO’s ‘budget’ status with ‘issuable’ status and will not be issued unless the DAO executes them. Therefore, the final issuance of Season 0 may be less than 700,000,000.</li>
+                            <p style="margin-top: 20px;" data-langNum="tabs_2_content_30"></p>
+                                <li data-langNum="tabs_2_content_31"></li>
                                 <div style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
                                     <img src="leedo_plan.png" alt="" style="width: auto; height: auto; max-width: 70%; max-height: 50%; border-radius: initial; align-items: center;">
                                 </div>
-                                <li>One of the important features of the Squid Game Card project's ERC20 distribution plan is that development team rewards are not allocated separately. The way the development team can acquire LEEDO is to check in at the 'check-in counter' like other holders, using the minted NFT among the NFTs allocated in the 21st round, and receive 'Migration Settlement Aid’ and 'Basic Income' </li>
-                                <li>However, the LEEDO token, which will be used as expenses for the project for the next 2-3 months, which will be required for the development of the DAO contract and the composition of the DAO, is temporarily controlled by the development team, and the expenditure record will be completely on the blockchain. The remaining budget goes to the fund controlled by the DAO once the DAO is formed.</li>
+                                <li data-langNum="tabs_2_content_32"></li>
+                                <li data-langNum="tabs_2_content_33"></li>
                         
-                        <h4 style="margin-top: 30px; "><strong>DAO Fund Allocation</strong> </h4>
-                        <li>To be announced</li>
+                        <h4 style='margin-top: 30px; ' data-langNum="tabs_2_content_34"> </h4>
+                        <li data-langNum="tabs_2_content_35"></li>
 
                     </ul>                    
                 </div>
@@ -314,7 +313,8 @@
             <div id="tabs-3" class="tab">
                 <img src="roadmap.png" alt="Roadmap" style="width: auto; height: auto; max-width: 100%; max-height: 100%; border-radius: initial;">                   
             </div>
-            <!-- <div id="tabs-4" class="tab">
+            
+             <!-- <div id="tabs-4" class="tab">
                 <div>
                     <div id="loading"><div class="spinner"></div></div>
 
@@ -324,18 +324,18 @@
 
                     <div id="div-mintable" class="div-mintable">
                         <div id="connect-btn">
-                            <p><b>Connect your wallet to make a claim (minting)</b></p>
-                            <button onclick="connectWallet()">Connect wallet</button>
+                            <p data-langNum="tabs_4_content_1"></p>
+                            <button onclick="connectWallet()" data-langNum="tabs_4_content_2"></button>
                         </div>
                         
                         <div id="free-minting-available">
                             <ul id="topState">
                                 <li id="network"><span class="network-name"></span></li>
-                                <li><b>Squid Game Card contract address : </b><span class="nft-address"></span></li>
-                                <li><b>My address : </b><span class="account-address"></span></li>
+                                <li data-langNum="tabs_4_content_3"></li>
+                                <li data-langNum="tabs_4_content_4"></li>
                             </ul>
                             <div>
-                                <button id="mint-btn" onclick="mint()">Minting Now</button>
+                                <button id="mint-btn" onclick="mint()" data-langNum="tabs_4_content_5"></button>
                             </div>
                             <div id="div-mint-result" class='mint-result'>
                             </div>
@@ -344,187 +344,187 @@
                     </div>
 
                     <hr class='divider'>
-                    <p>If you do not want to connect your wallet to the Squid Game Card homepage, you can make a claim (minting) by directly connecting to Etherscan.</p>
+                    <p data-langNum="tabs_4_content_6"></p>
                     <hr class='divider'>
 
                     <div class="mintingover">
-                        <p style="font-size:30px; color:orange;"><b> Free minting is over! </b></p>                        
+                        <p style="font-size:30px; color:orange;" data-langNum="tabs_4_content_7"></p>
                     </div>
 
                     <div style="text-align: center;">
-                        <p><b>Making a claim(minting) on Etherscan</b></p>
+                        <p data-langNum="tabs_4_content_8"></p>
                     </div>
-                    <p class="number-p"><b>Minting Contract :</b> <a style="color: blue; text-decoration:underline;" target="_blank" href="https://etherscan.io/token/0xBE5C953DD0ddB0Ce033a98f36C981F1B74d3B33f#writeContract">https://etherscan.io/token/0xBE5C953DD0ddB0Ce033a98f36C981F1B74d3B33f#writeContract</a></p>
+                    <p class="number-p" data-langNum="tabs_4_content_9"></p>
                     <div class="video-container">
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/p1aMpApSoQE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <ol class="number-ol">
-                        <li>Make sure you are in ETH Mainnet chain.</li>
-                        <li>Select a wallet you want (Metamask or any Dapp wallet).</li>
-                        <li>Get to the contract <b>[Read]</b> page, <a target="_blank" href="https://etherscan.io/address/0xbe5c953dd0ddb0ce033a98f36c981f1b74d3b33f#readContrac">https://etherscan.io/address/0xbe5c953dd0ddb0ce033a98f36c981f1b74d3b33f#readContrac</a></li>
-                        <li>You can check if you can claim by clicking the <b>[isMintable](13)</b> button first. If it says, “True”, you can claim. If it says ‘False’, wait until the next round starts. The next round  starting time will be posted on Twitter(https://twitter.com/GoSquidGame)</li>
-                        <li>Get to the claim page,   <a target="_blank" href="https://etherscan.io/token/0xBE5C953DD0ddB0Ce033a98f36C981F1B74d3B33f#writeContract">https://etherscan.io/token/0xBE5C953DD0ddB0Ce033a98f36C981F1B74d3B33f#writeContract</a></li>
-                        <li>Click “Connect to Web3”</li>
-                        <li>Click the <b>[claim]</b></li>
-                        <li>Click the <b>[Write]</b> button.</li>
-                        <li>See the confirmation dialog from the wallet. if the gas is not too high it means you can have it, just do the claim by confirming any dialog it says.</li>
-                        <li>The fee of Squid Game Card NFT is 0 (zero) ETH. it is really giveaway project to see how it possible to go wide</li>
-                        <li>Check out the OpenSea link, <a target="_blank" href="https://opensea.io/collection/squid-game-card-nft">https://opensea.io/collection/squid-game-card-nft</a></li>
-                        <li>Every 456 cards are claimed, there will be a 6 hour round break. During the break, nobody can claim. The time lock is automatically handled by the contract.</li>
-                        <li>There will be 21 rounds of 456 cards, totaling maximum 9,576 cards.</li>
-                        <li>The contract owner claims the first 10 cards when deploying the contract, and can claim the last 456 cards with tokens id 9121 to 9576.</li>
+                        <li data-langNum="tabs_4_content_10"></li>
+                        <li data-langNum="tabs_4_content_11"></li>
+                        <li data-langNum="tabs_4_content_12"></li>
+                        <li data-langNum="tabs_4_content_13"></li>
+                        <li data-langNum="tabs_4_content_14"></li>
+                        <li data-langNum="tabs_4_content_15"></li>
+                        <li data-langNum="tabs_4_content_16"></li>
+                        <li data-langNum="tabs_4_content_17"></li>
+                        <li data-langNum="tabs_4_content_18"></li>
+                        <li data-langNum="tabs_4_content_19"></li>
+                        <li data-langNum="tabs_4_content_20"></li>
+                        <li data-langNum="tabs_4_content_21"></li>
+                        <li data-langNum="tabs_4_content_22"></li>
+                        <li data-langNum="tabs_4_content_23"></li>
                     </ol>                    
                 </div>
             </div> -->
             <div id="tabs-5">
                 <div id="accordion" class='faq_accordion'>
-                    <p>What is the Squid game card NFT ?</p>
+                    <p data-langNum="tabs_5_content_1"></p>
                     <div>
                         <p>
                         <ul class="faq">
-                            <li>‘Squid Game Card’ is an NFT for infrastructure elements of Metaverse using blockchain.</li>
-                            <li>The ‘Squid Game Card’ has 3 Hangul consonant properties and 8 numeric properties.</li>
-                            <li>When you mint or purchase this card, it means that you are invited to the Squid Game Metaverse ecosystem.</li>
+                            <li data-langNum="tabs_5_content_2"></li>
+                            <li data-langNum="tabs_5_content_3"></li>
+                            <li data-langNum="tabs_5_content_4"></li>
                         </ul>
 
                         </p>
                     </div>
 
-                    <p>What do the 'Korean consonants' and 8 number attributes on the squid game card mean?</p>
+                    <p data-langNum="tabs_5_content_5"></p>
                     <div>
                         <p>
                         <ul class="faq">
-                            <li>It has no predefined meaning. It can be used in various meanings depending on the creative interpretation of the game's developers and users.</li>
-                            <li>It is intentionally designed not to give any meaning to the attributes in order to promote endless creative imagination.</li>
+                            <li data-langNum="tabs_5_content_6"></li>
+                            <li data-langNum="tabs_5_content_7"></li>
                         </ul>
                         </p>
                     </div>
 
-                    <p>How can I get the ‘Squid Game Card’?</p>
+                    <p data-langNum="tabs_5_content_8"></p>
                     <div>
                         <p>
                         <ul class="faq">
-                            <li>You can participate in the 20 rounds of Free Minting Round and pay the gas fee and mint it on [Free Minting] menu or the web3 page of the squid game card smart contract for free.</li>
-                            <li>Users who are willing to buy the ‘Squid Game Card’ can obtain it by purchasing a card in OpenSea(https://opensea.io/collection/squid-game-card-nft).</li>
+                            <li data-langNum="tabs_5_content_9"></li>
+                            <li data-langNum="tabs_5_content_10"></li>
                         </ul>
                         </p>
                     </div>
 
-                    <p>Can I still issue squid game cards for free?</p>
+                    <p data-langNum="tabs_5_content_11"></p>
                     <div>
                         <p>
                         <ul class="faq">
-                            <li>Yes! Since Free minting rounds of the Squid Game card are not over yet, anyone can mint it for free.</li>
-                            <li>For detailed minting method, refer to [Free Minting] page.</li>
+                            <li data-langNum="tabs_5_content_12"></li>
+                            <li data-langNum="tabs_5_content_13"></li>
                             
                         </ul>
                         </p>
                     </div>
 
-                    <p>Can I mint several at once?</p>
+                    <p data-langNum="tabs_5_content_14"></p>
                     <div>
                         <p>
                         <ul class="faq">
-                            <li>No! Only one squid game card can be minted at a time on [Free Minting] menu or Etherscan's squid game smart contract web3 page. There is no limit to the number of cards that one person can mint.</li>
+                            <li data-langNum="tabs_5_content_15"></li>
                         </ul>
                         </p>
                     </div>
 
-                    <p>After minting or purchasing a Squid Game card, where can I view it?</p>
+                    <p data-langNum="tabs_5_content_16"></p>
                     <div>
                         <p>
                         <ul class="faq">
-                            <li>Since the Squid Game Card NFT is registered on the OpenSea Marketplace, you can check the minted or purchased Squid Game card in the [Profile] menu of your account by connecting the wallet such as the metamask used for issuing it to the OpenSea site.</li>
+                            <li data-langNum="tabs_5_content_17"></li>
                         </ul>
                         </p>
                     </div>
 
-                    <p>Where is the 'Squid Game Card' used?</p>
+                    <p data-langNum="tabs_5_content_18"></p>
                     <div>
                         <p>
                         <ul class="faq">
-                            <li>In the Squid Metaverse, use with an 'invitation ticket' for dApps that require 'specific card possession' as a condition of participation, or</li>
-                            <li>It can be combined with other smart contracts to transform or transform it into an 'item for a specific purpose', or</li>
-                            <li>It will be used to exchange tokens owned by other users within the Squid Metaverse.</li>
+                            <li data-langNum="tabs_5_content_19"></li>
+                            <li data-langNum="tabs_5_content_20"></li>
+                            <li data-langNum="tabs_5_content_21"></li>
                         </ul>
                         </p>
                     </div>
 
-                    <p>Can I create a game or community with the 'Squid Game Card'?</p>
+                    <p data-langNum="tabs_5_content_22"></p>
                     <div>
                         <p>
                         <ul class="faq">
-                            <li>Of course. For users who have 'Squid Game Card', you can create your own game or community application by independently assigning qualitative characteristics to the attributes assigned to 'Korean consonants' and 'numbers' of the 'Squid Game Card'.</li>
+                            <li data-langNum="tabs_5_content_23"></li>
                         </ul>
                         </p>
                     </div>
 
-                    <p>If only 9,576 are minted, isn't it difficult for most people to have a squid game card?</p>
+                    <p data-langNum="tabs_5_content_24"></p>
                     <div>
                         <p>
                         <ul class="faq">
-                            <li>The squid game expansion cards can be issued as an independent smart contract according to the needs of games or communities.</li>
-                            <li>The 0th generation squid game card minted in step 1 is designed to issue a new squid game card of the next generation in the way of 'Breeding' from this.</li>
+                            <li data-langNum="tabs_5_content_25"></li>
+                            <li data-langNum="tabs_5_content_26"></li>
                         </ul>
                         </p>
                     </div>
 
-                    <p>Are the 11 attributes given to the squid game card enough?</p>
+                    <p data-langNum="tabs_5_content_27"></p>
                     <div>
                         <p>
                         <ul class="faq">
-                            <li>11 attributes are enough to form a variety of combinations, but if more attributes are needed, new attributes can be added using the base seed (gene information) included in each NFT card.</li>
+                            <li data-langNum="tabs_5_content_28"></li>
                         </ul>
                         </p>
                     </div>
 
-                    <p>How is the value of the Squid Game Card determined?</p>
+                    <p data-langNum="tabs_5_content_29"></p>
                     <div>
                         <p>
                         <ul class="faq">
-                            <li>The value of the Squid Game card is not inherent in itself, but is given by the game or community created using this card.</li>
-                            <li>However, since some attributes given to the squid game card are issued with their ‘rarity’ adjusted during the issuance stage, the frequency of attribute expression can be a factor that fundamentally affects value formation.</li>
+                            <li data-langNum="tabs_5_content_30"></li>
+                            <li data-langNum="tabs_5_content_31"></li>
                         </ul>
                         </p>
                     </div>
-                    <p>Oops. It's a surprise! I’m really frustrated at the huge gas fee to claim a card</p>
+                    <p data-langNum="tabs_5_content_32"></p>
                     <div>
                         <p>
                         <ul class="faq">
-                            <li>One of the reasons why Etherscan shows abnormally high gas fees is that new cards cannot be claimed at that time (we call it ‘round break’).</li>
-                            <li>20 rounds of 456 card claims are being executed successively but there are 6 hours of round break between two rounds. Check the ‘Countdown’ at the top of the home page to see when the next round starts.</li>
+                            <li data-langNum="tabs_5_content_33"></li>
+                            <li data-langNum="tabs_5_content_34"></li>
                         </ul>
                         </p>
                     </div>
-                    <p>If I draw a ‘○△□’ card, can I win 1 ETH prize?</p>
+                    <p data-langNum="tabs_5_content_35"></p>
                     <div>
                         <p>
                         <ul class="faq">
-                            <li>No. A card is randomly selected out of 456 cards in each round and if the card is ‘○△□’ then 1 ETH prize is awarded to the card’s hodler.</li>
+                            <li data-langNum="tabs_5_content_36"></li>
                         </ul>
                         </p>
                     </div>
-                    <p>If I draw a ‘○○○’ or a ‘ㄱㄱㄱ’ card, can I win 5 ETH prize?</p>
+                    <p data-langNum="tabs_5_content_37"></p>
                     <div>
                         <p>
                         <ul class="faq">
-                            <li>No. A card is randomly selected out of 456 cards in each round and if the card has same three consonants, such as ‘○○○’ and also there has been no 5 ETH prize winner by this time then its hodler can receive 5 ETH prize.</li>
-                            <li>If 5 ETH prize awarded before, the hodler receives 1 ETH prize.</li>
+                            <li data-langNum="tabs_5_content_38"></li>
+                            <li data-langNum="tabs_5_content_39"></li>
                         </ul>
                         </p>
                     </div>
                 </div>
             </div>
             <div id="tabs-6">
-                <div class="content_body">
+                <div class='content_body'>
        
                     <ul>
-                        <h3 style="margin-top: 50px;"><strong>Technical Structure of Squid Game Metaverse</strong> </h3>
+                        <h3 style='margin-top: 50px;' data-langNum="tabs_6_content_1"></h3>
                         <li>
-                            <li>Squid Game Metaverse effectively and flexibly combines various technical resources developed in the blockchain ecosystem with the technical framework for existing web and mobile development environments.<br>Starting with the Ethereum mainnet, it will later expand to scaling chains including Polygon and Layer-2 chains.</li>
-                            <li><b>Platform :</b> Ethereum Mainnet, Ethereum Layer-2 chain, NFT/FT Bridge, Metaverse Oracle</li>
-                            <li><b>Application Environment :</b> Ethereum Smart Contract, Off-chain verifiable computation</li>
-                            <li><b>Key management Infrastructure :</b> Easy Tools for Metaverse Game wallet</li>
+                            <li data-langNum="tabs_6_content_2"></li>
+                            <li data-langNum="tabs_6_content_3"></li>
+                            <li data-langNum="tabs_6_content_4"></li>
+                            <li data-langNum="tabs_6_content_5"></li>
                         </li>
                     </ul>
                     
@@ -538,42 +538,40 @@
 
             <div id="tabs-7" class="tab">
                 <div class="leedo-common">
-                    <p style="font-size:16px; color:black; ">
-                        LEEDO Token Payment Plan for Metaverse Check-in Squid Game Card                                                
-                    </p>
+                    <p style="font-size:16px; color:black; " data-langNum="tabs_7_content_1"></p>
 
-                    <ul class="content_body">
-                        <p style="font-size:20px; margin-top: 20px;"><b>1. Basic Principles of LEEDO Token Allocation and Payment for Check-in Cards</b></p>
-                        <li>‘Migrant Settlement Aid (NFT Holder One Time Bonus)’ and ‘Basic Income (Staking Rewards)’ are paid only for the checked-in card</li>
-                        <li>The amount of 'Migration Settlement Aid' allocated to the checked-in card depends on calculation using the card's 'characteristic' (a combination of 3 Hangul consonants + 8 numbers), the issued order (within 10, within 100, within 1,000), and the order of claims.</li>
-                        <li>The amount of 'Basic Income' will be paid about 34 LEEDO tokens daily for all cards (which may change according to the change in the Ethereum block cycle. To be precise, 0.00511409803 LEEDO per block per card), regardless of card attributes, issuance order, or check-in order. The same amount will be paid during the check-in period. If you check-in first, you will receive more rewards than others who haven't checked in yet.</li>
-                        <li>Allocated LEEDO tokens will be paid by the claim of the card holder. (Gas fee is paid by oneself)</li>
-                        <li>If you check out cards or check in a new card, the LEEDO allocated up to that time will be paid</li>    
+                    <ul class='content_body'>
+                        <p style="font-size:20px; margin-top: 20px;" data-langNum="tabs_7_content_2"></p>
+                        <li data-langNum="tabs_7_content_3"></li>
+                        <li data-langNum="tabs_7_content_4"></li>
+                        <li data-langNum="tabs_7_content_5"></li>
+                        <li data-langNum="tabs_7_content_6"></li>
+                        <li data-langNum="tabs_7_content_7"></li>    
                     </ul>
 
-                    <ul class="content_body">
-                        <p style="font-size:20px; margin-top: 20px;"><b>2. Allocation and payment of migrant settlement aid</b></p>
-                        <li>The formula for determining the amount of the resettlement aid is as follows.</li>
-                        <p>geneSSum * tokenIdFactor * consFactor * timeFactor) / 2000</p>
+                    <ul class='content_body'>
+                        <p style="font-size:20px; margin-top: 20px;" data-langNum="tabs_7_content_8"></p>
+                        <li data-langNum="tabs_7_content_9"></li>
+                        <p data-langNum="tabs_7_content_10"></p>
 
-                        <li><b>geneSSum</b></li>
-                        <p>geneSSum is according to the 8-digit trait assigned to each card, and is calculated by the ‘sum of squares of each number’. For example, if the 8-digit is 1234 5678, (1)^2 + (2)^2 + (3)^2 + (4)^2 + (5)^2 + (6)^2 + (7)^2 + ( 8)^2 = 204. However, if geneSSum is less than 100, 100 is applied.</p>
-                        <li><b>tokenIdFactor</b></li>
-                        <p>The tokenIdFactor provides an incentive to the card issued earlier since tokenId reflects the issuance order. If the tokenId is less than 100, apply 200, if it is more than 1,000, use 100, and if it is greater than 100 and less than 1,000, 150 is applied.</p>
-                        <li><b>consFactor</b></li>
-                        <p>consFactor is based on the combination of 3 Hangul consonants of each token. 'ㅇ△ㅁ' card is 2. All the same consonants of 'ㅇ', '△', 'ㅁ' card is 5, Cards containing two of the same 'ㅇ', '△', and 'ㅁ' are applied as 3, and 1 is applied for other cards.</p>
-                        <li><b>timeFactor</b></li>
-                        <p>timeFactor is according to the check-in order, and 250 is given to the 1st place, 100 is given to the 9,576th. In between, a linear function is applied to reduce it linearly.</p>
+                        <li data-langNum="tabs_7_content_11"></li>
+                        <p data-langNum="tabs_7_content_12"></p>
+                        <li data-langNum="tabs_7_content_13"></li>
+                        <p data-langNum="tabs_7_content_14"></p>
+                        <li data-langNum="tabs_7_content_15"></li>
+                        <p data-langNum="tabs_7_content_16"></p>
+                        <li data-langNum="tabs_7_content_17"></li>
+                        <p data-langNum="tabs_7_content_18"></p>
                         
-                        <p><b>The payment of the resettlement aid is paid by claim 31 days after the check-in cards remain unchanged. If you add a card midway or check out, you will have to wait another 31 days from that.</b></p>
+                        <p data-langNum="tabs_7_content_19"></p>
 
                     </ul>
 
-                    <ul class="content_body">
-                        <p style="font-size:20px; margin-top: 20px;"><b>3. Allocation and payment of ‘basic income’</b></p> 
-                            <li>Basic income is allocated approximately 34 per card per day during the check-in period. (Exactly 0.00511409803 LEEDO per block per card)</li>                       
-                            <li>The payment of basic income will be paid to the holder's wallet address upon claim of the LEEDO token by the holder or a change in the number of checked-in cards (check-in or check-out of some or all cards)</li>
-                            <li>The ‘basic income’ payment period for Season 0 is set to a maximum of 365 days, but may be extended by the DAO’s decision taking into account the remaining amount of allocated tokens.</li>
+                    <ul class='content_body'>
+                        <p style="font-size:20px; margin-top: 20px;" data-langNum="tabs_7_content_20"></p> 
+                            <li data-langNum="tabs_7_content_21"></li>                       
+                            <li data-langNum="tabs_7_content_22"></li>
+                            <li data-langNum="tabs_7_content_23"></li>
                     </ul>
                 </div>
             </div>
@@ -581,58 +579,55 @@
                 <div id="stake-loading"><div class="spinner"></div></div>
                 <div id="connect-btn" class="frame-common">
                     <div class="frame-content">
-                        <p><b>Connect your wallet</b></p>
-                        <button onclick="connectWallet()">Connect wallet</button>    
+                        <p data-langNum="tabs_8_content_1"></p>
+                        <button onclick="connectWallet()" data-langNum="tabs_8_content_2"></button>    
                     </div>
                 </div>
                 <div class="min600">
                     <div class="frame-common">
                         <div class="frame-content">
                             <img class ="squidmaster_img_big" src="squidmaster.png" />
-                            <p style="margin-bottom: 0px; margin-left: 20px; font-weight:normal">The check-in counter is open.<br> Please check in by presenting your squid game card at the check-in counter. Check-in is at your own risk and no one is forcing you to check-in.<br><br>
-                                All checked-in cards will receive basic income currency that will be used in Metaverse world. Please check out the <span class="minting-method-link" onclick="routeToOverview()">About LEEDO</span> tab for how much basic income will be provided per card. You can return at any time after the Metaverse migration at your own discretion. There is no penalty for mid-return.<br><br>
-                                Also, migration settlement support is provided once per squid game card. The quota for the grant is very different from card to card and will be paid out in blocks of 200,000, or approximately 31 days after check-in. However, please note that if the number of cards you checked in changes, you will have to wait another 31 days.<br><br>
-                                For more details, please refer to the <span class="minting-method-link" onclick="routeToLeedo()">LEEDO Token Payment Plan for Squid Game Card Metaverse Check-in Card</span> tab and we will see you inside.</p>
+                            <p style="margin-bottom: 0px; margin-left: 20px; font-weight:normal" data-langNum="tabs_8_content_3"></p>
     
                         </div>
                     </div>                    
                 </div>
                 <div class="frame-common">
-                    <p style="margin-bottom: 0px;"><b>Squid Game Card Check-in status</b></p>
+                    <p style="margin-bottom: 0px;" data-langNum="tabs_8_content_4"></p>
                     <div id="div-staking-info"style="width:100%; text-align: left;" class="stakinginfo"></div>
                 </div>
 
                 <div class="frame-common">
                     <div class="frame-content">
-                        <p><b>Squid Game Card contract address : </b></p>
+                        <p data-langNum="tabs_8_content_5"></p>
                         <span class="nft-address"></span>
                     </div>
                     <div class="frame-content">
-                        <p><b>Squid Game Card Staking contract address : </b></p>
+                        <p data-langNum="tabs_8_content_6"></p>
                         <span class="leedovault-address"></span>
                     </div>
                     <div class="frame-content">
-                        <p><b>LEEDO ERC20 token contract address : </b></p>
+                        <p data-langNum="tabs_8_content_7"></p>
                         <div style="display: flex;">
-                            <span style="margin-right: 5px;" class="add-token-link" onclick="RequestAddToken()"><b>Add LEEDO to wallet</b></span>
+                            <span style="margin-right: 5px;" class="add-token-link" onclick="RequestAddToken()" data-langNum="tabs_8_content_8"></span>
                             <span class="leedoerc20-address"></span>    
                         </div>
                     </div>
                     <div class="frame-content">
-                        <p><b>My address : </b></p>
+                        <p data-langNum="tabs_8_content_9"></p>
                         <span class="account-address"></span>
                     </div>
                 </div>
                 <div id="staking-body" style="display: none;">
 
                     <div class="frame-common">
-                        <p style="text-align: center; font-size: 25px; margin-bottom: 0px;"><b>LEEDO</b></p>
+                        <p style="text-align: center; font-size: 25px; margin-bottom: 0px;" data-langNum="tabs_8_content_10"></p>
                         <div id="erc20-claim-div-m"></div>  
                         <div class="frame-content">
                             <div>
-                                <p><b>Rewards</b></p>
-                                <p style="font-size: 25px; margin-top: 5px;"><b><span class="erc20-rewards"></span></b></p>
-                                <p style="font-size: 16px; margin-top: 10px; color:#818181">Claimed rewards</p>
+                                <p data-langNum="tabs_8_content_11"></p>
+                                <p style="font-size: 25px; margin-top: 5px;" data-langNum="tabs_8_content_12"></p>
+                                <p style="font-size: 16px; margin-top: 10px; color:#818181" data-langNum="tabs_8_content_13"></p>
                                 <div id="claimed-rewards-div">
                                     <p style="font-size: 16px; color:#818181"><b><span class="erc20-claimed-rewards"></span></b></p>
                                 </div>
@@ -646,20 +641,20 @@
                     <div style="display: flex; justify-content: stretch;">
                         <div class="frame-common">
                             <div class="frame-content">
-                                <p><b>Unstaked Cards</b></p>
+                                <p data-langNum="tabs_8_content_14"></p>
                                 <div style="text-align: center;">
                                     <p style="font-size: 25px; margin-top: 5px;"><b><span class="unstaked-cards"></span></b></p>
-                                    <p style="font-size:16px; color:#333333;">cards</p>
+                                    <p style="font-size:16px; color:#333333;" data-langNum="tabs_8_content_15"></p>
                                 </div>
                             </div>                        
                         </div>
                         <div style="width: 20px;"></div>
                         <div class="frame-common">
                             <div class="frame-content">
-                                <p><b>Staked Cards</b></p>
+                                <p data-langNum="tabs_8_content_16"></p>
                                 <div style="text-align: center;">
                                     <p style="font-size: 25px; margin-top: 5px;"><b><span class="staked-cards"></span></b></p>
-                                    <p style="font-size:16px; color:#333333;">cards</p>
+                                    <p style="font-size:16px; color:#333333;" data-langNum="tabs_8_content_17"></p>
                                 </div>
                             </div>
                         </div>        
@@ -668,9 +663,9 @@
                     <div class="frame-common">
                         <div style="width: 100%;">
                             <input style="display: none;" id="tab1" type="radio" name="staking-tabs" onclick="listTabData()" checked>
-                            <label for="tab1">Available for staking</label>
+                            <label for="tab1" data-langNum="tabs_8_content_18"></label>
                             <input style="display: none;" id="tab2" type="radio" name="staking-tabs" onclick="listTabData()" >
-                            <label for="tab2">Staked</label>
+                            <label for="tab2" data-langNum="tabs_8_content_19"></label>
 
                             <!-- <div style="display: flex; align-items: center; justify-content: center;"> -->
                                 <div id="deck-title"></div>
@@ -694,6 +689,7 @@
                     </div>
                 </div>
             </div>
+            <!-- tab end -->
         </div>
         <img id="spinner2" src="">
 
@@ -717,12 +713,13 @@
         </div>
 
 
-        <script src="./public/js/1.2.11-web3-min.js"></script> -->
+        <script src="./public/js/1.2.11-web3-min.js"></script>
         <script src="./public/js/5.2-umd-min.js" type="application/javascript"></script>
         <!-- script src="https://unpkg.com/@metamask/detect-provider/dist/detect-provider.min.js"></script -->
 
         <script src="./public/js/index.js" type="application/javascript"></script>
-
+        <script src="./public/js/locales.js" type="application/javascript"></script>
+        
     </div>
 </body>
 
