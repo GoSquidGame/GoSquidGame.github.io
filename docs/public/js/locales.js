@@ -156,6 +156,16 @@ $.lang.en = {
   tabs_5_content_37: `If I draw a ‘○○○’ or a ‘ㄱㄱㄱ’ card, can I win 5 ETH prize?`,
   tabs_5_content_38: `No. A card is randomly selected out of 456 cards in each round and if the card has same three consonants, such as ‘○○○’ and also there has been no 5 ETH prize winner by this time then its hodler can receive 5 ETH prize.`,
   tabs_5_content_39: `If 5 ETH prize awarded before, the hodler receives 1 ETH prize.`,
+  tabs_5_content_add_matic_network:
+    "How to add Matic Polygon Mainnet to Metamask wallet.",
+  tabs_5_content_add_matic_network_1:
+    "To add Polygon’s Mainnet, click on the Network selection dropdown and then click on Custom RPC.",
+  tabs_5_content_add_matic_network_2:
+    "Matic Polygon Mainnet Network Information",
+  tabs_5_content_add_matic_network_3:
+    "<b>Network Name : Matic Polygon Mainnet<br>New RPC URL : https://polygon-rpc.com/<br>Chain ID : 137<br>Currency Symbol : MATIC<br>Block Explorer URL : https://polygonscan.com/<b>",
+  tabs_5_content_add_matic_network_4:
+    "Once you’ve added the information click on Save. You will be directly switched to Polygon’s Mainnet now in the network dropdown list. ",
 
   tabs_6_content_1: `<strong>Technical Structure of Squid Game Metaverse</strong>`,
   tabs_6_content_2: `Squid Game Metaverse effectively and flexibly combines various technical resources developed in the blockchain ecosystem with the technical framework for existing web and mobile development environments.<br>Starting with the Ethereum mainnet, it will later expand to scaling chains including Polygon and Layer-2 chains.`,
@@ -371,6 +381,15 @@ $.lang.ko = {
   tabs_5_content_37: `‘○○○’ 카드나 ‘ㄱㄱㄱ’ 같은 카드를 뽑으면 5 이더 주는 건가요?`,
   tabs_5_content_38: `아닙니다. 5 이더를 받는 당첨자는 아직 5 이더 당첨자가 나오지 않은 상태에서, 매 라운드 456개의 카드 중 한개씩 뽑는 당첨 카드로 뽑힌 당첨 카드가 ‘○○○’ 같은 세 자음이 동일한 카드여야 합니다.`,
   tabs_5_content_39: `이미 5 이더 당첨자가 나와서 5 이더를 받아갔다면, 라운드 당첨자가 된 ‘○○○’ 같이 세 자음이 동일한 카드는 1 이더의 당첨금을 받게 됩니다.`,
+  tabs_5_content_add_matic_network:
+    "메타마스크 지갑에 Matic Polygon Mainnet 추가하는 방법.",
+  tabs_5_content_add_matic_network_1:
+    "Polygon의 메인넷을 추가하려면 네트워크 선택 드롭다운을 클릭한 다음 사용자 지정 RPC를 클릭합니다.",
+  tabs_5_content_add_matic_network_2: "Matic Polygon Mainnet 네트워크 정보",
+  tabs_5_content_add_matic_network_3:
+    "<b>Network Name : Matic Polygon Mainnet<br>New RPC URL : https://polygon-rpc.com/<br>Chain ID : 137<br>Currency Symbol : MATIC<br>Block Explorer URL : https://polygonscan.com/</b>",
+  tabs_5_content_add_matic_network_4:
+    "정보를 추가했으면 저장을 클릭합니다. 이제 네트워크 드롭다운 목록에서 Polygon의 메인넷으로 직접 전환됩니다.",
 
   tabs_6_content_1: `<strong>Technical Structure of Squid Game Metaverse</strong>`,
   tabs_6_content_2: `오징어게임 메타버스는 블록체인 생태계에서 개발된 다양한 기술 자원을 기존 웹 및 모바일 개발 환경을 위한 기술 프레임워크와 효과적이고 유연하게 결합합니다.<br>

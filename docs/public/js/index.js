@@ -7285,7 +7285,9 @@ jQuery.fn.valAnimate = function () {
   this.fadeOut().fadeIn("slow");
 };
 
-$("#accordion").accordion();
+$("#accordion").accordion({
+  heightStyle: "content",
+});
 
 // var img = document.getElementsByTagName("img");
 // for (var x = 0; x < img.length; x++) {
@@ -7393,7 +7395,7 @@ async function switchNetwork(targetNetwork) {
           ],
         });
       } catch (addError) {
-        console.log(addError);
+        console.log("Netword add failed... =>", addError);
         // Netword add failed...
         $("#metaverse-loading").hide();
       }
