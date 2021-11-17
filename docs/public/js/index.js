@@ -1607,6 +1607,14 @@ async function startApp() {
     //   return;
     // }
     chainId = currentChainId;
+    var activeTabIdx = $("#tabs").tabs("option", "active");
+    // console.log("activeTabIdx => ", activeTabIdx);
+    if (activeTabIdx === 0 && chainId != 1) {
+      // show current network information
+      $("#netword-info").show();
+    } else {
+      $("#netword-info").hide();
+    }
     await getAccount();
     showWinnerCard();
     if (chainId != 137 && chainId != 80001) {
@@ -6865,7 +6873,7 @@ getCardInfo = async (tokenId, kind) => {
       break;
   }
   var jsonInfo = JSON.parse(atob(tokenInfoBase64.substring(29)));
-  console.log("getCardInfo => ", jsonInfo);
+  // console.log("getCardInfo => ", jsonInfo);
   //   var jsonInfo = {
   //     image:
   //       "https://card-image-collection.s3.ap-northeast-2.amazonaws.com/cloudfront/" +
@@ -7124,8 +7132,8 @@ function bgColorChange(bgtype, isnetworkchange) {
       if (isnetworkchange && chainId != 80001) {
         //   switchNetwork(137); // matic
         switchNetwork(80001); // matic
-        setTheme("pupple");
       }
+      setTheme("pupple");
       home_body.style.backgroundColor = "#947CFF";
       tabs_bg.style.backgroundColor = "transparent";
       tabs_bg.style.border = "0px";
@@ -7258,3 +7266,16 @@ showMetaverseCardList = async (kind) => {
 
   checkInBody(kind);
 };
+
+var showWelcomecontent = true;
+function showLeedorianWelcome() {
+  var welcome_arrow = document.getElementById("welcome-arrow");
+  if (showWelcomecontent) {
+    $("#id-welcome-content").hide();
+    welcome_arrow.src = "arrow_down_pupple_ico.png";
+  } else {
+    $("#id-welcome-content").show();
+    welcome_arrow.src = "arrow_up_pupple_ico.png";
+  }
+  showWelcomecontent = !showWelcomecontent;
+}
