@@ -7144,7 +7144,8 @@ async function switchNetwork(targetNetwork) {
       network_rpt = "https://polygon-mainnet.g.alchemy.com/v2";
       break;
     case 80001:
-      network_rpt = "https://polygon-mumbai.g.alchemy.com/v2";
+      network_rpt = "https://matic-mumbai.chainstacklabs.com/";
+      // network_rpt = "https://polygon-mumbai.g.alchemy.com/v2";
       break;
   }
   try {
@@ -7153,7 +7154,8 @@ async function switchNetwork(targetNetwork) {
       params: [{ chainId: "0x" + targetNetwork.toString(16) }],
     });
   } catch (switchError) {
-    console.log("switchError =>", switchError);
+    // console.log("switchError =>", switchError);
+    // console.log("network_rpt => ", network_rpt);
     if (switchError.code === 4902) {
       try {
         await ethereum.request({
@@ -7167,6 +7169,8 @@ async function switchNetwork(targetNetwork) {
         });
       } catch (addError) {
         console.log(addError);
+        // Netword add failed...
+        $("#metaverse-loading").hide();
       }
     }
   }
