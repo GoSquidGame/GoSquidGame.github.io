@@ -1487,11 +1487,12 @@ const space_shuttle_img = [
   "Nuri4_homebanner_04.jpg",
 ];
 
-showBanner();
+// showBanner();
 
 window.addEventListener("load", function () {
   loadWeb3();
   if (typeof window.web3 !== "undefined") {
+    watchChainAccount();
     startApp();
   } else {
     alert("You need to install dapp browser first to use this site!");
@@ -1523,8 +1524,6 @@ function connectWallet() {
       $("#connect-btn").css("display", "none");
       $("#meta-connect-btn").css("display", "none");
 
-      loadWeb3();
-      watchChainAccount();
       startApp();
       //   $("#div-mintable").show();
       //   isMintingAvailable(true);
@@ -1589,62 +1588,40 @@ async function isMintingAvailable(iswalletconnected) {
 }
 
 async function startApp() {
-  // console.log('startApp')
+  console.log("startApp");
   try {
     var currentChainId = await web3.eth.getChainId();
-    //var currentChainId = parseInt(await ethereum.request({method: "eth_chainId"}));
-    // $(".networkName").html(networkList[currentChainId]);
-    // if (
-    //   currentChainId != 1 &&
-    //   currentChainId != 4 &&
-    //   currentChainId != 5 &&
-    //   currentChainId != 137 &&
-    //   currentChainId != 80001
-    // ) {
-    //   // var wrongChainMsg = "This site only works with " + networkList[1] + " or " + networkList[4] + ".<br> Please change the network of your Dapp browser.";
-    //   // showMsg(wrongChainMsg, true);
-    //   watchChainAccount();
-    //   return;
-    // }
     chainId = currentChainId;
     var activeTabIdx = $("#tabs").tabs("option", "active");
     // console.log("activeTabIdx => ", activeTabIdx);
     if (activeTabIdx === 0 && chainId != 1) {
       // show current network information
       $("#netword-info").show();
+    } else if (activeTabIdx === 1 && chainId != 80001 && chainId != 137) {
+      $("#metaverse-netword-info").show();
     } else {
       $("#netword-info").hide();
+      $("#metaverse-netword-info").hide();
     }
     await getAccount();
     showWinnerCard();
-    if (chainId != 137 && chainId != 80001) {
+    if (chainId === 1 || chainId === 4 || chainId === 5) {
       await fetchStakingInfo();
     }
 
     // initializeClock();
   } catch (err) {
-    console.log(err);
+    console.log("startApp => ", err);
   }
 }
 
 async function getAccount() {
   try {
     getContracts();
-    web3.currentProvider.on("accountsChanged", (accounts) => {
-      console.log("getAccount accountsChanged");
-      initStakingBody();
-      startApp();
-      // showMsg("<p>Your account has been changed!</p><button onclick='location.reload()'>Reload</button>");
-    });
-    web3.currentProvider.on("chainChanged", (chainId) => {
-      console.log("getAccount chainChanged");
-      initStakingBody();
-      startApp();
-      // showMsg("<p>Network (Chain) has been changed!</p><button onclick='location.reload()'>Reload</button>");
-    });
 
     var accounts = await web3.eth.getAccounts();
-    console.log("getAccount() => chainId => ", chainId);
+    // console.log("accounts => ", accounts);
+    // console.log("getAccount() => chainId => ", chainId);
     if (accounts.length > 0) {
       // myAddr = web3.utils.toChecksumAddress(accounts[0]);
       myAddr = accounts[0];
@@ -1663,7 +1640,6 @@ async function getAccount() {
 
         // isMintingAvailable(true);
         // $("#btnTopAllow").show();
-        $("#stake-loading").show();
         getApproved("leedoVault");
         getUnstakedBalance(-1);
         getStakedBalance(-1);
@@ -1689,7 +1665,7 @@ async function getAccount() {
     $("#metaverse-loading").hide();
     $("#metaverse-body").hide();
 
-    console.log(err);
+    console.log("getAccount => ", err);
   }
 }
 
@@ -6099,22 +6075,27 @@ showCard = async () => {
 
 async function fetchStakingInfo() {
   // total supply, staking  count
-  const totalSupply = await fetchTotalSupply();
-  const stakingNumber = await stakedCount();
+  try {
+    const totalSupply = await fetchTotalSupply();
+    const stakingNumber = await stakedCount();
 
-  const stakinginfo =
-    '<p style="margin-bottom:0px;"><b>' +
-    stakingNumber +
-    " cards staked of " +
-    totalSupply +
-    " cards </b></p>" +
-    '<progress class="staking-progress" value="' +
-    stakingNumber +
-    '" max="' +
-    totalSupply +
-    '"></progress>';
+    const stakinginfo =
+      '<p style="margin-bottom:0px;"><b>' +
+      stakingNumber +
+      " cards staked of " +
+      totalSupply +
+      " cards </b></p>" +
+      '<progress class="staking-progress" value="' +
+      stakingNumber +
+      '" max="' +
+      totalSupply +
+      '"></progress>';
 
-  $(".stakinginfo").html(stakinginfo);
+    $(".stakinginfo").html(stakinginfo);
+  } catch (error) {
+    console.log(error);
+    $("#stake-loading").hide();
+  }
   return;
 }
 async function stakedCount() {
@@ -6336,19 +6317,23 @@ function setRewardsClaimBtn() {
 }
 async function getApproved(_contract) {
   // console.log('getApproved');
-  switch (_contract) {
-    case "leedoErc20":
-      is_ERC20_Approved = await nftContract.methods
-        .isApprovedForAll(myAddr, leedoerc20Address)
-        .call();
-      // console.log('is_ERC20_Approved => ' ,is_ERC20_Approved);
-      break;
-    case "leedoVault":
-      is_Vault_Approved = await nftContract.methods
-        .isApprovedForAll(myAddr, leedovaultAddress)
-        .call();
-      // console.log('is_Vault_Approved => ' ,is_Vault_Approved);
-      break;
+  try {
+    switch (_contract) {
+      case "leedoErc20":
+        is_ERC20_Approved = await nftContract.methods
+          .isApprovedForAll(myAddr, leedoerc20Address)
+          .call();
+        // console.log('is_ERC20_Approved => ' ,is_ERC20_Approved);
+        break;
+      case "leedoVault":
+        is_Vault_Approved = await nftContract.methods
+          .isApprovedForAll(myAddr, leedovaultAddress)
+          .call();
+        // console.log('is_Vault_Approved => ' ,is_Vault_Approved);
+        break;
+    }
+  } catch (errorGetApproved) {
+    console.log(errorGetApproved);
   }
 
   return;
@@ -6857,41 +6842,36 @@ getCardInfo = async (tokenId, kind) => {
 
   // var yourCardsListBox = document.getElementById("yourCards");
   // var selectedTokenId = yourCardsListBox.options[yourCardsListBox.selectedIndex].value;
-  switch (kind) {
-    case "staked":
-      var tokenInfoBase64 = await leedovaultContract.methods
-        .tokenURI(tokenId)
-        .call();
-      break;
-    case "unstaked":
-      var tokenInfoBase64 = await nftContract.methods.tokenURI(tokenId).call();
-      break;
-    case "metaverse":
-      var tokenInfoBase64 = await leedorianContract.methods
-        .tokenURI(tokenId)
-        .call();
-      break;
+  try {
+    switch (kind) {
+      case "staked":
+        var tokenInfoBase64 = await leedovaultContract.methods
+          .tokenURI(tokenId)
+          .call();
+        break;
+      case "unstaked":
+        var tokenInfoBase64 = await nftContract.methods
+          .tokenURI(tokenId)
+          .call();
+        break;
+      case "metaverse":
+        var tokenInfoBase64 = await leedorianContract.methods
+          .tokenURI(tokenId)
+          .call();
+        break;
+    }
+    var jsonInfo = JSON.parse(atob(tokenInfoBase64.substring(29)));
+    // console.log("getCardInfo => ", jsonInfo);
+    //   var jsonInfo = {
+    //     image:
+    //       "https://card-image-collection.s3.ap-northeast-2.amazonaws.com/cloudfront/" +
+    //       tokenId +
+    //       ".svg",
+    //   };
+    return jsonInfo;
+  } catch (errGetCardInfo) {
+    console.log(errGetCardInfo);
   }
-  var jsonInfo = JSON.parse(atob(tokenInfoBase64.substring(29)));
-  // console.log("getCardInfo => ", jsonInfo);
-  //   var jsonInfo = {
-  //     image:
-  //       "https://card-image-collection.s3.ap-northeast-2.amazonaws.com/cloudfront/" +
-  //       tokenId +
-  //       ".svg",
-  //   };
-  return jsonInfo;
-  // var htmlStr = '<table class="center" border="1"><tr>'
-  // htmlStr += '<td>Name</td><td>' + jsonInfo.name + '</td>'
-  // htmlStr += '</tr><tr>'
-  // htmlStr += '<td>Description</td><td>' + jsonInfo.description + '</td>'
-  // htmlStr += '</tr><tr>'
-  // htmlStr += '<td>Image</td><td><img src="' + jsonInfo.image + '" height="200" /></td>'
-  // htmlStr += '</tr></table>'
-  // getElem("tokenInfo").innerHTML = "Selected Token ID: " + tokenId + "<p>" + htmlStr;
-  // this.setState({
-  //     selectedTokenId: selectedTokenId,
-  // });
 };
 
 async function fetchRoundInfo() {
@@ -7107,7 +7087,8 @@ function showBanner() {
 }
 
 function bgColorChange(bgtype, isnetworkchange) {
-  console.log("bgColorChange => ", bgtype);
+  // console.log("bgColorChange => ", bgtype);
+  // console.log("chainId => ", chainId);
 
   const home_body = document.getElementById("body-style");
   const tabs = document.getElementById("tabs");
@@ -7118,6 +7099,9 @@ function bgColorChange(bgtype, isnetworkchange) {
     case "white":
       if (isnetworkchange && chainId != 1) {
         switchNetwork(1); // ethereum mainnet
+        $("#netword-info").show();
+      } else {
+        $("#netword-info").hide();
       }
       setTheme("red");
       home_body.style.backgroundColor = "#FFFFFF";
@@ -7129,9 +7113,12 @@ function bgColorChange(bgtype, isnetworkchange) {
 
       break;
     case "pupple":
-      if (isnetworkchange && chainId != 80001) {
+      if (isnetworkchange && chainId != 80001 && chainId != 137) {
         //   switchNetwork(137); // matic
         switchNetwork(80001); // matic
+        $("#metaverse-netword-info").show();
+      } else {
+        $("#metaverse-netword-info").hide();
       }
       setTheme("pupple");
       home_body.style.backgroundColor = "#947CFF";
@@ -7146,7 +7133,8 @@ function bgColorChange(bgtype, isnetworkchange) {
 
 /* Switch Network */
 async function switchNetwork(targetNetwork) {
-  console.log("switchNetwork =>", targetNetwork);
+  // console.log("switchNetwork =>", targetNetwork);
+
   let network_rpt = "https://eth-mainnet.alchemyapi.io/v2";
   switch (targetNetwork) {
     case 1:
@@ -7193,23 +7181,27 @@ showMetaverseCardList = async (kind) => {
   $("#metaverse-loading").show();
 
   let tokenId = [];
-  console.log("myAddr => ", myAddr);
+  // console.log("myAddr => ", myAddr);
+  try {
+    switch (kind) {
+      case "metaverse":
+        //   console.log("metaverse");
+        //   console.log("staked_cards => ", staked_cards);
+        //   console.log("stakedIds => ", stakedIds);
+        //   console.log("leedorianContract => ", leedorianContract);
+        if (stakedIds.length == 0) {
+          stakedIds = await leedorianContract.methods.tokensOf(myAddr).call();
+          tokenId = stakedIds;
+          // console.log('stakedIds =>',stakedIds);
+        } else {
+          tokenId = stakedIds;
+        }
 
-  switch (kind) {
-    case "metaverse":
-      //   console.log("metaverse");
-      //   console.log("staked_cards => ", staked_cards);
-      //   console.log("stakedIds => ", stakedIds);
-      //   console.log("leedorianContract => ", leedorianContract);
-      if (stakedIds.length == 0) {
-        stakedIds = await leedorianContract.methods.tokensOf(myAddr).call();
-        tokenId = stakedIds;
-        // console.log('stakedIds =>',stakedIds);
-      } else {
-        tokenId = stakedIds;
-      }
-
-      break;
+        break;
+    }
+  } catch (errorCardList) {
+    console.log(errorCardList);
+    $("#metaverse-loading").hide();
   }
 
   let arr = [];

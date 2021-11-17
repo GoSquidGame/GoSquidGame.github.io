@@ -3,7 +3,7 @@ var lang = "en";
 // class name _ number
 // - error => _ under bar
 $.lang.en = {
-  button_lang : "ko",
+  button_lang: "ko",
 
   tabs_1: "Events",
   tabs_2: "Overview",
@@ -207,16 +207,18 @@ $.lang.en = {
   tabs_8_content_18: `Available for staking`,
   tabs_8_content_19: `Staked`,
   tabs_8_content_network_info:
-    "Check your wallet is connected to the Ethereum Mainnet.<br>To Use Squid Game Card Check-in counter, please switch to Ethereum Mainnet.",
+    "Check your wallet is connected to the Ethereum Mainnet.<br>To Use Check-in counter, please switch to Ethereum Mainnet.",
 
   tabs_9_content_1: "<b>Leedorian Metaverse contract address : </b>",
   tabs_9_content_welcome: "<b>Welcome to the Leedorian metaverse!</b>",
   tabs_9_content_info:
-    "Built on a planet that can use gas hundreds of times a day, away from the mainnet polluted by high gas bills, the Leedorian metaverse will give you unlimited freedom.<br>It's free, but it can still be boring. Because there is no game yet. A game center for numerous games is under construction. Once the game center is complete, anyone can easily create games, earn money from their games, and earn money by participating in games.<br>For the day when everyone can enjoy the real freedom of not using up the LEEDO that keeps accumulating in the wallet!<br><br><b>Long live Leedorian!</b>",
+    "Built on a planet that can use gas hundreds of times a day, away from the mainnet polluted by high gas bills, the Leedorian metaverse will give you unlimited freedom.<br>It's free, but it can still be boring. Because there is no game yet.<br> A game center for numerous games is under construction. Once the game center is complete, anyone can easily create games, earn money from their games, and earn money by participating in games.<br>For the day when everyone can enjoy the real freedom of not using up the LEEDO that keeps accumulating in the wallet!<br><br><b>Long live Leedorian!</b>",
+  tabs_9_content_network_info:
+    "Check your wallet is connected to the Matic Polygon Mainnet.<br>To Use Leedorian Metaverse, please switch to Matic Polygon Mainnet.",
 };
 
 $.lang.ko = {
-  button_lang : "en",
+  button_lang: "en",
 
   tabs_1: "현재 진행 중인 이벤트",
   tabs_2: "개요",
@@ -431,26 +433,27 @@ $.lang.ko = {
   tabs_8_content_18: `Available for staking`,
   tabs_8_content_19: `Staked`,
   tabs_8_content_network_info:
-    "지갑이 이더리움 메인넷에 연결되어 있는지 확인하세요.<br>오징어게임 카드 체크인 카운터를 이용하시려면 이더리움 메인넷으로 전환하시기 바랍니다.",
+    "지갑이 이더리움 메인넷에 연결되어 있는지 확인하세요.<br>체크인 카운터를 이용하시려면 이더리움 메인넷으로 전환하시기 바랍니다.",
 
   tabs_9_content_1: "<b>Leedorian Metaverse contract address : </b>",
   tabs_9_content_welcome: "<b>Leedorian 메타버스에 오신 것을 환영합니다!</b>",
   tabs_9_content_info:
-    "높은 가스비로 오염된 메인넷을 떠나, 매일 수백번씩 가스를 써도 되는 행성에 구축된 Leedorian 메타버스는 여러분에게 무한한 자유를 선사할 것입니다.<br>자유롭긴 하지만 아직은 심심하실 수 있습니다. 아직 게임이 없기 때문이죠. 수많은 게임들이 입주할 게임센터가 건설 중입니다. 게임 센터가 완공되면, 누구나 쉽게 게임을 만들고, 자신이 만든 게임으로 돈을 벌 수 있고, 게임에 참여해서 돈을 벌 수 있습니다.<br>계속 지갑에 쌓이는 LEEDO를 다 쓰지 못하는 진짜 자유를 모두가 누리는 그날을 위해!<br><br><b>Leedorian 만세!</b>",
+    "높은 가스비로 오염된 메인넷을 떠나, 매일 수백번씩 가스를 써도 되는 행성에 구축된 Leedorian 메타버스는 여러분에게 무한한 자유를 선사할 것입니다.<br>자유롭긴 하지만 아직은 심심하실 수 있습니다. 아직 게임이 없기 때문이죠.<br> 수많은 게임들이 입주할 게임센터가 건설 중입니다. 게임 센터가 완공되면, 누구나 쉽게 게임을 만들고, 자신이 만든 게임으로 돈을 벌 수 있고, 게임에 참여해서 돈을 벌 수 있습니다.<br>계속 지갑에 쌓이는 LEEDO를 다 쓰지 못하는 진짜 자유를 모두가 누리는 그날을 위해!<br><br><b>Leedorian 만세!</b>",
+  tabs_9_content_network_info:
+    "지갑이 Matic Polygon 메인넷에 연결되어 있는지 확인하세요.<br>Leedorian 메타버스를 이용하시려면 Matic Polygon 메인넷으로 전환하시기 바랍니다.",
 };
 //start en
 setLanguage(lang);
 
 function setLanguage(currentLanguage) {
-  console.log("setLanguage", arguments);
-  console.log(arguments[0])
+  // console.log("setLanguage", arguments);
+  // console.log(arguments[0]);
   //button hide show
   $("button[class='ko button-small lang-switch-btn']").hide();
   $("button[class='en button-small lang-switch-btn']").hide();
-  if(arguments[0] ==="en"){
+  if (arguments[0] === "en") {
     $("button[class='ko button-small lang-switch-btn']").show();
-  }
-  else if(arguments[0] === "ko"){
+  } else if (arguments[0] === "ko") {
     $("button[class='en button-small lang-switch-btn']").show();
   }
 
@@ -458,12 +461,11 @@ function setLanguage(currentLanguage) {
     var $this = $(this);
     $this.html($.lang[currentLanguage][$this.data("langnum")]);
   });
-  
 }
 // var lang = $('en').data('lang');
 // setLanguage(lang);
 $("button[name='btn-lang']").click(function () {
   var lang = $(this).data("lang");
-  console.log(lang)
+  // console.log(lang);
   setLanguage(lang);
 });
