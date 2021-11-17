@@ -7193,8 +7193,6 @@ showMetaverseCardList = async (kind) => {
   $("#metaverse-loading").show();
 
   let tokenId = [];
-  let myAddrBalanceOf = 0;
-  checkInTokenIdList = [];
   console.log("myAddr => ", myAddr);
 
   switch (kind) {
@@ -7203,7 +7201,6 @@ showMetaverseCardList = async (kind) => {
       //   console.log("staked_cards => ", staked_cards);
       //   console.log("stakedIds => ", stakedIds);
       //   console.log("leedorianContract => ", leedorianContract);
-      myAddrBalanceOf = staked_cards;
       if (stakedIds.length == 0) {
         stakedIds = await leedorianContract.methods.tokensOf(myAddr).call();
         tokenId = stakedIds;
@@ -7222,13 +7219,25 @@ showMetaverseCardList = async (kind) => {
       return getCardInfo(id, "metaverse");
     })
   );
-  cardInfoList.forEach((info, i) => {
-    arr.push({ tokenId: tokenId[i], image: info.image });
-  });
 
-  arr.sort(function (a, b) {
-    return parseFloat(a.tokenId) - parseFloat(b.tokenId);
-  });
+  if (cardInfoList.length > 0) {
+    $("#no-card-div").hide();
+    $("#deck-outside").show();
+
+    cardInfoList.forEach((info, i) => {
+      arr.push({ tokenId: tokenId[i], image: info.image });
+    });
+
+    arr.sort(function (a, b) {
+      return parseFloat(a.tokenId) - parseFloat(b.tokenId);
+    });
+
+    metaverseDeck(arr);
+  } else {
+    $("#no-card-div").show();
+    $("#deck-outside").hide();
+    document.getElementById("deck-metaverse").innerHTML = "";
+  }
 
   function metaverseDeck(arr) {
     document.getElementById("deck-metaverse").innerHTML = "";
@@ -7258,8 +7267,6 @@ showMetaverseCardList = async (kind) => {
       document.getElementById("deck-metaverse").appendChild(card);
     }
   }
-
-  metaverseDeck(arr);
 
   $("#metaverse-loading").hide();
   // $("#staking-body").show();
