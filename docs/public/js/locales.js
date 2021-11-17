@@ -3,6 +3,8 @@ var lang = "en";
 // class name _ number
 // - error => _ under bar
 $.lang.en = {
+  button_lang : "ko",
+
   tabs_1: "Events",
   tabs_2: "Overview",
   tabs_3: "Roadmap",
@@ -214,6 +216,8 @@ $.lang.en = {
 };
 
 $.lang.ko = {
+  button_lang : "en",
+
   tabs_1: "현재 진행 중인 이벤트",
   tabs_2: "개요",
   tabs_3: "로드맵",
@@ -439,16 +443,27 @@ setLanguage(lang);
 
 function setLanguage(currentLanguage) {
   console.log("setLanguage", arguments);
+  console.log(arguments[0])
+  //button hide show 
+  $('#button-en').hide();
+  $('#button-ko').hide();
+  if(arguments[0] ==="en"){
+    $('#button-ko').show();
+  }
+  else if(arguments[0] === "ko"){
+    $('#button-en').show();
+  }
 
   $("[data-langNum]").each(function () {
     var $this = $(this);
     $this.html($.lang[currentLanguage][$this.data("langnum")]);
   });
+  
 }
 // var lang = $('en').data('lang');
 // setLanguage(lang);
 $("button[name='btn-lang']").click(function () {
   var lang = $(this).data("lang");
-  // console.log(lang)
+  console.log(lang)
   setLanguage(lang);
 });
