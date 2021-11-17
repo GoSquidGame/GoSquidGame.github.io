@@ -224,7 +224,7 @@ $.lang.en = {
   tabs_9_content_info:
     "Built on a planet that can use gas hundreds of times a day, away from the Ethereum mainnet polluted by high gas bills, the Leedorian metaverse will give you unlimited freedom.<br>It's free, but it can still be boring. Because there is no game yet.<br> A game center for numerous games is under construction. Once the game center is complete, anyone can easily create games, earn money from their games, and earn money by participating in games.<br>For the day when everyone can enjoy the real freedom of not using up the LEEDO that keeps accumulating in the wallet!<br><br><b>Long live Leedorian!</b>",
   tabs_9_content_network_info:
-    "Check your wallet is connected to the Matic Polygon Mainnet.<br>To Use Leedorian Metaverse, please switch to Matic Polygon Mainnet.",
+    "Check your wallet is connected to the Matic Polygon Mainnet.<br>To Use Leedorian Metaverse, please switch to Matic Polygon Mainnet.<br>Please refer to the FAQ on how to add a network to your Metamask wallet.",
 };
 
 $.lang.ko = {
@@ -234,7 +234,7 @@ $.lang.ko = {
   tabs_2: "개요",
   tabs_3: "로드맵",
   tabs_4: "Free Minting",
-  tabs_5: "질문",
+  tabs_5: "FAQ",
   tabs_6: "구조",
   tabs_7: "LEEDO Plan",
   tabs_8: "체크인 카운터",
@@ -459,7 +459,7 @@ $.lang.ko = {
   tabs_9_content_info:
     "높은 가스비로 오염된 이더리움 메인넷을 떠나, 매일 수백번씩 가스를 써도 되는 행성에 구축된 Leedorian 메타버스는 여러분에게 무한한 자유를 선사할 것입니다.<br>자유롭긴 하지만 아직은 심심하실 수 있습니다. 아직 게임이 없기 때문이죠.<br> 수많은 게임들이 입주할 게임센터가 건설 중입니다. 게임 센터가 완공되면, 누구나 쉽게 게임을 만들고, 자신이 만든 게임으로 돈을 벌 수 있고, 게임에 참여해서 돈을 벌 수 있습니다.<br>계속 지갑에 쌓이는 LEEDO를 다 쓰지 못하는 진짜 자유를 모두가 누리는 그날을 위해!<br><br><b>Leedorian 만세!</b>",
   tabs_9_content_network_info:
-    "지갑이 Matic Polygon 메인넷에 연결되어 있는지 확인하세요.<br>Leedorian 메타버스를 이용하시려면 Matic Polygon 메인넷으로 전환하시기 바랍니다.",
+    "지갑이 Matic Polygon 메인넷에 연결되어 있는지 확인하세요.<br>Leedorian 메타버스를 이용하시려면 Matic Polygon 메인넷으로 전환하시기 바랍니다.<br>메타마스크 지갑에 네트워크를 추가하는 방법은 FAQ를 참조하세요.",
 };
 //start en
 setLanguage(lang);
