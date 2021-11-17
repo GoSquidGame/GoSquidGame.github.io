@@ -444,14 +444,14 @@ setLanguage(lang);
 function setLanguage(currentLanguage) {
   console.log("setLanguage", arguments);
   console.log(arguments[0])
-  //button hide show 
-  $('#button-en').hide();
-  $('#button-ko').hide();
+  //button hide show
+  $("button[class='ko button-small lang-switch-btn']").hide();
+  $("button[class='en button-small lang-switch-btn']").hide();
   if(arguments[0] ==="en"){
-    $('#button-ko').show();
+    $("button[class='ko button-small lang-switch-btn']").show();
   }
   else if(arguments[0] === "ko"){
-    $('#button-en').show();
+    $("button[class='en button-small lang-switch-btn']").show();
   }
 
   $("[data-langNum]").each(function () {
