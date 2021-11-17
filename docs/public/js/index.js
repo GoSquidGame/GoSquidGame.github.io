@@ -7098,7 +7098,7 @@ function showBanner() {
   }, 4000);
 }
 
-function bgColorChange(bgtype) {
+function bgColorChange(bgtype, isnetworkchange) {
   console.log("bgColorChange => ", bgtype);
 
   const home_body = document.getElementById("body-style");
@@ -7108,7 +7108,9 @@ function bgColorChange(bgtype) {
 
   switch (bgtype) {
     case "white":
-      switchNetwork(1); // ethereum mainnet
+      if (isnetworkchange && chainId != 1) {
+        switchNetwork(1); // ethereum mainnet
+      }
       setTheme("red");
       home_body.style.backgroundColor = "#FFFFFF";
       home_body.style.backgroundImage = "none";
@@ -7119,9 +7121,11 @@ function bgColorChange(bgtype) {
 
       break;
     case "pupple":
-      //   switchNetwork(137); // matic
-      switchNetwork(80001); // matic
-      setTheme("pupple");
+      if (isnetworkchange && chainId != 80001) {
+        //   switchNetwork(137); // matic
+        switchNetwork(80001); // matic
+        setTheme("pupple");
+      }
       home_body.style.backgroundColor = "#947CFF";
       tabs_bg.style.backgroundColor = "transparent";
       tabs_bg.style.border = "0px";
