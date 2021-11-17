@@ -5761,6 +5761,231 @@ async function getContracts() {
       ];
     } else if (chainId == 137) {
       // Matic Polygon mainnet
+      leedorianAddress = "0x27A3e1e71B6f4C8f388e55C01c8Bb49139492071";
+      leedorianAbi = [
+        { inputs: [], stateMutability: "nonpayable", type: "constructor" },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "previousOwner",
+              type: "address",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "newOwner",
+              type: "address",
+            },
+          ],
+          name: "OwnershipTransferred",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "address",
+              name: "account",
+              type: "address",
+            },
+          ],
+          name: "Paused",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "from",
+              type: "address",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "to",
+              type: "address",
+            },
+            {
+              indexed: true,
+              internalType: "uint256",
+              name: "tokenId",
+              type: "uint256",
+            },
+          ],
+          name: "Transfer",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "address",
+              name: "account",
+              type: "address",
+            },
+          ],
+          name: "Unpaused",
+          type: "event",
+        },
+        {
+          inputs: [
+            { internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" },
+            { internalType: "address[]", name: "_addrs", type: "address[]" },
+          ],
+          name: "add",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [{ internalType: "address", name: "_addr", type: "address" }],
+          name: "balanceOf",
+          outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            { internalType: "address[]", name: "_froms", type: "address[]" },
+            { internalType: "address[]", name: "_tos", type: "address[]" },
+            { internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" },
+          ],
+          name: "bulkTransfer",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            { internalType: "uint256", name: "_tokenId", type: "uint256" },
+          ],
+          name: "getConsonants",
+          outputs: [{ internalType: "string[3]", name: "", type: "string[3]" }],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            { internalType: "uint256", name: "_tokenId", type: "uint256" },
+          ],
+          name: "getConsonantsIndex",
+          outputs: [{ internalType: "uint8[3]", name: "", type: "uint8[3]" }],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            { internalType: "uint256", name: "_tokenId", type: "uint256" },
+          ],
+          name: "getGenes",
+          outputs: [{ internalType: "uint8[8]", name: "", type: "uint8[8]" }],
+          stateMutability: "pure",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "owner",
+          outputs: [{ internalType: "address", name: "", type: "address" }],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            { internalType: "uint256", name: "_tokenId", type: "uint256" },
+          ],
+          name: "ownerOf",
+          outputs: [{ internalType: "address", name: "", type: "address" }],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "pause",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "paused",
+          outputs: [{ internalType: "bool", name: "", type: "bool" }],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            { internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" },
+          ],
+          name: "remove",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "renounceOwnership",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            { internalType: "uint256", name: "_tokenId", type: "uint256" },
+          ],
+          name: "tokenURI",
+          outputs: [{ internalType: "string", name: "", type: "string" }],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [{ internalType: "address", name: "_addr", type: "address" }],
+          name: "tokensOf",
+          outputs: [{ internalType: "uint256[]", name: "", type: "uint256[]" }],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "totalSupply",
+          outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            { internalType: "address", name: "_from", type: "address" },
+            { internalType: "address", name: "_to", type: "address" },
+            { internalType: "uint256", name: "_tokenId", type: "uint256" },
+          ],
+          name: "transfer",
+          outputs: [{ internalType: "bool", name: "", type: "bool" }],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            { internalType: "address", name: "newOwner", type: "address" },
+          ],
+          name: "transferOwnership",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "unpause",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+      ];
     } else if (chainId == 80001) {
       // Matic Mombai testnet
       leedorianAddress = "0x27A3e1e71B6f4C8f388e55C01c8Bb49139492071";
@@ -6992,10 +7217,10 @@ function getTimeRemaining(endtime) {
   };
 }
 
-function routeToFreeMinting() {
-  $("#tabs").tabs({ active: 4 });
-  window.scrollTo(0, 0);
-}
+// function routeToFreeMinting() {
+//   $("#tabs").tabs({ active: 4 });
+//   window.scrollTo(0, 0);
+// }
 
 function routeToOverview() {
   $("#tabs").tabs({ active: 2 });
@@ -7114,8 +7339,8 @@ function bgColorChange(bgtype, isnetworkchange) {
       break;
     case "pupple":
       if (isnetworkchange && chainId != 80001 && chainId != 137) {
-        //   switchNetwork(137); // matic
-        switchNetwork(80001); // matic
+        switchNetwork(137); // matic polygon mainnet
+        // switchNetwork(80001); // matic mumbai testnet
         $("#metaverse-netword-info").show();
       } else {
         $("#metaverse-netword-info").hide();
