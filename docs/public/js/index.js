@@ -7408,6 +7408,7 @@ showMetaverseCardList = async (kind) => {
   $("#metaverse-loading").show();
 
   let tokenId = [];
+  let arrived_card_cnt = 0;
   // console.log("myAddr => ", myAddr);
   try {
     switch (kind) {
@@ -7423,6 +7424,7 @@ showMetaverseCardList = async (kind) => {
         } else {
           tokenId = stakedIds;
         }
+        arrived_card_cnt = stakedIds.length;
 
         break;
     }
@@ -7439,10 +7441,16 @@ showMetaverseCardList = async (kind) => {
     })
   );
 
+  // console.log("arrived_card_cnt =>", arrived_card_cnt);
+  document.getElementById("div-arrived-cards").innerHTML =
+    '<p style="font-size:20px; text-align: center; margin-bottom: 0px; color: #5a2c99;"><b>Arrived Cards : ' +
+    arrived_card_cnt +
+    " </b></p>";
+
   if (cardInfoList.length > 0) {
     $("#no-card-div").hide();
+    $("#div-arrived-cards").show();
     $("#deck-outside").show();
-
     cardInfoList.forEach((info, i) => {
       arr.push({ tokenId: tokenId[i], image: info.image });
     });
@@ -7454,6 +7462,7 @@ showMetaverseCardList = async (kind) => {
     metaverseDeck(arr);
   } else {
     $("#no-card-div").show();
+    $("#div-arrived-cards").hide();
     $("#deck-outside").hide();
     document.getElementById("deck-metaverse").innerHTML = "";
   }
