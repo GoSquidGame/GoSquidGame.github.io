@@ -1477,6 +1477,7 @@ var unstaked_cards = 0;
 
 let unstakedIds = [];
 let stakedIds = [];
+let arrivedIds = [];
 
 var RewardCounterInterval;
 
@@ -1687,6 +1688,7 @@ function initStakingBody() {
   $("#staking-body").hide();
   unstakedIds = [];
   stakedIds = [];
+  arrivedIds = [];
 }
 
 function showMsg(msg, hideClose) {
@@ -6651,6 +6653,7 @@ async function checkIn() {
         checkInTokenIdList = [];
         stakedIds = [];
         unstakedIds = [];
+        arrivedIds = [];
         getUnstakedBalance(unstaked_cards);
         getStakedBalance(staked_cards);
         getRewardsBalance();
@@ -6697,6 +6700,7 @@ async function checkOut() {
         checkInTokenIdList = [];
         stakedIds = [];
         unstakedIds = [];
+        arrivedIds = [];
         getUnstakedBalance(unstaked_cards);
         getStakedBalance(staked_cards);
         getRewardsBalance();
@@ -7417,14 +7421,14 @@ showMetaverseCardList = async (kind) => {
         //   console.log("staked_cards => ", staked_cards);
         //   console.log("stakedIds => ", stakedIds);
         //   console.log("leedorianContract => ", leedorianContract);
-        if (stakedIds.length == 0) {
-          stakedIds = await leedorianContract.methods.tokensOf(myAddr).call();
-          tokenId = stakedIds;
+        if (arrivedIds.length == 0) {
+          arrivedIds = await leedorianContract.methods.tokensOf(myAddr).call();
+          tokenId = arrivedIds;
           // console.log('stakedIds =>',stakedIds);
         } else {
-          tokenId = stakedIds;
+          tokenId = arrivedIds;
         }
-        arrived_card_cnt = stakedIds.length;
+        arrived_card_cnt = arrivedIds.length;
 
         break;
     }
