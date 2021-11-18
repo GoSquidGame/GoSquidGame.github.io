@@ -1,13 +1,12 @@
 $.lang = {};
 let nav_lang = undefined;
-if(navigator.language != null) {
+if (navigator.language != null) {
   nav_lang = navigator.language;
-}
-else{
+} else {
   nav_lang = "en";
 }
 let lang = nav_lang;
-console.log("navigator language =" , lang)
+console.log("navigator language =", lang);
 // class name _ number
 // - error => _ under bar
 $.lang.en = {
@@ -235,13 +234,8 @@ $.lang.en = {
     "Check your wallet is connected to the Matic Polygon Mainnet.<br>To Use Leedorian Metaverse, please switch to Matic Polygon Mainnet.<br>Please refer to the FAQ on how to add a network to your Metamask wallet.",
 };
 
-<<<<<<< HEAD
-$.lang.ko = {
-  button_lang: "en",
-=======
 $.lang["ko-KR"] = {
-  button_lang : "en",
->>>>>>> feature-cleanup
+  button_lang: "en",
 
   tabs_1: "현재 진행 중인 이벤트",
   tabs_2: "개요",
@@ -485,8 +479,7 @@ function setLanguage(currentLanguage) {
   $("button[class='en button-small lang-switch-btn']").hide();
   if (arguments[0] === "en") {
     $("button[class='ko button-small lang-switch-btn']").show();
-  }
-  else if(arguments[0] === "ko-KR"){
+  } else if (arguments[0] === "ko-KR") {
     $("button[class='en button-small lang-switch-btn']").show();
   }
 
