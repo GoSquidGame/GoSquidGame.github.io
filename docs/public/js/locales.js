@@ -1,12 +1,12 @@
 $.lang = {};
 let nav_lang = undefined;
-if (navigator.language != null) {
-  nav_lang = navigator.language;
+if (navigator.language === "ko-KR" || navigator.language === "ko") {
+  nav_lang = "ko";
 } else {
   nav_lang = "en";
 }
 let lang = nav_lang;
-console.log("navigator language =", lang);
+// console.log("navigator language =" , lang)
 // class name _ number
 // - error => _ under bar
 $.lang.en = {
@@ -234,7 +234,7 @@ $.lang.en = {
     "Check your wallet is connected to the Matic Polygon Mainnet.<br>To Use Leedorian Metaverse, please switch to Matic Polygon Mainnet.<br>Please refer to the FAQ on how to add a network to your Metamask wallet.",
 };
 
-$.lang["ko-KR"] = {
+$.lang.ko = {
   button_lang: "en",
 
   tabs_1: "현재 진행 중인 이벤트",
@@ -472,14 +472,14 @@ $.lang["ko-KR"] = {
 setLanguage(lang);
 
 function setLanguage(currentLanguage) {
-  console.log("setLanguage", arguments);
+  // console.log("setLanguage", arguments);
   // console.log(arguments[0])
   //button hide show
   $("button[class='ko button-small lang-switch-btn']").hide();
   $("button[class='en button-small lang-switch-btn']").hide();
   if (arguments[0] === "en") {
     $("button[class='ko button-small lang-switch-btn']").show();
-  } else if (arguments[0] === "ko-KR") {
+  } else if (arguments[0] === "ko") {
     $("button[class='en button-small lang-switch-btn']").show();
   }
 
@@ -492,6 +492,6 @@ function setLanguage(currentLanguage) {
 // setLanguage(lang);
 $("button[name='btn-lang']").click(function () {
   var lang = $(this).data("lang");
-  // console.log(lang);
+  // console.log(lang)
   setLanguage(lang);
 });
