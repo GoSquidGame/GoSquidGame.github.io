@@ -6428,24 +6428,28 @@ showCardList = async (kind) => {
       let descriptionBox = document.createElement("div");
       let tokenId = document.createElement("div");
       let checkBox = document.createElement("div");
+      let label=document.createElement("div");;
       card.className = "card";
       imgBox.className = "imgbox";
       descriptionBox.className = "descriptionBox";
       tokenId.className = "tokenID";
       checkBox.className = "checkBox";
-
+      
+      label.innerHTML = ``;
       imgBox.innerHTML =
-        '<img style="width: auto; height: auto; max-width: 200px; "  src="' +
-        arr[i].image +
-        '"/>';
-      tokenId.innerHTML = "#" + arr[i].tokenId;
-      checkBox.innerHTML = `<input style="width:20px;height:20px; " type="checkbox"  value="${arr[i].tokenId}" onclick ="checkBoxClick(this)"/>`;
-      card.appendChild(imgBox);
+        `<label class="checkbox-label" for="checkBox${arr[i].tokenId}" />
+        <img style="width: auto; height: auto; max-width: 200px; "  src="${arr[i].image}" />         
+        `;
+         
+      tokenId.innerHTML = `#${arr[i].tokenId} </label>`;
+      checkBox.innerHTML = `<input id="checkBox${arr[i].tokenId}" style="width:20px;height:20px; " type="checkbox"  value="${arr[i].tokenId}" onclick ="checkBoxClick(this)"/>`;
+      card.appendChild(imgBox);;
       card.appendChild(descriptionBox);
       descriptionBox.appendChild(tokenId);
       descriptionBox.appendChild(checkBox);
 
       document.getElementById("deck").appendChild(card);
+      
     }
   }
 
