@@ -1,13 +1,13 @@
 $.lang = {};
 let nav_lang = undefined;
-if(navigator.language != null) {
-  nav_lang = navigator.language;
+if(navigator.language === "ko-KR" || navigator.language === "ko" ) {
+  nav_lang = "ko";
 }
 else{
   nav_lang = "en";
 }
 let lang = nav_lang;
-console.log("navigator language =" , lang)
+// console.log("navigator language =" , lang)
 // class name _ number
 // - error => _ under bar
 $.lang.en = {
@@ -223,7 +223,7 @@ $.lang.en = {
     "Built on a planet that can use gas hundreds of times a day, away from the mainnet polluted by high gas bills, the Leedorian metaverse will give you unlimited freedom.<br>It's free, but it can still be boring. Because there is no game yet. A game center for numerous games is under construction. Once the game center is complete, anyone can easily create games, earn money from their games, and earn money by participating in games.<br>For the day when everyone can enjoy the real freedom of not using up the LEEDO that keeps accumulating in the wallet!<br><br><b>Long live Leedorian!</b>",
 };
 
-$.lang["ko-KR"] = {
+$.lang.ko = {
   button_lang : "en",
 
   tabs_1: "현재 진행 중인 이벤트",
@@ -450,7 +450,7 @@ $.lang["ko-KR"] = {
 setLanguage(lang);
 
 function setLanguage(currentLanguage) {
-  console.log("setLanguage", arguments);
+  // console.log("setLanguage", arguments);
   // console.log(arguments[0])
   //button hide show
   $("button[class='ko button-small lang-switch-btn']").hide();
@@ -458,7 +458,7 @@ function setLanguage(currentLanguage) {
   if(arguments[0] ==="en"){
     $("button[class='ko button-small lang-switch-btn']").show();
   }
-  else if(arguments[0] === "ko-KR"){
+  else if(arguments[0] === "ko"){
     $("button[class='en button-small lang-switch-btn']").show();
   }
 
@@ -472,6 +472,6 @@ function setLanguage(currentLanguage) {
 // setLanguage(lang);
 $("button[name='btn-lang']").click(function () {
   var lang = $(this).data("lang");
-  console.log(lang)
+  // console.log(lang)
   setLanguage(lang);
 });
