@@ -924,6 +924,11 @@ ul.staking-content p {
 
   color: #333333;
 }
+.checkbox-label {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+}
 
 input {
   display: none;
@@ -940,6 +945,7 @@ label:hover {
   color: #ce113b;
   cursor: pointer;
 }
+
 input:checked + label {
   color: #ce113b;
   border: 0px;

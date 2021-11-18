@@ -6217,20 +6217,31 @@ showCardList = async (kind) => {
     for (let i = 0; i < arr.length; i++) {
       let card = document.createElement("div");
       let imgBox = document.createElement("div");
+      let descriptionBox = document.createElement("div");
+      let tokenId = document.createElement("div");
+      let checkBox = document.createElement("div");
+      let label=document.createElement("div");;
       card.className = "card";
       imgBox.className = "imgbox";
-
+      descriptionBox.className = "descriptionBox";
+      tokenId.className = "tokenID";
+      checkBox.className = "checkBox";
+      
+      label.innerHTML = ``;
       imgBox.innerHTML =
-        `
-        <label for="checkBox${arr[i].tokenId}" style="color:black">
-        <img style="width: 200px;height: 100px;max-width: 500px; "  src="${arr[i].image}"/>
-        #${arr[i].tokenId}
-        </label>
-        <input id="checkBox${arr[i].tokenId}"  style="width:20px;height:20px; position: relative; left: 60px;" type="checkbox"  value="${arr[i].tokenId}" onclick ="checkBoxClick(this)" />
+        `<label class="checkbox-label" for="checkBox${arr[i].tokenId}" />
+        <img style="width: auto; height: auto; max-width: 200px; "  src="${arr[i].image}" />         
         `;
-      card.appendChild(imgBox);
+         
+      tokenId.innerHTML = `#${arr[i].tokenId} </label>`;
+      checkBox.innerHTML = `<input id="checkBox${arr[i].tokenId}" style="width:20px;height:20px; " type="checkbox"  value="${arr[i].tokenId}" onclick ="checkBoxClick(this)"/>`;
+      card.appendChild(imgBox);;
+      card.appendChild(descriptionBox);
+      descriptionBox.appendChild(tokenId);
+      descriptionBox.appendChild(checkBox);
 
       document.getElementById("deck").appendChild(card);
+      
     }
   }
 
