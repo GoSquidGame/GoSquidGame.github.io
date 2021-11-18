@@ -968,6 +968,9 @@ input:checked + label {
         #tab2:checked ~ #content2{
             display: block;
         } */
+.contract-address {
+  max-width: 170px;
+}
 
 @media only screen and (min-width: 600px) {
   body {

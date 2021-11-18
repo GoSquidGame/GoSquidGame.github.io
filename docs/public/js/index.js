@@ -7341,7 +7341,6 @@ function bgColorChange(bgtype, isnetworkchange) {
       tabs_bg.style.border = "1px solid #dddddd";
       tabs.style.backgroundColor = "#FFFFFF";
       metaverse_bg.style.display = "none";
-
       break;
     case "pupple":
       if (isnetworkchange && chainId != 80001 && chainId != 137) {
@@ -7356,9 +7355,32 @@ function bgColorChange(bgtype, isnetworkchange) {
       tabs_bg.style.backgroundColor = "transparent";
       tabs_bg.style.border = "0px";
       tabs.style.backgroundColor = "transparent";
+      var metaverse_bg_img = document.getElementById("bg-image");
+      if (window.innerWidth >= 600) {
+        metaverse_bg_img.src = "squid_bg2.png";
+      } else {
+        metaverse_bg_img.src = "squid_bg_m.jpg";
+      }
       metaverse_bg.style.display = "block";
+
       showMetaverseCardList("metaverse");
       break;
+  }
+}
+window.onresize = resize;
+
+function resize() {
+  // console.log("height: ", window.innerHeight, "px");
+  // console.log("width: ", window.innerWidth, "px");
+  var metaverse_bg_img = document.getElementById("bg-image");
+  var metaverse_bg = document.getElementById("metaverse-bg");
+
+  if (window.innerWidth >= 600) {
+    metaverse_bg_img.src = "squid_bg2.png";
+    metaverse_bg.style.paddingTop = "200px";
+  } else {
+    metaverse_bg_img.src = "squid_bg_m.jpg";
+    metaverse_bg.style.paddingTop = "300px";
   }
 }
 
