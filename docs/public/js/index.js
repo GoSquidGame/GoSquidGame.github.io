@@ -7388,15 +7388,22 @@ async function switchNetwork(targetNetwork) {
     // console.log("switchError =>", switchError);
     // console.log("network_rpt => ", network_rpt);
     if (switchError.code === 4902) {
+      const params = {
+        chainId: "0x" + targetNetwork.toString(16), // A 0x-prefixed hexadecimal string
+        chainName: "Matic Polygon Mainnet",
+        nativeCurrency: {
+          name: "Matic Token",
+          symbol: "MATIC", // 2-6 characters long
+          decimals: 18,
+        },
+        rpcUrls: ["https://polygon-rpc.com/"],
+        blockExplorerUrls: ["https://polygonscan.com"],
+      };
+
       try {
         await ethereum.request({
           method: "wallet_addEthereumChain",
-          params: [
-            {
-              chainId: "0x" + targetNetwork.toString(16),
-              rpcUrl: network_rpt,
-            },
-          ],
+          params: [params, myAddr],
         });
       } catch (addError) {
         console.log("Netword add failed... =>", addError);
