@@ -7360,10 +7360,10 @@ function bgColorChange(bgtype, isnetworkchange) {
       var metaverse_bg_img = document.getElementById("bg-image");
       if (window.innerWidth >= 600) {
         metaverse_bg_img.src = "squid_bg2.png";
-        metaverse_bg.style.paddingTop = "200px";
+        metaverse_bg.style.marginTop = "200px";
       } else {
-        metaverse_bg_img.src = "squid_bg_m.jpg";
-        metaverse_bg.style.paddingTop = "500px";
+        metaverse_bg_img.src = "squid_bg_m.png";
+        metaverse_bg.style.marginTop = "200px";
       }
       metaverse_bg.style.display = "block";
 
@@ -7381,10 +7381,10 @@ function resize() {
 
   if (window.innerWidth >= 600) {
     metaverse_bg_img.src = "squid_bg2.png";
-    metaverse_bg.style.paddingTop = "200px";
+    metaverse_bg.style.marginTop = "200px";
   } else {
-    metaverse_bg_img.src = "squid_bg_m.jpg";
-    metaverse_bg.style.paddingTop = "500px";
+    metaverse_bg_img.src = "squid_bg_m.png";
+    metaverse_bg.style.marginTop = "200px";
   }
 }
 
