@@ -65,7 +65,7 @@ $.lang.en = {
   tabs_1_content_41: `<span class='minting-method-link' onclick='routeToFreeMinting()'>Go Free Minting now! </span>`,
 
   tabs_2_content_1: `<strong>Project Concept and Vision</strong> `,
-  tabs_2_content_2: `The Squid Game Card NFT project aims to build a decentralized blockchain based Squid Game Metaverse by fairly distributing NFT and ERC20 token, SQUID, around the community.`,
+  tabs_2_content_2: `The Squid Game Card NFT project aims to build a decentralized blockchain based Squid Game Metaverse by fairly distributing NFT and ERC20 token, LEEDO, around the community.`,
   tabs_2_content_3: `We want to provide a suitable technical environment and community fund for development teams that want to provide applications such as games, Gamified DeFi, Community, and Commerce, which are components of the Squid Game Metaverse.`,
   tabs_2_content_4: `New projects are discovered and financially supported based on the community to create a decentralized game ecosystem`,
   tabs_2_content_5: `It not only distributes all economic resources fairly, but also ensures long-term dispersion and balance.`,
@@ -290,7 +290,7 @@ $.lang.ko = {
   tabs_1_content_41: `<span class='minting-method-link' onclick='routeToFreeMinting()'>Go Free Minting now! </span>`,
 
   tabs_2_content_1: `<strong>프로젝트 개념과 비전</strong>`,
-  tabs_2_content_2: `Squid Game Card NFT 프로젝트는 Community를 중심으로 NFT와 ERC20 Token인 SQUID를 분배하여 탈중앙화된 Squid Game Metaverse의 구축을 목표로 합니다.`,
+  tabs_2_content_2: `Squid Game Card NFT 프로젝트는 Community를 중심으로 NFT와 ERC20 Token인 LEEDO를 분배하여 탈중앙화된 Squid Game Metaverse의 구축을 목표로 합니다.`,
   tabs_2_content_3: `Squid Game Metaverse의 구성요소인 Game과 Gamified DeFi, Community, Commerce 등의 Application을 제공하려는 개발팀에 대해 적합한 기술적 환경과 Community Fund를 공급하고자 합니다.`,
   tabs_2_content_4: `커뮤니티를 기반으로 새로운 프로젝트가 발굴되고 재정적으로 뒷받침 되어 탈중앙화된 게임 생태계를 만듭니다.`,
   tabs_2_content_5: `모든 경제적 자원을 공정하게 분배할 뿐 아니라 장기적으로 분산과 균형이 지속될 수 있도록 합니다.`,
