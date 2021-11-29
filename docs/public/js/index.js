@@ -1482,13 +1482,13 @@ let arrivedIds = [];
 var RewardCounterInterval;
 
 const space_shuttle_img = [
-  "Nuri4_homebanner_01.jpg",
-  "Nuri4_homebanner_02.jpg",
-  "Nuri4_homebanner_03.jpg",
-  "Nuri4_homebanner_04.jpg",
+  "Nuri5_homebanner_01.gif",
+  "Nuri5_homebanner_01.gif",
+  "Nuri5_homebanner_01.gif",
+  "Nuri5_homebanner_01.gif",
 ];
 
-// showBanner();
+showBanner();
 
 window.addEventListener("load", function () {
   loadWeb3();
@@ -7328,8 +7328,12 @@ function bgColorChange(bgtype, isnetworkchange) {
   const tabs_bg = document.getElementById("tabs-bg");
   const metaverse_bg = document.getElementById("metaverse-bg");
 
+  // The banner is not shown in the metaverse tab.
+  const space_shuttle_banner = document.getElementById("space-shuttle");
+
   switch (bgtype) {
     case "white":
+      space_shuttle_banner.style.display = "block";
       if (isnetworkchange && chainId != 1) {
         switchNetwork(1); // ethereum mainnet
         $("#netword-info").show();
@@ -7345,6 +7349,8 @@ function bgColorChange(bgtype, isnetworkchange) {
       metaverse_bg.style.display = "none";
       break;
     case "pupple":
+      space_shuttle_banner.style.display = "none";
+
       if (isnetworkchange && chainId != 80001 && chainId != 137) {
         switchNetwork(137); // matic polygon mainnet
         // switchNetwork(80001); // matic mumbai testnet
