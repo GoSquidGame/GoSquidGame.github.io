@@ -1482,9 +1482,8 @@ let arrivedIds = [];
 var RewardCounterInterval;
 
 const space_shuttle_img = [
-  "Nuri5_homebanner_01.gif",
-  "Nuri5_homebanner_01.gif",
-  "Nuri5_homebanner_01.gif",
+  "Nuri5_homebanner_02.gif",
+  "Nuri5_homebanner_03.jpg",
   "Nuri5_homebanner_01.gif",
 ];
 
@@ -7315,8 +7314,8 @@ function showBanner() {
   setInterval(function () {
     document.getElementById("banner-img").src = space_shuttle_img[loop_cnt];
     loop_cnt = loop_cnt + 1;
-    loop_cnt == 4 ? (loop_cnt = 0) : loop_cnt;
-  }, 4000);
+    loop_cnt == space_shuttle_img.length ? (loop_cnt = 0) : loop_cnt;
+  }, 5000);
 }
 
 function bgColorChange(bgtype, isnetworkchange) {
