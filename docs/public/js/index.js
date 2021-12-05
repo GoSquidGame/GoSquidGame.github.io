@@ -7677,6 +7677,7 @@ async function checkOnetimeBonusClaimAvailable() {
 const body = document.querySelector("body");
 const modal = document.querySelector(".modal-onetimebonus");
 const btnOpenPopup = document.querySelector(".btn-open-popup");
+const btnClosePopup = document.querySelector(".btn-close-popup");
 
 btnOpenPopup.addEventListener("click", () => {
   modal.classList.toggle("show");
@@ -7685,6 +7686,14 @@ btnOpenPopup.addEventListener("click", () => {
     body.style.overflow = "hidden";
   }
   showBonusClaimCardList();
+});
+
+btnClosePopup.addEventListener("click", () => {
+  modal.classList.toggle("show");
+
+  if (!modal.classList.contains("show")) {
+    body.style.overflow = "auto";
+  }
 });
 
 modal.addEventListener("click", (event) => {
