@@ -7623,8 +7623,8 @@ function showLeedorianWelcome() {
 // getLastestBlockNumber
 async function getLatestBlockNumber() {
   var latestBlockNum = await web3.eth.getBlockNumber();
-  console.log("latestBlockNum => ", latestBlockNum);
-  console.log("latestBlockNum + 200000 => ", latestBlockNum + 200000);
+  // console.log("latestBlockNum => ", latestBlockNum);
+  // console.log("latestBlockNum + 200000 => ", latestBlockNum + 200000);
 }
 
 /* *************************
@@ -7637,7 +7637,12 @@ async function checkOnetimeBonusClaimAvailable() {
     .lastBlocks(myAddr)
     .call();
 
-  let calimAvailableBlock = Number(lastStakedBlock) + 200000;
+  let calimAvailableBlock = Number(lastStakedBlock);
+  if (chainId === 4) {
+    calimAvailableBlock = calimAvailableBlock + 1;
+  } else {
+    calimAvailableBlock = calimAvailableBlock + 200000;
+  }
   // let calimAvailableBlock = Number(lastStakedBlock) + 1;
   // console.log("latestNetBlockNum => ", latestNetBlockNum);
   // console.log("lastStakedBlock => ", lastStakedBlock);
@@ -7648,10 +7653,22 @@ async function checkOnetimeBonusClaimAvailable() {
   // );
 
   // Migrant Settlement Aid claim button show/hide
+  const btn_open_popup = document.getElementById("btn-open-popup");
   if (latestNetBlockNum > calimAvailableBlock) {
-    $("#one_time_bonus_div").show();
+    // $("#one_time_bonus_div").show();
+
+    $("#claimable_block").hide();
+    btn_open_popup.disabled = false;
   } else {
-    $("#one_time_bonus_div").hide();
+    // $("#one_time_bonus_div").hide();
+    $("#claimable_block").show();
+    btn_open_popup.disabled = true;
+
+    let claimable_block = document.getElementById("claimable_block");
+    claimable_block.innerHTML =
+      '<p style="margin-bottom: 0px;font-size: 12px; color: #818181;">You can claim after Block ' +
+      calimAvailableBlock +
+      " of Ethereum Mainnet.";
   }
 
   return latestNetBlockNum > calimAvailableBlock;
