@@ -7653,22 +7653,37 @@ async function checkOnetimeBonusClaimAvailable() {
   // );
 
   // Migrant Settlement Aid claim button show/hide
-  const btn_open_popup = document.getElementById("btn-open-popup");
-  if (latestNetBlockNum > calimAvailableBlock) {
-    // $("#one_time_bonus_div").show();
+  let unClaims = [];
+  let claimableIds = [];
+  if (lastStakedBlock > 0 && latestNetBlockNum > calimAvailableBlock) {
+    unClaims = await utilityContract.methods.getUnclaims(myAddr).call();
+    // console.log("unClaims =>", unClaims);
+    claimableIds = unClaims.filter((tokenID) => tokenID != "0");
+    console.log("claimableIds =>", claimableIds);
+  }
 
-    $("#claimable_block").hide();
-    btn_open_popup.disabled = false;
+  //Claims can only be made when there are stacked cards.
+  if (lastStakedBlock > 0) {
+    $("#one_time_bonus_div").show();
+
+    const btn_open_popup = document.getElementById("btn-open-popup");
+
+    //Claims can only be made when there are claimable cards.
+    if (latestNetBlockNum > calimAvailableBlock && claimableIds.length > 0) {
+      $("#claimable_block").hide();
+      btn_open_popup.disabled = false;
+    } else {
+      $("#claimable_block").show();
+      btn_open_popup.disabled = true;
+
+      let claimable_block = document.getElementById("claimable_block");
+      claimable_block.innerHTML =
+        '<p style="margin-bottom: 0px;font-size: 12px; color: #818181;">You can claim after Block ' +
+        calimAvailableBlock +
+        " of Ethereum Mainnet.";
+    }
   } else {
-    // $("#one_time_bonus_div").hide();
-    $("#claimable_block").show();
-    btn_open_popup.disabled = true;
-
-    let claimable_block = document.getElementById("claimable_block");
-    claimable_block.innerHTML =
-      '<p style="margin-bottom: 0px;font-size: 12px; color: #818181;">You can claim after Block ' +
-      calimAvailableBlock +
-      " of Ethereum Mainnet.";
+    $("#one_time_bonus_div").hide();
   }
 
   return latestNetBlockNum > calimAvailableBlock;
