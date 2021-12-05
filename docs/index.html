@@ -74,6 +74,7 @@
 </head>
 
 <body id="body-style">
+
     <div id="metaverse-bg" style="display: none; margin-top: 200px; position: absolute;">
         <img id="bg-image" width="auto" src="squid_bg2.png"/>
     </div>    
@@ -144,6 +145,7 @@
                 <!-- <button  href="#"  class="lang-select">Click ko</button> -->
             </div>
         </div>
+    
         <div id="space-shuttle" style="text-align: center; display: block;" class = "space-shuttle">
             <img id = "banner-img" width="auto" src="Nuri5_homebanner_01.gif"/>
         </div>
@@ -643,8 +645,34 @@
                                     <p style="font-size: 25px; color:orange"><b><span class="erc20-claimed-rewards"></span></b></p>
                                 </div>
                             </div>
-                            <div id="erc20-claim-div"></div>   
+                            <div id="erc20-claim-div"></div>                          
                         </div>
+                        <!-- One-time Bonus Claim Start -->
+                        <div class="modal-onetimebonus"> 
+                            <div class="modal_body">
+                                <div id="one-time-bonus-loading"><div class="spinner"></div></div>
+                                <div class="frame-common" style="margin-top: 0;">
+                                    <div style="width: 100%;">
+                                        <p data-langNum="tabs_8_one_time_bonus_claim"></p>
+                                        <p style="margin-bottom: 10px;font-size: 12px; color: #818181;" data-langNum="tabs_8_one_time_bonus_info"></p>
+                                        <div id="deck-selected-cnt"  style="text-align: center;"></div>                                        
+                                        <div class="bonus-deck-outside">
+                                            <div id="bonus_deck" class="deck"></div>
+                                        </div>         
+                                        <div id="bonus-btn-div" class='bonus-btn-div' style='text-align: center;'>
+                                            <button  style="margin-top:10px" id="bonus-claim-btn" disabled onclick="bonusClaim()">Claim</button>                                            
+                                        </div>                       
+                                    </div>
+                                </div>
+
+                            </div> 
+                        </div>
+                        <div id="one_time_bonus_div" class="frame-content"  style="display: none; margin-top: 20px;">
+                            <p data-langNum="tabs_8_one_time_bonus"></p>
+                            <button class="btn-open-popup">One-time Bonus Claim</button>                             
+
+                        </div>
+                        <!-- One-time Bonus Claim End -->
                     </div>
                     <div style="display: flex; justify-content: stretch;">
                         <div class="frame-common">

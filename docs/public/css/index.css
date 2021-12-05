@@ -199,6 +199,30 @@ hr.divider {
   animation: spinner 0.8s ease infinite;
 }
 
+#one-time-bonus-loading {
+  display: none;
+  /* width: 100%;
+            height: 100%; */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#one-time-bonus-loading .spinner {
+  box-sizing: border-box;
+  position: fixed;
+  top: 50%;
+  left: 46%;
+  width: 150px;
+  height: 150px;
+  /* margin-top: -32px;
+            margin-left: -32px;             */
+  border-radius: 50%;
+  border: 20px solid transparent;
+  border-top-color: #ce113b;
+  border-bottom-color: #ce113b;
+  animation: spinner 0.8s ease infinite;
+}
+
 .ui-tabs .ui-tabs-panel {
   margin-top: 8px;
   background-color: #ffffff;
@@ -832,6 +856,13 @@ ul.staking-content p {
 
   justify-content: center;
 }
+
+.bonus-deck-outside {
+  /* display: flex; */
+  overflow-y: auto;
+  flex-wrap: wrap;
+  max-height: 400px;
+}
 .card {
   border-radius: 9px;
   width: 200px;
@@ -976,6 +1007,42 @@ input:checked + label {
         } */
 .contract-address {
   max-width: 170px;
+}
+
+.modal-onetimebonus {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: none;
+
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-onetimebonus.show {
+  display: block;
+}
+
+.modal_body {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+
+  width: 50%;
+  max-height: 90%;
+
+  padding: 20px;
+
+  text-align: center;
+
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+
+  transform: translateX(-50%) translateY(-50%);
 }
 
 @media only screen and (min-width: 600px) {

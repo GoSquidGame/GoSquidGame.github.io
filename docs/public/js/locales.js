@@ -225,6 +225,10 @@ $.lang.en = {
   tabs_8_content_19: `Staked`,
   tabs_8_content_network_info:
     "Check your wallet is connected to the Ethereum Mainnet.<br>To Use Check-in counter, please switch to Ethereum Mainnet.",
+  tabs_8_one_time_bonus: "<b>Migrant Settlement Aid</b>",
+  tabs_8_one_time_bonus_claim: "<b>Claiming Migrant Settlement Aid</b>",
+  tabs_8_one_time_bonus_info:
+    "Migration Settlement Aid for staking cards can be claimed once per card.",
 
   tabs_9_content_1: "<b>Leedorian Metaverse contract address : </b>",
   tabs_9_content_welcome: "<b>Welcome to the Leedorian metaverse!</b>",
@@ -460,6 +464,11 @@ $.lang.ko = {
   tabs_8_content_19: `Staked`,
   tabs_8_content_network_info:
     "지갑이 이더리움 메인넷에 연결되어 있는지 확인하세요.<br>체크인 카운터를 이용하시려면 이더리움 메인넷으로 전환하시기 바랍니다.",
+
+  tabs_8_one_time_bonus: "<b>이주 정착 지원금</b>",
+  tabs_8_one_time_bonus_claim: "<b>이주 정착 지원금 청구</b>",
+  tabs_8_one_time_bonus_info:
+    "Staking한 카드에 대한 이주 정착 지원금은 카드당 1회 청구 가능합니다..",
 
   tabs_9_content_1: "<b>Leedorian Metaverse contract address : </b>",
   tabs_9_content_welcome: "<b>Leedorian 메타버스에 오신 것을 환영합니다!</b>",

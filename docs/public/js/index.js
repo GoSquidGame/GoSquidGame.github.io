@@ -1214,9 +1214,24 @@ var utilityAbi = [
     inputs: [
       { internalType: "address", name: "_nftAddr", type: "address" },
       { internalType: "address", name: "_nftVaultAddr", type: "address" },
+      { internalType: "address", name: "_erc20Addr", type: "address" },
     ],
     stateMutability: "nonpayable",
     type: "constructor",
+  },
+  {
+    inputs: [],
+    name: "erc20Addr",
+    outputs: [{ internalType: "address", name: "", type: "address" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "address", name: "_addr", type: "address" }],
+    name: "getUnclaims",
+    outputs: [{ internalType: "uint256[]", name: "", type: "uint256[]" }],
+    stateMutability: "view",
+    type: "function",
   },
   {
     inputs: [],
@@ -1468,6 +1483,7 @@ var networkList = {
 };
 var myAddr;
 let checkInTokenIdList = [];
+let claimTokenIdList = [];
 
 var stakeKind = "unstaked";
 var is_Vault_Approved = false;
@@ -1646,6 +1662,7 @@ async function getAccount() {
         getRewardsBalance();
         showCardList(stakeKind);
         setRewardsClaimBtn();
+        checkOnetimeBonusClaimAvailable();
       }
     } else {
       $("#connect-btn").show();
@@ -3043,15 +3060,30 @@ async function getContracts() {
         },
       ];
 
-      utilityAddress = "0x4539aa65c20644d195ca35c592308970377fea23";
+      utilityAddress = "0x6E292251037FFb30E5e93471FfD95CE0600A20E9";
       utilityAbi = [
         {
           inputs: [
             { internalType: "address", name: "_nftAddr", type: "address" },
             { internalType: "address", name: "_nftVaultAddr", type: "address" },
+            { internalType: "address", name: "_erc20Addr", type: "address" },
           ],
           stateMutability: "nonpayable",
           type: "constructor",
+        },
+        {
+          inputs: [],
+          name: "erc20Addr",
+          outputs: [{ internalType: "address", name: "", type: "address" }],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [{ internalType: "address", name: "_addr", type: "address" }],
+          name: "getUnclaims",
+          outputs: [{ internalType: "uint256[]", name: "", type: "uint256[]" }],
+          stateMutability: "view",
+          type: "function",
         },
         {
           inputs: [],
@@ -4425,15 +4457,30 @@ async function getContracts() {
         },
       ];
 
-      utilityAddress = "0x3F33B14a1C18BE389b36AE5f30368EeAf3179550";
+      utilityAddress = "0x6fb9aE56f5e6e515EB3E6aA7B83CA796adB8b8F2";
       utilityAbi = [
         {
           inputs: [
             { internalType: "address", name: "_nftAddr", type: "address" },
             { internalType: "address", name: "_nftVaultAddr", type: "address" },
+            { internalType: "address", name: "_erc20Addr", type: "address" },
           ],
           stateMutability: "nonpayable",
           type: "constructor",
+        },
+        {
+          inputs: [],
+          name: "erc20Addr",
+          outputs: [{ internalType: "address", name: "", type: "address" }],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [{ internalType: "address", name: "_addr", type: "address" }],
+          name: "getUnclaims",
+          outputs: [{ internalType: "uint256[]", name: "", type: "uint256[]" }],
+          stateMutability: "view",
+          type: "function",
         },
         {
           inputs: [],
@@ -5722,9 +5769,24 @@ async function getContracts() {
           inputs: [
             { internalType: "address", name: "_nftAddr", type: "address" },
             { internalType: "address", name: "_nftVaultAddr", type: "address" },
+            { internalType: "address", name: "_erc20Addr", type: "address" },
           ],
           stateMutability: "nonpayable",
           type: "constructor",
+        },
+        {
+          inputs: [],
+          name: "erc20Addr",
+          outputs: [{ internalType: "address", name: "", type: "address" }],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [{ internalType: "address", name: "_addr", type: "address" }],
+          name: "getUnclaims",
+          outputs: [{ internalType: "uint256[]", name: "", type: "uint256[]" }],
+          stateMutability: "view",
+          type: "function",
         },
         {
           inputs: [],
@@ -6547,12 +6609,12 @@ async function getApproved(_contract) {
   // console.log('getApproved');
   try {
     switch (_contract) {
-      case "leedoErc20":
-        is_ERC20_Approved = await nftContract.methods
-          .isApprovedForAll(myAddr, leedoerc20Address)
-          .call();
-        // console.log('is_ERC20_Approved => ' ,is_ERC20_Approved);
-        break;
+      // case "leedoErc20":
+      //   is_ERC20_Approved = await leedoerc20Contract.methods
+      //     .allowance(myAddr, leedoerc20Address)
+      //     .call();
+      //   console.log("is_ERC20_Approved => ", is_ERC20_Approved);
+      //   break;
       case "leedoVault":
         is_Vault_Approved = await nftContract.methods
           .isApprovedForAll(myAddr, leedovaultAddress)
@@ -7075,6 +7137,7 @@ getCardInfo = async (tokenId, kind) => {
   try {
     switch (kind) {
       case "staked":
+      case "bonusclaim":
         var tokenInfoBase64 = await leedovaultContract.methods
           .tokenURI(tokenId)
           .call();
@@ -7492,7 +7555,7 @@ showMetaverseCardList = async (kind) => {
   if (cardInfoList.length > 0) {
     $("#no-card-div").hide();
     $("#div-arrived-cards").show();
-    $("#deck-outside").show();
+    $("#bonus-deck-outside").show();
     cardInfoList.forEach((info, i) => {
       arr.push({ tokenId: tokenId[i], image: info.image });
     });
@@ -7505,7 +7568,7 @@ showMetaverseCardList = async (kind) => {
   } else {
     $("#no-card-div").show();
     $("#div-arrived-cards").hide();
-    $("#deck-outside").hide();
+    $("#bonus-deck-outside").hide();
     document.getElementById("deck-metaverse").innerHTML = "";
   }
 
@@ -7556,3 +7619,201 @@ function showLeedorianWelcome() {
   }
   showWelcomecontent = !showWelcomecontent;
 }
+
+// getLastestBlockNumber
+async function getLatestBlockNumber() {
+  var latestBlockNum = await web3.eth.getBlockNumber();
+  console.log("latestBlockNum => ", latestBlockNum);
+  console.log("latestBlockNum + 200000 => ", latestBlockNum + 200000);
+}
+
+/* *************************
+One-time Bonus Claim Start 
+**************************** */
+async function checkOnetimeBonusClaimAvailable() {
+  let latestNetBlockNum = await web3.eth.getBlockNumber();
+  // check lastBlocks on vault contract
+  let lastStakedBlock = await leedovaultContract.methods
+    .lastBlocks(myAddr)
+    .call();
+
+  let calimAvailableBlock = Number(lastStakedBlock) + 200000;
+  // let calimAvailableBlock = Number(lastStakedBlock) + 1;
+  // console.log("latestNetBlockNum => ", latestNetBlockNum);
+  // console.log("lastStakedBlock => ", lastStakedBlock);
+  // console.log("calimAvailableBlock => ", calimAvailableBlock);
+  // console.log(
+  //   "latestNetBlockNum > calimAvailableBlock =>  ",
+  //   latestNetBlockNum > calimAvailableBlock
+  // );
+
+  // Migrant Settlement Aid claim button show/hide
+  if (latestNetBlockNum > calimAvailableBlock) {
+    $("#one_time_bonus_div").show();
+  } else {
+    $("#one_time_bonus_div").hide();
+  }
+
+  return latestNetBlockNum > calimAvailableBlock;
+}
+
+const body = document.querySelector("body");
+const modal = document.querySelector(".modal-onetimebonus");
+const btnOpenPopup = document.querySelector(".btn-open-popup");
+
+btnOpenPopup.addEventListener("click", () => {
+  modal.classList.toggle("show");
+
+  if (modal.classList.contains("show")) {
+    body.style.overflow = "hidden";
+  }
+  showBonusClaimCardList();
+});
+
+modal.addEventListener("click", (event) => {
+  if (event.target === modal) {
+    modal.classList.toggle("show");
+
+    if (!modal.classList.contains("show")) {
+      body.style.overflow = "auto";
+    }
+  }
+});
+
+showBonusClaimCardList = async () => {
+  $("#one-time-bonus-loading").show();
+
+  let unClaims = [];
+  unClaims = await utilityContract.methods.getUnclaims(myAddr).call();
+  // console.log("unClaims =>", unClaims);
+  const claimableIds = unClaims.filter((tokenID) => tokenID != "0");
+  console.log("claimableIds =>", claimableIds);
+
+  let tokenId = claimableIds;
+
+  // console.log("myAddr => ", myAddr);
+
+  let arr = [];
+
+  const cardInfoList = await Promise.all(
+    tokenId.map((id) => {
+      // console.log('aaaaa => ',getCardInfo(id))
+      return getCardInfo(id, "bonusclaim");
+    })
+  );
+  cardInfoList.forEach((info, i) => {
+    arr.push({ tokenId: tokenId[i], image: info.image });
+  });
+
+  arr.sort(function (a, b) {
+    return parseFloat(a.tokenId) - parseFloat(b.tokenId);
+  });
+
+  // console.log(arr);
+  function BonusDeck(arr) {
+    document.getElementById("bonus_deck").innerHTML = "";
+    for (let i = 0; i < arr.length; i++) {
+      let card = document.createElement("div");
+      let imgBox = document.createElement("div");
+      let descriptionBox = document.createElement("div");
+      let tokenId = document.createElement("div");
+      let checkBox = document.createElement("div");
+      let label = document.createElement("div");
+      card.className = "card";
+      imgBox.className = "imgbox";
+      descriptionBox.className = "descriptionBox";
+      tokenId.className = "tokenID";
+      checkBox.className = "checkBox";
+
+      label.innerHTML = ``;
+      imgBox.innerHTML = `<label class="checkbox-label" for="checkBox${arr[i].tokenId}" />
+        <img style="width: auto; height: auto; max-width: 200px; "  src="${arr[i].image}" />         
+        `;
+
+      tokenId.innerHTML = `#${arr[i].tokenId} </label>`;
+      checkBox.innerHTML = `<input id="checkBox${arr[i].tokenId}" style="width:20px;height:20px; " type="checkbox"  value="${arr[i].tokenId}" onclick ="checkBoxClick(this)"/>`;
+      card.appendChild(imgBox);
+      card.appendChild(descriptionBox);
+      descriptionBox.appendChild(tokenId);
+      descriptionBox.appendChild(checkBox);
+
+      document.getElementById("bonus_deck").appendChild(card);
+    }
+  }
+
+  BonusDeck(arr);
+
+  checkBoxClick = (e) => {
+    // console.log(e)
+    // console.log(e.checked)
+    // console.log(e.value)
+
+    if (e.checked) {
+      if (claimTokenIdList.length == 20) {
+        alert("You can select up to 20.");
+        e.checked = false;
+      } else {
+        const target = document.getElementById("bonus-claim-btn");
+        target.disabled = false;
+        claimTokenIdList.push(e.value);
+      }
+    } else {
+      // console.log(claimTokenIdList)
+      // claimTokenIdList.indexOf(e.value);
+      claimTokenIdList.splice(claimTokenIdList.indexOf(e.value), 1);
+      if (claimTokenIdList.length == 0) {
+        const target = document.getElementById("bonus-claim-btn");
+        target.disabled = true;
+      } else {
+        const target = document.getElementById("bonus-claim-btn");
+        target.disabled = false;
+      }
+    }
+
+    document.getElementById("deck-selected-cnt").innerHTML =
+      '<p style="margin-bottom: 5px;font-size: 12px; color: #818181;">( ' +
+      claimTokenIdList.length +
+      " / 20 ) Maximum 20 cards per transaction.</p>";
+    // console.log("claimTokenIdList =>", claimTokenIdList);
+  };
+
+  document.getElementById("deck-selected-cnt").innerHTML =
+    '<p style="margin-bottom: 5px;font-size: 12px; color: #818181;">( 0 / 20 ) Maximum 20 cards per transaction.</p>';
+
+  $("#one-time-bonus-loading").hide();
+};
+
+async function bonusClaim() {
+  console.log("bonusClaim");
+  $("#one-time-bonus-loading").show();
+  const target = document.getElementById("bonus-claim-btn");
+  target.disabled = true;
+  //checkInTokenIdList
+  leedoerc20Contract.methods
+    .claim(claimTokenIdList)
+    .send({ from: myAddr })
+    .on("transactionHash", (txid) => {
+      // console.log(`txid: ${txid}`);
+    })
+    .once("allEvents", (allEvents) => {
+      // console.log("allEvents");
+      // console.log(transferEvent);
+    })
+    .once("Transfer", (transferEvent) => {
+      // console.log("trasferEvent", transferEvent);
+    })
+    .once("receipt", (receipt) => {
+      // console.log("receipt=>", receipt);
+      if (receipt.status) {
+        // update unclaim card list
+        claimTokenIdList = [];
+        showBonusClaimCardList();
+      }
+    })
+    .on("error", (error) => {
+      target.disabled = false;
+      $("#one-time-bonus-loading").hide();
+      console.log(error);
+    });
+}
+/* One-time Bonus Claim End */
