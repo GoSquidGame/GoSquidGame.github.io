@@ -6480,7 +6480,7 @@ showCardList = async (kind) => {
     return parseFloat(a.tokenId) - parseFloat(b.tokenId);
   });
 
-  console.log(arr);
+  // console.log(arr);
   function Deck(arr) {
     document.getElementById("deck").innerHTML = "";
     for (let i = 0; i < arr.length; i++) {
@@ -7681,6 +7681,8 @@ const btnClosePopup = document.querySelector(".btn-close-popup");
 
 btnOpenPopup.addEventListener("click", () => {
   modal.classList.toggle("show");
+  const target = document.getElementById("bonus-claim-btn");
+  target.disabled = true;
 
   if (modal.classList.contains("show")) {
     body.style.overflow = "hidden";
@@ -7690,6 +7692,9 @@ btnOpenPopup.addEventListener("click", () => {
 
 btnClosePopup.addEventListener("click", () => {
   modal.classList.toggle("show");
+
+  const target = document.getElementById("bonus-claim-btn");
+  target.disabled = true;
 
   if (!modal.classList.contains("show")) {
     body.style.overflow = "auto";
@@ -7708,8 +7713,9 @@ modal.addEventListener("click", (event) => {
 
 showBonusClaimCardList = async () => {
   $("#one-time-bonus-loading").show();
-
+  claimTokenIdList = [];
   let unClaims = [];
+
   unClaims = await utilityContract.methods.getUnclaims(myAddr).call();
   // console.log("unClaims =>", unClaims);
   const claimableIds = unClaims.filter((tokenID) => tokenID != "0");
@@ -7757,7 +7763,7 @@ showBonusClaimCardList = async () => {
         `;
 
       tokenId.innerHTML = `#${arr[i].tokenId} </label>`;
-      checkBox.innerHTML = `<input id="checkBox${arr[i].tokenId}" style="width:20px;height:20px; " type="checkbox"  value="${arr[i].tokenId}" onclick ="checkBoxClick(this)"/>`;
+      checkBox.innerHTML = `<input id="checkBox${arr[i].tokenId}" style="width:20px;height:20px; " type="checkbox"  value="${arr[i].tokenId}" onclick ="checkBoxClick1(this)"/>`;
       card.appendChild(imgBox);
       card.appendChild(descriptionBox);
       descriptionBox.appendChild(tokenId);
@@ -7769,7 +7775,7 @@ showBonusClaimCardList = async () => {
 
   BonusDeck(arr);
 
-  checkBoxClick = (e) => {
+  checkBoxClick1 = (e) => {
     // console.log(e)
     // console.log(e.checked)
     // console.log(e.value)
@@ -7795,15 +7801,13 @@ showBonusClaimCardList = async () => {
         target.disabled = false;
       }
     }
-
-    document.getElementById("deck-selected-cnt").innerHTML =
+    document.getElementById("bonus-deck-selected-cnt").innerHTML =
       '<p style="margin-bottom: 5px;font-size: 12px; color: #818181;">( ' +
       claimTokenIdList.length +
       " / 20 ) Maximum 20 cards per transaction.</p>";
-    // console.log("claimTokenIdList =>", claimTokenIdList);
   };
 
-  document.getElementById("deck-selected-cnt").innerHTML =
+  document.getElementById("bonus-deck-selected-cnt").innerHTML =
     '<p style="margin-bottom: 5px;font-size: 12px; color: #818181;">( 0 / 20 ) Maximum 20 cards per transaction.</p>';
 
   $("#one-time-bonus-loading").hide();
