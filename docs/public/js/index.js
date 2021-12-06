@@ -6798,7 +6798,8 @@ async function getRewardsBalance() {
 
   let reWards_gwei = ethers.utils.formatUnits(reWards_wei, 18);
   let total_reWards_gwei = ethers.utils.formatUnits(total_reWards_wei, 18);
-  // console.log('ether_reWards_gwei => ',ether_reWards_gwei);
+  // console.log("reWards_gwei => ", reWards_gwei);
+  // console.log("total_reWards_gwei => ", total_reWards_gwei);
 
   runRewardCounter(reWards_gwei);
 
@@ -6840,8 +6841,12 @@ function runRewardCounter(cur_balance) {
     target.disabled = false;
     RewardCounterInterval = setInterval(function () {
       _balance = _balance + blockRewards;
-      _balance.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-      $(".erc20-rewards").html(_balance);
+
+      let formatted__balance = _balance
+        .toString()
+        .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+      // console.log("formatted__balance => ", formatted__balance);
+      $(".erc20-rewards").html(formatted__balance);
     }, 1000);
   } else {
     if (_balance > 0) {
