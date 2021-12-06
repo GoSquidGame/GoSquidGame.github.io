@@ -1503,7 +1503,7 @@ const space_shuttle_img = [
   "Nuri5_homebanner_01.gif",
 ];
 
-showBanner();
+// showBanner();
 
 window.addEventListener("load", function () {
   loadWeb3();
