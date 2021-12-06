@@ -7683,7 +7683,7 @@ async function checkOnetimeBonusClaimAvailable() {
 
       let claimable_block = document.getElementById("claimable_block");
       claimable_block.innerHTML =
-        '<p style="margin-bottom: 0px;font-size: 12px; color: #818181;">You can claim after Block ' +
+        '<p style="margin-bottom: 0px;font-size: 12px; color: #818181;">You can claim after Block #' +
         calimAvailableBlock +
         " of Ethereum Mainnet.";
     }
@@ -7698,6 +7698,7 @@ const body = document.querySelector("body");
 const modal = document.querySelector(".modal-onetimebonus");
 const btnOpenPopup = document.querySelector(".btn-open-popup");
 const btnClosePopup = document.querySelector(".btn-close-popup");
+const bonus_claim_complete = document.getElementById("bonus_claim_complete");
 
 btnOpenPopup.addEventListener("click", () => {
   modal.classList.toggle("show");
@@ -7712,6 +7713,7 @@ btnOpenPopup.addEventListener("click", () => {
 
 btnClosePopup.addEventListener("click", () => {
   modal.classList.toggle("show");
+  bonus_claim_complete.innerHTML = "";
 
   const target = document.getElementById("bonus-claim-btn");
   target.disabled = true;
@@ -7724,6 +7726,7 @@ btnClosePopup.addEventListener("click", () => {
 modal.addEventListener("click", (event) => {
   if (event.target === modal) {
     modal.classList.toggle("show");
+    bonus_claim_complete.innerHTML = "";
 
     if (!modal.classList.contains("show")) {
       body.style.overflow = "auto";
@@ -7837,6 +7840,8 @@ async function bonusClaim() {
   console.log("bonusClaim");
   $("#one-time-bonus-loading").show();
   const target = document.getElementById("bonus-claim-btn");
+  const bonus_claim_complete = document.getElementById("bonus_claim_complete");
+  bonus_claim_complete.innerHTML = "";
   target.disabled = true;
   //checkInTokenIdList
   leedoerc20Contract.methods
@@ -7856,6 +7861,13 @@ async function bonusClaim() {
       // console.log("receipt=>", receipt);
       if (receipt.status) {
         // update unclaim card list
+        bonus_claim_complete.innerHTML =
+          "Bonus claim for " +
+          claimTokenIdList.length +
+          " card(s) has been completed.<br>Check the transaction details in your wallet.";
+        // setTimeout(() => {
+        //   target.innerHTML = "";
+        // }, 3000);
         claimTokenIdList = [];
         showBonusClaimCardList();
         checkOnetimeBonusClaimAvailable();
