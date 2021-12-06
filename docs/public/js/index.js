@@ -6720,7 +6720,7 @@ async function checkIn() {
         getUnstakedBalance(unstaked_cards);
         getStakedBalance(staked_cards);
         getRewardsBalance();
-
+        checkOnetimeBonusClaimAvailable();
         showCardList(stakeKind);
       }
     })
@@ -7858,6 +7858,7 @@ async function bonusClaim() {
         // update unclaim card list
         claimTokenIdList = [];
         showBonusClaimCardList();
+        checkOnetimeBonusClaimAvailable();
       }
     })
     .on("error", (error) => {
