@@ -7682,10 +7682,24 @@ async function checkOnetimeBonusClaimAvailable() {
       btn_open_popup.disabled = true;
 
       let claimable_block = document.getElementById("claimable_block");
-      claimable_block.innerHTML =
-        '<p style="margin-bottom: 0px;font-size: 12px; color: #818181;">You can claim after Block #' +
+      // claimable_block.innerHTML =
+      //   '<p style="margin-bottom: 0px;font-size: 12px; color: #818181;">You can claim after Block #' +
+      //   calimAvailableBlock +
+      //   " of Ethereum Mainnet.";
+
+      let block_str =
+        '<p style="margin-bottom: 0px;font-size: 12px; color: #818181;">You can claim after Block #';
+      block_str =
+        block_str +
+        '<span><a style="color: blue; text-decoration: underline;" href="https://etherscan.io/block/countdown/' +
         calimAvailableBlock +
-        " of Ethereum Mainnet.";
+        '"';
+      block_str =
+        block_str +
+        ' target="_blank">' +
+        calimAvailableBlock +
+        "</a></span>  of Ethereum Mainnet.</p>";
+      claimable_block.innerHTML = block_str;
     }
   } else {
     $("#one_time_bonus_div").hide();
