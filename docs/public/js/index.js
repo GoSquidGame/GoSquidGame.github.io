@@ -7668,7 +7668,7 @@ async function checkOnetimeBonusClaimAvailable() {
   }
 
   //Claims can only be made when there are stacked cards.
-  if (lastStakedBlock > 0) {
+  if (lastStakedBlock > 0 && claimableIds.length > 0) {
     $("#one_time_bonus_div").show();
 
     const btn_open_popup = document.getElementById("btn-open-popup");
