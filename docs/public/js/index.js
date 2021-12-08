@@ -6942,8 +6942,7 @@ async function RequestAddToken() {
           address: leedoerc20Address,
           symbol: "LEEDO",
           decimals: 18,
-          image:
-            "https://github.com/GoSquidGame/GoSquidGame.github.io/blob/main/docs/leedo_icon.png?raw=true",
+          image: "https://gosquidgame.com/leedo_icon.png",
         },
       },
     })
