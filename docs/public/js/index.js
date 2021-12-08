@@ -7674,9 +7674,13 @@ async function checkOnetimeBonusClaimAvailable() {
     const btn_open_popup = document.getElementById("btn-open-popup");
 
     //Claims can only be made when there are claimable cards.
-    if (latestNetBlockNum > calimAvailableBlock && claimableIds.length > 0) {
-      $("#claimable_block").hide();
-      btn_open_popup.disabled = false;
+    if (latestNetBlockNum > calimAvailableBlock) {
+      if (claimableIds.length > 0) {
+        $("#claimable_block").hide();
+        btn_open_popup.disabled = false;
+      } else {
+        $("#one_time_bonus_div").hide();
+      }
     } else {
       $("#claimable_block").show();
       btn_open_popup.disabled = true;
