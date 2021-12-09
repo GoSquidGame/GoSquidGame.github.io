@@ -3060,7 +3060,7 @@ async function getContracts() {
         },
       ];
 
-      utilityAddress = "0x6E292251037FFb30E5e93471FfD95CE0600A20E9";
+      utilityAddress = "0x7C0A7B9735d0d245CfB83A3C3b94363faCF0e559"; // ethereum mainnet
       utilityAbi = [
         {
           inputs: [
@@ -4457,7 +4457,7 @@ async function getContracts() {
         },
       ];
 
-      utilityAddress = "0x6fb9aE56f5e6e515EB3E6aA7B83CA796adB8b8F2";
+      utilityAddress = "0x0cbc7721c2b845264cc5d364199b0b88bce929bd"; // rinkeby
       utilityAbi = [
         {
           inputs: [
@@ -6767,7 +6767,7 @@ async function checkOut() {
         getUnstakedBalance(unstaked_cards);
         getStakedBalance(staked_cards);
         getRewardsBalance();
-
+        checkOnetimeBonusClaimAvailable();
         showCardList(stakeKind);
       }
     })
@@ -6918,6 +6918,7 @@ async function runRewardsClaim() {
       if (receipt.status) {
         target.disabled = false;
         getRewardsBalance();
+        checkOnetimeBonusClaimAvailable();
         $("#stake-loading").hide();
       }
     })
@@ -7657,21 +7658,19 @@ async function checkOnetimeBonusClaimAvailable() {
   // );
 
   // Migrant Settlement Aid claim button show/hide
-  let unClaims = [];
+
+  let unClaims;
   let claimableIds = [];
-  if (lastStakedBlock > 0 && latestNetBlockNum > calimAvailableBlock) {
-    unClaims = await utilityContract.methods.getUnclaims(myAddr).call();
-    // console.log("unClaims =>", unClaims);
+  unClaims = await utilityContract.methods.getUnclaims(myAddr).call();
+  // console.log("unClaims =>", unClaims);
+
+  if (unClaims.length > 0) {
     claimableIds = unClaims.filter((tokenID) => tokenID != "0");
-    console.log("claimableIds =>", claimableIds);
+    // console.log("claimableIds =>", claimableIds);
   }
-
-  //Claims can only be made when there are stacked cards.
-  if (lastStakedBlock > 0) {
+  if (lastStakedBlock > 0 && claimableIds.length > 0) {
     $("#one_time_bonus_div").show();
-
     const btn_open_popup = document.getElementById("btn-open-popup");
-
     //Claims can only be made when there are claimable cards.
     if (latestNetBlockNum > calimAvailableBlock) {
       if (claimableIds.length > 0) {
@@ -7759,7 +7758,7 @@ showBonusClaimCardList = async () => {
   unClaims = await utilityContract.methods.getUnclaims(myAddr).call();
   // console.log("unClaims =>", unClaims);
   const claimableIds = unClaims.filter((tokenID) => tokenID != "0");
-  console.log("claimableIds =>", claimableIds);
+  // console.log("claimableIds =>", claimableIds);
 
   let tokenId = claimableIds;
 
