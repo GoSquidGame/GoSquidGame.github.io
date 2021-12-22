@@ -7400,7 +7400,7 @@ function bgColorChange(bgtype, isnetworkchange) {
 
   switch (bgtype) {
     case "white":
-      space_shuttle_banner.style.display = "none";
+      space_shuttle_banner.style.display = "block";
       if (isnetworkchange && chainId != 1) {
         switchNetwork(1); // ethereum mainnet
         $("#netword-info").show();
