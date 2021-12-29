@@ -648,7 +648,7 @@ input.solid {
 
 .add-token-link {
   color: #ffffff;
-  background-color: #ce113b;
+  background-color: var(--primary-color);
   border-width: 0;
   border-radius: 20px;
   padding-left: 10px;
@@ -937,7 +937,7 @@ ul.staking-content p {
 }
 
 .frame-content {
-  display: flex;
+  display: contents;
   justify-content: space-between;
   width: 100%;
   align-items: center;
@@ -1045,6 +1045,15 @@ input:checked + label {
   transform: translateX(-50%) translateY(-50%);
 }
 
+.content_align {
+  display: flex;
+  align-self: flex-end;
+  align-items: center;
+}
+
+.reward_body {
+  width: inherit;
+}
 @media only screen and (min-width: 600px) {
   body {
     margin-left: 0px;
@@ -1094,5 +1103,19 @@ input:checked + label {
     background-color: #3e6e6830;
     padding: 40px;
     border-radius: 20px 20px 20px 20px;
+  }
+
+  .frame-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+
+  .content_align {
+    display: flex;
+  }
+  .reward_body {
+    width: auto;
   }
 }

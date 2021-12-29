@@ -1472,6 +1472,7 @@ var leedorianAbi = [
 ];
 var leedorianAddress;
 var leedorianContract;
+var leedorianERC20Address;
 
 var chainId = 4;
 var networkList = {
@@ -5825,6 +5826,7 @@ async function getContracts() {
     } else if (chainId == 137) {
       // Matic Polygon mainnet
       leedorianAddress = "0x27A3e1e71B6f4C8f388e55C01c8Bb49139492071";
+      leedorianERC20Address = "0x94576423d85b47575BBA515a1F328A265e6318e6";
       leedorianAbi = [
         { inputs: [], stateMutability: "nonpayable", type: "constructor" },
         {
@@ -6052,6 +6054,7 @@ async function getContracts() {
     } else if (chainId == 80001) {
       // Matic Mombai testnet
       leedorianAddress = "0x27A3e1e71B6f4C8f388e55C01c8Bb49139492071";
+      leedorianERC20Address = "0x94576423d85b47575BBA515a1F328A265e6318e6";
       leedorianAbi = [
         { inputs: [], stateMutability: "nonpayable", type: "constructor" },
         {
@@ -6297,6 +6300,7 @@ async function getContracts() {
       console.log("getContract");
       leedorianContract = new web3.eth.Contract(leedorianAbi, leedorianAddress);
       $(".leedorian-address").html(getLink(leedorianAddress));
+      $(".leedorian-erc20-address").html(getLink(leedorianERC20Address));
     }
   } catch (err) {
     console.log(err);
