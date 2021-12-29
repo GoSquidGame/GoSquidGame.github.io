@@ -1214,9 +1214,24 @@ var utilityAbi = [
     inputs: [
       { internalType: "address", name: "_nftAddr", type: "address" },
       { internalType: "address", name: "_nftVaultAddr", type: "address" },
+      { internalType: "address", name: "_erc20Addr", type: "address" },
     ],
     stateMutability: "nonpayable",
     type: "constructor",
+  },
+  {
+    inputs: [],
+    name: "erc20Addr",
+    outputs: [{ internalType: "address", name: "", type: "address" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "address", name: "_addr", type: "address" }],
+    name: "getUnclaims",
+    outputs: [{ internalType: "uint256[]", name: "", type: "uint256[]" }],
+    stateMutability: "view",
+    type: "function",
   },
   {
     inputs: [],
@@ -1457,6 +1472,7 @@ var leedorianAbi = [
 ];
 var leedorianAddress;
 var leedorianContract;
+var leedorianERC20Address;
 
 var chainId = 4;
 var networkList = {
@@ -1468,6 +1484,7 @@ var networkList = {
 };
 var myAddr;
 let checkInTokenIdList = [];
+let claimTokenIdList = [];
 
 var stakeKind = "unstaked";
 var is_Vault_Approved = false;
@@ -1487,7 +1504,7 @@ const space_shuttle_img = [
   "Nuri5_homebanner_01.gif",
 ];
 
-showBanner();
+// showBanner();
 
 window.addEventListener("load", function () {
   loadWeb3();
@@ -1646,6 +1663,7 @@ async function getAccount() {
         getRewardsBalance();
         showCardList(stakeKind);
         setRewardsClaimBtn();
+        checkOnetimeBonusClaimAvailable();
       }
     } else {
       $("#connect-btn").show();
@@ -3043,15 +3061,30 @@ async function getContracts() {
         },
       ];
 
-      utilityAddress = "0x4539aa65c20644d195ca35c592308970377fea23";
+      utilityAddress = "0x7C0A7B9735d0d245CfB83A3C3b94363faCF0e559"; // ethereum mainnet
       utilityAbi = [
         {
           inputs: [
             { internalType: "address", name: "_nftAddr", type: "address" },
             { internalType: "address", name: "_nftVaultAddr", type: "address" },
+            { internalType: "address", name: "_erc20Addr", type: "address" },
           ],
           stateMutability: "nonpayable",
           type: "constructor",
+        },
+        {
+          inputs: [],
+          name: "erc20Addr",
+          outputs: [{ internalType: "address", name: "", type: "address" }],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [{ internalType: "address", name: "_addr", type: "address" }],
+          name: "getUnclaims",
+          outputs: [{ internalType: "uint256[]", name: "", type: "uint256[]" }],
+          stateMutability: "view",
+          type: "function",
         },
         {
           inputs: [],
@@ -4425,15 +4458,30 @@ async function getContracts() {
         },
       ];
 
-      utilityAddress = "0x3F33B14a1C18BE389b36AE5f30368EeAf3179550";
+      utilityAddress = "0x0cbc7721c2b845264cc5d364199b0b88bce929bd"; // rinkeby
       utilityAbi = [
         {
           inputs: [
             { internalType: "address", name: "_nftAddr", type: "address" },
             { internalType: "address", name: "_nftVaultAddr", type: "address" },
+            { internalType: "address", name: "_erc20Addr", type: "address" },
           ],
           stateMutability: "nonpayable",
           type: "constructor",
+        },
+        {
+          inputs: [],
+          name: "erc20Addr",
+          outputs: [{ internalType: "address", name: "", type: "address" }],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [{ internalType: "address", name: "_addr", type: "address" }],
+          name: "getUnclaims",
+          outputs: [{ internalType: "uint256[]", name: "", type: "uint256[]" }],
+          stateMutability: "view",
+          type: "function",
         },
         {
           inputs: [],
@@ -5722,9 +5770,24 @@ async function getContracts() {
           inputs: [
             { internalType: "address", name: "_nftAddr", type: "address" },
             { internalType: "address", name: "_nftVaultAddr", type: "address" },
+            { internalType: "address", name: "_erc20Addr", type: "address" },
           ],
           stateMutability: "nonpayable",
           type: "constructor",
+        },
+        {
+          inputs: [],
+          name: "erc20Addr",
+          outputs: [{ internalType: "address", name: "", type: "address" }],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [{ internalType: "address", name: "_addr", type: "address" }],
+          name: "getUnclaims",
+          outputs: [{ internalType: "uint256[]", name: "", type: "uint256[]" }],
+          stateMutability: "view",
+          type: "function",
         },
         {
           inputs: [],
@@ -5763,6 +5826,7 @@ async function getContracts() {
     } else if (chainId == 137) {
       // Matic Polygon mainnet
       leedorianAddress = "0x27A3e1e71B6f4C8f388e55C01c8Bb49139492071";
+      leedorianERC20Address = "0x94576423d85b47575BBA515a1F328A265e6318e6";
       leedorianAbi = [
         { inputs: [], stateMutability: "nonpayable", type: "constructor" },
         {
@@ -5990,6 +6054,7 @@ async function getContracts() {
     } else if (chainId == 80001) {
       // Matic Mombai testnet
       leedorianAddress = "0x27A3e1e71B6f4C8f388e55C01c8Bb49139492071";
+      leedorianERC20Address = "0x94576423d85b47575BBA515a1F328A265e6318e6";
       leedorianAbi = [
         { inputs: [], stateMutability: "nonpayable", type: "constructor" },
         {
@@ -6235,6 +6300,7 @@ async function getContracts() {
       console.log("getContract");
       leedorianContract = new web3.eth.Contract(leedorianAbi, leedorianAddress);
       $(".leedorian-address").html(getLink(leedorianAddress));
+      $(".leedorian-erc20-address").html(getLink(leedorianERC20Address));
     }
   } catch (err) {
     console.log(err);
@@ -6418,7 +6484,7 @@ showCardList = async (kind) => {
     return parseFloat(a.tokenId) - parseFloat(b.tokenId);
   });
 
-  console.log(arr);
+  // console.log(arr);
   function Deck(arr) {
     document.getElementById("deck").innerHTML = "";
     for (let i = 0; i < arr.length; i++) {
@@ -6547,12 +6613,12 @@ async function getApproved(_contract) {
   // console.log('getApproved');
   try {
     switch (_contract) {
-      case "leedoErc20":
-        is_ERC20_Approved = await nftContract.methods
-          .isApprovedForAll(myAddr, leedoerc20Address)
-          .call();
-        // console.log('is_ERC20_Approved => ' ,is_ERC20_Approved);
-        break;
+      // case "leedoErc20":
+      //   is_ERC20_Approved = await leedoerc20Contract.methods
+      //     .allowance(myAddr, leedoerc20Address)
+      //     .call();
+      //   console.log("is_ERC20_Approved => ", is_ERC20_Approved);
+      //   break;
       case "leedoVault":
         is_Vault_Approved = await nftContract.methods
           .isApprovedForAll(myAddr, leedovaultAddress)
@@ -6658,7 +6724,7 @@ async function checkIn() {
         getUnstakedBalance(unstaked_cards);
         getStakedBalance(staked_cards);
         getRewardsBalance();
-
+        checkOnetimeBonusClaimAvailable();
         showCardList(stakeKind);
       }
     })
@@ -6705,7 +6771,7 @@ async function checkOut() {
         getUnstakedBalance(unstaked_cards);
         getStakedBalance(staked_cards);
         getRewardsBalance();
-
+        checkOnetimeBonusClaimAvailable();
         showCardList(stakeKind);
       }
     })
@@ -6736,7 +6802,8 @@ async function getRewardsBalance() {
 
   let reWards_gwei = ethers.utils.formatUnits(reWards_wei, 18);
   let total_reWards_gwei = ethers.utils.formatUnits(total_reWards_wei, 18);
-  // console.log('ether_reWards_gwei => ',ether_reWards_gwei);
+  // console.log("reWards_gwei => ", reWards_gwei);
+  // console.log("total_reWards_gwei => ", total_reWards_gwei);
 
   runRewardCounter(reWards_gwei);
 
@@ -6778,8 +6845,12 @@ function runRewardCounter(cur_balance) {
     target.disabled = false;
     RewardCounterInterval = setInterval(function () {
       _balance = _balance + blockRewards;
-      _balance.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-      $(".erc20-rewards").html(_balance);
+
+      let formatted__balance = _balance
+        .toString()
+        .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+      // console.log("formatted__balance => ", formatted__balance);
+      $(".erc20-rewards").html(formatted__balance);
     }, 1000);
   } else {
     if (_balance > 0) {
@@ -6851,6 +6922,7 @@ async function runRewardsClaim() {
       if (receipt.status) {
         target.disabled = false;
         getRewardsBalance();
+        checkOnetimeBonusClaimAvailable();
         $("#stake-loading").hide();
       }
     })
@@ -6875,8 +6947,7 @@ async function RequestAddToken() {
           address: leedoerc20Address,
           symbol: "LEEDO",
           decimals: 18,
-          image:
-            "https://github.com/GoSquidGame/GoSquidGame.github.io/blob/main/docs/leedo_icon.png?raw=true",
+          image: "https://gosquidgame.com/leedo_icon.png",
         },
       },
     })
@@ -7075,6 +7146,7 @@ getCardInfo = async (tokenId, kind) => {
   try {
     switch (kind) {
       case "staked":
+      case "bonusclaim":
         var tokenInfoBase64 = await leedovaultContract.methods
           .tokenURI(tokenId)
           .call();
@@ -7332,7 +7404,7 @@ function bgColorChange(bgtype, isnetworkchange) {
 
   switch (bgtype) {
     case "white":
-      space_shuttle_banner.style.display = "block";
+      space_shuttle_banner.style.display = "none";
       if (isnetworkchange && chainId != 1) {
         switchNetwork(1); // ethereum mainnet
         $("#netword-info").show();
@@ -7492,7 +7564,7 @@ showMetaverseCardList = async (kind) => {
   if (cardInfoList.length > 0) {
     $("#no-card-div").hide();
     $("#div-arrived-cards").show();
-    $("#deck-outside").show();
+    $("#bonus-deck-outside").show();
     cardInfoList.forEach((info, i) => {
       arr.push({ tokenId: tokenId[i], image: info.image });
     });
@@ -7505,7 +7577,7 @@ showMetaverseCardList = async (kind) => {
   } else {
     $("#no-card-div").show();
     $("#div-arrived-cards").hide();
-    $("#deck-outside").hide();
+    $("#bonus-deck-outside").hide();
     document.getElementById("deck-metaverse").innerHTML = "";
   }
 
@@ -7556,3 +7628,275 @@ function showLeedorianWelcome() {
   }
   showWelcomecontent = !showWelcomecontent;
 }
+
+// getLastestBlockNumber
+async function getLatestBlockNumber() {
+  var latestBlockNum = await web3.eth.getBlockNumber();
+  // console.log("latestBlockNum => ", latestBlockNum);
+  // console.log("latestBlockNum + 200000 => ", latestBlockNum + 200000);
+}
+
+/* *************************
+One-time Bonus Claim Start 
+**************************** */
+async function checkOnetimeBonusClaimAvailable() {
+  let latestNetBlockNum = await web3.eth.getBlockNumber();
+  // check lastBlocks on vault contract
+  let lastStakedBlock = await leedovaultContract.methods
+    .lastBlocks(myAddr)
+    .call();
+
+  let calimAvailableBlock = Number(lastStakedBlock);
+  if (chainId === 4) {
+    calimAvailableBlock = calimAvailableBlock + 1;
+  } else {
+    calimAvailableBlock = calimAvailableBlock + 200000;
+  }
+  // let calimAvailableBlock = Number(lastStakedBlock) + 1;
+  // console.log("latestNetBlockNum => ", latestNetBlockNum);
+  // console.log("lastStakedBlock => ", lastStakedBlock);
+  // console.log("calimAvailableBlock => ", calimAvailableBlock);
+  // console.log(
+  //   "latestNetBlockNum > calimAvailableBlock =>  ",
+  //   latestNetBlockNum > calimAvailableBlock
+  // );
+
+  // Migrant Settlement Aid claim button show/hide
+
+  let unClaims;
+  let claimableIds = [];
+  unClaims = await utilityContract.methods.getUnclaims(myAddr).call();
+  // console.log("unClaims =>", unClaims);
+
+  if (unClaims.length > 0) {
+    claimableIds = unClaims.filter((tokenID) => tokenID != "0");
+    // console.log("claimableIds =>", claimableIds);
+  }
+  if (lastStakedBlock > 0 && claimableIds.length > 0) {
+    $("#one_time_bonus_div").show();
+    const btn_open_popup = document.getElementById("btn-open-popup");
+    //Claims can only be made when there are claimable cards.
+    if (latestNetBlockNum > calimAvailableBlock) {
+      if (claimableIds.length > 0) {
+        $("#claimable_block").hide();
+        btn_open_popup.disabled = false;
+      } else {
+        $("#one_time_bonus_div").hide();
+      }
+    } else {
+      $("#claimable_block").show();
+      btn_open_popup.disabled = true;
+
+      let claimable_block = document.getElementById("claimable_block");
+      // claimable_block.innerHTML =
+      //   '<p style="margin-bottom: 0px;font-size: 12px; color: #818181;">You can claim after Block #' +
+      //   calimAvailableBlock +
+      //   " of Ethereum Mainnet.";
+
+      let block_str =
+        '<p style="margin-bottom: 0px;font-size: 12px; color: #818181;">You can claim after Block #';
+      block_str =
+        block_str +
+        '<span><a style="color: blue; text-decoration: underline;" href="https://etherscan.io/block/countdown/' +
+        calimAvailableBlock +
+        '"';
+      block_str =
+        block_str +
+        ' target="_blank">' +
+        calimAvailableBlock +
+        "</a></span>  of Ethereum Mainnet.</p>";
+      claimable_block.innerHTML = block_str;
+    }
+  } else {
+    $("#one_time_bonus_div").hide();
+  }
+
+  return latestNetBlockNum > calimAvailableBlock;
+}
+
+const body = document.querySelector("body");
+const modal = document.querySelector(".modal-onetimebonus");
+const btnOpenPopup = document.querySelector(".btn-open-popup");
+const btnClosePopup = document.querySelector(".btn-close-popup");
+const bonus_claim_complete = document.getElementById("bonus_claim_complete");
+
+btnOpenPopup.addEventListener("click", () => {
+  modal.classList.toggle("show");
+  const target = document.getElementById("bonus-claim-btn");
+  target.disabled = true;
+
+  if (modal.classList.contains("show")) {
+    body.style.overflow = "hidden";
+  }
+  showBonusClaimCardList();
+});
+
+btnClosePopup.addEventListener("click", () => {
+  modal.classList.toggle("show");
+  bonus_claim_complete.innerHTML = "";
+
+  const target = document.getElementById("bonus-claim-btn");
+  target.disabled = true;
+
+  if (!modal.classList.contains("show")) {
+    body.style.overflow = "auto";
+  }
+});
+
+modal.addEventListener("click", (event) => {
+  if (event.target === modal) {
+    modal.classList.toggle("show");
+    bonus_claim_complete.innerHTML = "";
+
+    if (!modal.classList.contains("show")) {
+      body.style.overflow = "auto";
+    }
+  }
+});
+
+showBonusClaimCardList = async () => {
+  $("#one-time-bonus-loading").show();
+  claimTokenIdList = [];
+  let unClaims = [];
+
+  unClaims = await utilityContract.methods.getUnclaims(myAddr).call();
+  // console.log("unClaims =>", unClaims);
+  const claimableIds = unClaims.filter((tokenID) => tokenID != "0");
+  // console.log("claimableIds =>", claimableIds);
+
+  let tokenId = claimableIds;
+
+  // console.log("myAddr => ", myAddr);
+
+  let arr = [];
+
+  const cardInfoList = await Promise.all(
+    tokenId.map((id) => {
+      // console.log('aaaaa => ',getCardInfo(id))
+      return getCardInfo(id, "bonusclaim");
+    })
+  );
+  cardInfoList.forEach((info, i) => {
+    arr.push({ tokenId: tokenId[i], image: info.image });
+  });
+
+  arr.sort(function (a, b) {
+    return parseFloat(a.tokenId) - parseFloat(b.tokenId);
+  });
+
+  // console.log(arr);
+  function BonusDeck(arr) {
+    document.getElementById("bonus_deck").innerHTML = "";
+    for (let i = 0; i < arr.length; i++) {
+      let card = document.createElement("div");
+      let imgBox = document.createElement("div");
+      let descriptionBox = document.createElement("div");
+      let tokenId = document.createElement("div");
+      let checkBox = document.createElement("div");
+      let label = document.createElement("div");
+      card.className = "card";
+      imgBox.className = "imgbox";
+      descriptionBox.className = "descriptionBox";
+      tokenId.className = "tokenID";
+      checkBox.className = "checkBox";
+
+      label.innerHTML = ``;
+      imgBox.innerHTML = `<label class="checkbox-label" for="checkBox${arr[i].tokenId}" />
+        <img style="width: auto; height: auto; max-width: 200px; "  src="${arr[i].image}" />         
+        `;
+
+      tokenId.innerHTML = `#${arr[i].tokenId} </label>`;
+      checkBox.innerHTML = `<input id="checkBox${arr[i].tokenId}" style="width:20px;height:20px; " type="checkbox"  value="${arr[i].tokenId}" onclick ="checkBoxClick1(this)"/>`;
+      card.appendChild(imgBox);
+      card.appendChild(descriptionBox);
+      descriptionBox.appendChild(tokenId);
+      descriptionBox.appendChild(checkBox);
+
+      document.getElementById("bonus_deck").appendChild(card);
+    }
+  }
+
+  BonusDeck(arr);
+
+  checkBoxClick1 = (e) => {
+    // console.log(e)
+    // console.log(e.checked)
+    // console.log(e.value)
+
+    if (e.checked) {
+      if (claimTokenIdList.length == 20) {
+        alert("You can select up to 20.");
+        e.checked = false;
+      } else {
+        const target = document.getElementById("bonus-claim-btn");
+        target.disabled = false;
+        claimTokenIdList.push(e.value);
+      }
+    } else {
+      // console.log(claimTokenIdList)
+      // claimTokenIdList.indexOf(e.value);
+      claimTokenIdList.splice(claimTokenIdList.indexOf(e.value), 1);
+      if (claimTokenIdList.length == 0) {
+        const target = document.getElementById("bonus-claim-btn");
+        target.disabled = true;
+      } else {
+        const target = document.getElementById("bonus-claim-btn");
+        target.disabled = false;
+      }
+    }
+    document.getElementById("bonus-deck-selected-cnt").innerHTML =
+      '<p style="margin-bottom: 5px;font-size: 12px; color: #818181;">( ' +
+      claimTokenIdList.length +
+      " / 20 ) Maximum 20 cards per transaction.</p>";
+  };
+
+  document.getElementById("bonus-deck-selected-cnt").innerHTML =
+    '<p style="margin-bottom: 5px;font-size: 12px; color: #818181;">( 0 / 20 ) Maximum 20 cards per transaction.</p>';
+
+  $("#one-time-bonus-loading").hide();
+};
+
+async function bonusClaim() {
+  console.log("bonusClaim");
+  $("#one-time-bonus-loading").show();
+  const target = document.getElementById("bonus-claim-btn");
+  const bonus_claim_complete = document.getElementById("bonus_claim_complete");
+  bonus_claim_complete.innerHTML = "";
+  target.disabled = true;
+  //checkInTokenIdList
+  leedoerc20Contract.methods
+    .claim(claimTokenIdList)
+    .send({ from: myAddr })
+    .on("transactionHash", (txid) => {
+      // console.log(`txid: ${txid}`);
+    })
+    .once("allEvents", (allEvents) => {
+      // console.log("allEvents");
+      // console.log(transferEvent);
+    })
+    .once("Transfer", (transferEvent) => {
+      // console.log("trasferEvent", transferEvent);
+    })
+    .once("receipt", (receipt) => {
+      // console.log("receipt=>", receipt);
+      if (receipt.status) {
+        // update unclaim card list
+        bonus_claim_complete.innerHTML =
+          "Bonus claim for " +
+          claimTokenIdList.length +
+          " card(s) has been completed.<br>Check the transaction details in your wallet.";
+        // setTimeout(() => {
+        //   target.innerHTML = "";
+        // }, 3000);
+        claimTokenIdList = [];
+        showBonusClaimCardList();
+        checkOnetimeBonusClaimAvailable();
+      }
+    })
+    .on("error", (error) => {
+      target.disabled = false;
+      $("#one-time-bonus-loading").hide();
+      console.log(error);
+    });
+}
+/* One-time Bonus Claim End */

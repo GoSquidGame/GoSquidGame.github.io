@@ -74,6 +74,7 @@
 </head>
 
 <body id="body-style">
+
     <div id="metaverse-bg" style="display: none; margin-top: 200px; position: absolute;">
         <img id="bg-image" width="auto" src="squid_bg2.png"/>
     </div>    
@@ -144,8 +145,8 @@
                 <!-- <button  href="#"  class="lang-select">Click ko</button> -->
             </div>
         </div>
-        <div id="space-shuttle" style="text-align: center; display: block;" class = "space-shuttle">
-            <img id = "banner-img" width="auto" src="Nuri5_homebanner_01.gif"/>
+        <div id="space-shuttle" style="text-align: center; display: none;" class = "space-shuttle">
+            <img id = "banner-img" width="auto" src="merryChristmas.gif"/>
         </div>
         <div id="msgAlert" style="display: none;"></div>
 
@@ -608,22 +609,28 @@
                 <div class="frame-common">
                     <div class="frame-content">
                         <p data-langNum="tabs_8_content_5"></p>
-                        <span class="nft-address"></span>
+                        <div class="content_align" >
+                            <span class="nft-address"></span>
+                        </div>
                     </div>
                     <div class="frame-content">
                         <p data-langNum="tabs_8_content_6"></p>
-                        <span class="leedovault-address"></span>
+                        <div class="content_align" >
+                            <span class="leedovault-address"></span>
+                        </div>
                     </div>
                     <div class="frame-content">
                         <p data-langNum="tabs_8_content_7"></p>
-                        <div style="display: flex;">
+                        <div class="content_align" >
                             <span style="margin-right: 5px;" class="add-token-link" onclick="RequestAddToken()" data-langNum="tabs_8_content_8"></span>
                             <span class="leedoerc20-address"></span>    
                         </div>
                     </div>
                     <div class="frame-content">
                         <p data-langNum="tabs_8_content_9"></p>
-                        <span class="account-address"></span>
+                        <div class="content_align" >
+                            <span class="account-address"></span>
+                        </div>
                     </div>
                 </div>
                 <div id="staking-body" style="display: none;">
@@ -632,7 +639,7 @@
                         <p style="text-align: center; font-size: 25px; margin-bottom: 0px;" data-langNum="tabs_8_content_10"></p>
                         <div id="erc20-claim-div-m"></div>  
                         <div class="frame-content">
-                            <div>
+                            <div class="reward_body">
                                 <p data-langNum="tabs_8_content_11"></p>
                                 <p style="font-size: 25px; margin-top: 5px;" data-langNum="tabs_8_content_12"></p>
                                 <p style="font-size: 16px; margin-top: 10px; color:#818181" data-langNum="tabs_8_content_13"></p>
@@ -643,8 +650,46 @@
                                     <p style="font-size: 25px; color:orange"><b><span class="erc20-claimed-rewards"></span></b></p>
                                 </div>
                             </div>
-                            <div id="erc20-claim-div"></div>   
+                            <div id="erc20-claim-div"></div>                          
                         </div>
+                        <!-- One-time Bonus Claim Start -->
+                        <div class="modal-onetimebonus"> 
+                            <div class="modal_body">
+                                <div id="one-time-bonus-loading"><div class="spinner"></div></div>
+                                <div>
+                                    <button class="btn-close-popup" style="position:absolute;right: 20px; min-width: 38px; padding-left: 2px;padding-right: 2px; font-size: 12px; " >X</button>
+                                </div>
+                                <div class="frame-common" style="margin-top: 0;">
+                                    <div style="width: 100%;">
+                                        <p style="margin-bottom: 10px;" data-langNum="tabs_8_one_time_bonus_claim"></p>
+                                        <div style="margin-bottom: 10px;">
+                                            <!-- <span style="margin-bottom: 0px;font-size: 14px; color: #818181;" data-langNum="tabs_8_one_time_bonus_claim"></span> -->
+                                            <b><span style="margin-bottom: 0px;font-size: 14px; color: orange" id="bonus_claim_complete"></span></b>
+                                        </div>
+                                        
+                                        <p style="margin-bottom: 10px;font-size: 12px; color: #818181;" data-langNum="tabs_8_one_time_bonus_info"></p>
+                                        <div id="bonus-deck-selected-cnt"  style="text-align: center;"></div>                                        
+                                        <div class="bonus-deck-outside">
+                                            <div id="bonus_deck" class="deck"></div>
+                                        </div>         
+                                        <div id="bonus-btn-div" class='bonus-btn-div' style='text-align: center;'>
+                                            <button  style="margin-top:10px" id="bonus-claim-btn" disabled onclick="bonusClaim()">Claim</button>                                            
+                                        </div>                       
+                                    </div>
+                                </div>
+
+                            </div> 
+                        </div>
+                        <div id="one_time_bonus_div" class="frame-content"  style="margin-top: 20px;">
+                            <div class="reward_body">
+                                <p data-langNum="tabs_8_one_time_bonus"></p>
+                                <div id = "claimable_block" >
+                                </div>
+                            </div>
+                            <button id="btn-open-popup" class="btn-open-popup">One-time Bonus Claim</button>                             
+
+                        </div>
+                        <!-- One-time Bonus Claim End -->
                     </div>
                     <div style="display: flex; justify-content: stretch;">
                         <div class="frame-common">
@@ -715,15 +760,25 @@
                 <div id="metaverse-body" style="display: none;">
                     <div class="frame-common" >
                         <div class="frame-content">
-                            <p class="contract-address" data-langNum="tabs_9_content_1"></p>
-                            <div style="display: flex; justify-items: flex-end;  align-items: center;">
+                            <p data-langNum="tabs_9_content_1"></p>
+                            <div class="content_align"  >
                                 <span class="leedorian-address" style="margin-right: 10px;"></span>
                                 <img width="32px" height="32px" src="arrow_ico.png"/>    
-                            </div>
+                            </div>                            
                         </div>
                         <div class="frame-content" style="margin-top: 10px;">
-                            <p class="contract-address"  data-langNum="tabs_8_content_9"></p>
-                            <div style="display: flex; justify-items: flex-end;  align-items: center;">
+                            <p data-langNum="tabs_9_content_2"></p>
+                            <div class="content_align" >
+                                <span style="margin-right: 5px;" class="add-token-link" onclick="RequestAddToken()" data-langNum="tabs_8_content_8"></span>
+                                <span class="leedorian-erc20-address" style="margin-right: 10px;"></span>
+                                <img width="32px" height="32px" src="arrow_ico.png"/>    
+
+                            </div>
+                            
+                        </div>
+                        <div class="frame-content" style="margin-top: 10px;">
+                            <p data-langNum="tabs_8_content_9"></p>
+                            <div class="content_align" >
                                 <span class="my-address contract-address" style="margin-right: 10px;"></span>
                                 <img width="32px" height="32px" src="arrow_ico.png"/>    
                             </div>
