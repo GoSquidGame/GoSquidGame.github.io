@@ -6938,13 +6938,20 @@ async function runRewardsClaim() {
 }
 
 async function RequestAddToken() {
+  // console.log("leedoerc20Address => ", leedoerc20Address);
+  let token_address;
+  if (chainId === 137 || chainId === 80001) {
+    token_address = leedorianERC20Address;
+  } else {
+    token_address = leedoerc20Address;
+  }
   await ethereum
     .request({
       method: "wallet_watchAsset",
       params: {
         type: "ERC20",
         options: {
-          address: leedoerc20Address,
+          address: token_address,
           symbol: "LEEDO",
           decimals: 18,
           image: "https://gosquidgame.com/leedo_icon.png",
