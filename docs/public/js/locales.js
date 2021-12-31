@@ -237,6 +237,34 @@ $.lang.en = {
     "Built on a planet that can use gas hundreds of times a day, away from the Ethereum mainnet polluted by high gas bills, the Leedorian metaverse will give you unlimited freedom.<br>It's free, but it can still be boring. Because there is no game yet.<br> A game center for numerous games is under construction. Once the game center is complete, anyone can easily create games, earn money from their games, and earn money by participating in games.<br>For the day when everyone can enjoy the real freedom of not using up the LEEDO that keeps accumulating in the wallet!<br><br><b>Long live Leedorian!</b>",
   tabs_9_content_network_info:
     "Check your wallet is connected to the Matic Polygon Mainnet.<br>To Use Leedorian Metaverse, please switch to Matic Polygon Mainnet.<br>Please refer to the FAQ on how to add a network to your Metamask wallet.",
+
+  tabs_10_title: "Leedo DAO",
+  tabs_10_content_1: "<strong>Leedo DAO takes over the project now!</strong>",
+  tabs_10_content_2:
+    "We have successfully launched Leedo DAO on December 30, 2021 (UTC) with 82% of participation rate based on the LEEDO token circulation. ",
+  tabs_10_content_3: "View Snapshot Voting Results",
+  tabs_10_content_4:
+    "(1) The Leedo DAO manages all protocol owned assets and is responsible execution of managerial contract transactions to update protocol and contract parameters. ",
+  tabs_10_content_5:
+    "(2) The DAO system consists of two main parts, (a) DAO multisig contract and (b) Snapshot off-chain LEEDO token voting system. ",
+  tabs_10_content_6:
+    "(3) All important matters of Leedo Projects will be decided by the Snapshot votes. ",
+  tabs_10_content_7:
+    "(4) The multisig contract will execute the vote result on all LEEDO project smart contracts. ",
+  tabs_10_content_8:
+    "(5) The multisig contract has initial 9 signers who have been selected by internal communications among the most active community members and the largest NFT and LEEDO token holders. ",
+  tabs_10_content_9:
+    "(6) The multisig contract needs 5 of 9 signers’ confirmations to execute any transactions. ",
+  tabs_10_content_10: "(7) Initial DAO multisig contract signers:",
+
+  tabs_10_content_11:
+    "(8) The initial signers can be replaced by Snapshot vote or signers’ own decision.",
+  tabs_10_content_12: "Ethereum Multisig",
+  tabs_10_content_13:
+    "https://gnosis-safe.io/app/eth:0xD159e1FFE53d18Aa149696c97185057CC13BD129",
+  tabs_10_content_14: "Polygon Multisig",
+  tabs_10_content_15:
+    "https://gnosis-safe.io/app/matic:0xa7201253179eDDdf7C42A76b22eae4A8654073bc",
 };
 
 $.lang.ko = {
@@ -478,6 +506,33 @@ $.lang.ko = {
     "높은 가스비로 오염된 이더리움 메인넷을 떠나, 매일 수백번씩 가스를 써도 되는 행성에 구축된 Leedorian 메타버스는 여러분에게 무한한 자유를 선사할 것입니다.<br>자유롭긴 하지만 아직은 심심하실 수 있습니다. 아직 게임이 없기 때문이죠.<br> 수많은 게임들이 입주할 게임센터가 건설 중입니다. 게임 센터가 완공되면, 누구나 쉽게 게임을 만들고, 자신이 만든 게임으로 돈을 벌 수 있고, 게임에 참여해서 돈을 벌 수 있습니다.<br>계속 지갑에 쌓이는 LEEDO를 다 쓰지 못하는 진짜 자유를 모두가 누리는 그날을 위해!<br><br><b>Leedorian 만세!</b>",
   tabs_9_content_network_info:
     "지갑이 Matic Polygon 메인넷에 연결되어 있는지 확인하세요.<br>Leedorian 메타버스를 이용하시려면 Matic Polygon 메인넷으로 전환하시기 바랍니다.<br>메타마스크 지갑에 네트워크를 추가하는 방법은 FAQ를 참조하세요.",
+
+  tabs_10_title: "Leedo DAO",
+  tabs_10_content_1: "<strong>이제 Leedo DAO가 프로젝트를 인수합니다!</strong>",
+  tabs_10_content_2:
+    "2021년 12월 30일(UTC)에 LEEDO 토큰 순환 기준 82%의 참여율로 Leedo DAO를 성공적으로 런칭했습니다.",
+  tabs_10_content_3: "Snapshot 투표 결과 보기",
+  tabs_10_content_4:
+    "(1) Leedo DAO는 모든 프로토콜 소유 자산을 관리하고 프로토콜 및 계약 매개변수를 업데이트하기 위한 관리 계약 트랜잭션의 책임 있는 실행을 담당합니다.",
+  tabs_10_content_5:
+    "(2) DAO 시스템은 (a) DAO 다중 서명 계약과 (b) Snapshot 오프체인 LEEDO 토큰 투표 시스템의 두 가지 주요 부분으로 구성됩니다.",
+  tabs_10_content_6:
+    "(3) Leedo 프로젝트의 모든 중요한 사항은 Snapshot 투표로 결정합니다.",
+  tabs_10_content_7:
+    "(4) Multisig contract은 모든 LEEDO 프로젝트 스마트 계약에 대한 투표 결과를 실행합니다.",
+  tabs_10_content_8:
+    "(5) Multisig contract에는 가장 활동적인 커뮤니티 구성원과 가장 많은 NFT 및 LEEDO 토큰 보유자 중 내부 커뮤니케이션을 통해 선택된 초기 9명의 서명자가 있습니다.",
+  tabs_10_content_9:
+    "(6) Multisig contract은 모든 거래를 실행하기 위해 9명의 서명자 중 5명의 확인이 필요합니다.",
+  tabs_10_content_10: "(7) 초기 DAO Multisig contract 서명자:",
+  tabs_10_content_11:
+    "(8) 초기 서명자는 Snapshot 투표 또는 서명자의 자체 결정으로 대체될 수 있습니다.",
+  tabs_10_content_12: "Ethereum Multisig",
+  tabs_10_content_13:
+    "https://gnosis-safe.io/app/eth:0xD159e1FFE53d18Aa149696c97185057CC13BD129",
+  tabs_10_content_14: "Polygon Multisig",
+  tabs_10_content_15:
+    "https://gnosis-safe.io/app/matic:0xa7201253179eDDdf7C42A76b22eae4A8654073bc",
 };
 //start en
 setLanguage(lang);

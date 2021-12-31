@@ -1499,12 +1499,13 @@ let arrivedIds = [];
 var RewardCounterInterval;
 
 const space_shuttle_img = [
-  "Nuri5_homebanner_02.gif",
-  "Nuri5_homebanner_03.jpg",
-  "Nuri5_homebanner_01.gif",
+  "happyNewYear-1.gif",
+  "happyNewYear-2.jpg",
+  "happyNewYear-3.gif",
+  "happyNewYear-4.jpg",
 ];
 
-// showBanner();
+showBanner();
 
 window.addEventListener("load", function () {
   loadWeb3();
@@ -7411,7 +7412,7 @@ function bgColorChange(bgtype, isnetworkchange) {
 
   switch (bgtype) {
     case "white":
-      space_shuttle_banner.style.display = "none";
+      space_shuttle_banner.style.display = "done";
       if (isnetworkchange && chainId != 1) {
         switchNetwork(1); // ethereum mainnet
         $("#netword-info").show();
