@@ -112,14 +112,14 @@ $.lang.en = {
   tabs_4_content_10: `Make sure you are in ETH Mainnet chain.`,
   tabs_4_content_11: `Select a wallet you want (Metamask or any Dapp wallet).`,
   tabs_4_content_12: `Get to the contract <b>[Read]</b> page, <a target='_blank' href='https://etherscan.io/address/0xbe5c953dd0ddb0ce033a98f36c981f1b74d3b33f#readContrac'>https://etherscan.io/address/0xbe5c953dd0ddb0ce033a98f36c981f1b74d3b33f#readContrac</a>`,
-  tabs_4_content_13: `You can check if you can claim by clicking the <b>[isMintable](13)</b> button first. If it says, “True”, you can claim. If it says ‘False’, wait until the next round starts. The next round  starting time will be posted on Twitter(https://twitter.com/GoSquidGame)`,
+  tabs_4_content_13: `You can check if you can claim by clicking the <b>[isMintable](13)</b> button first. If it says, “True”, you can claim. If it says ‘False’, wait until the next round starts. The next round  starting time will be posted on Twitter(https://twitter.com/LeedoProject)`,
   tabs_4_content_14: `Get to the claim page,   <a target='_blank' href='https://etherscan.io/token/0xBE5C953DD0ddB0Ce033a98f36C981F1B74d3B33f#writeContract'>https://etherscan.io/token/0xBE5C953DD0ddB0Ce033a98f36C981F1B74d3B33f#writeContract</a>`,
   tabs_4_content_15: `Click “Connect to Web3”`,
   tabs_4_content_16: `Click the <b>[claim]</b>`,
   tabs_4_content_17: `Click the <b>[Write]</b> button.`,
   tabs_4_content_18: `See the confirmation dialog from the wallet. if the gas is not too high it means you can have it, just do the claim by confirming any dialog it says.`,
   tabs_4_content_19: `The fee of Squid Game Card NFT is 0 (zero) ETH. it is really giveaway project to see how it possible to go wide`,
-  tabs_4_content_20: `Check out the OpenSea link, <a target='_blank' href='https://opensea.io/collection/squid-game-card-nft'>https://opensea.io/collection/squid-game-card-nft</a>`,
+  tabs_4_content_20: `Check out the OpenSea link, <a target='_blank' href='https://opensea.io/collection/leedoproject'>https://opensea.io/collection/leedoproject</a>`,
   tabs_4_content_21: `Every 456 cards are claimed, there will be a 6 hour round break. During the break, nobody can claim. The time lock is automatically handled by the contract.`,
   tabs_4_content_22: `There will be 21 rounds of 456 cards, totaling maximum 9,576 cards.`,
   tabs_4_content_23: `The contract owner claims the first 10 cards when deploying the contract, and can claim the last 456 cards with tokens id 9121 to 9576.`,
@@ -133,7 +133,7 @@ $.lang.en = {
   tabs_5_content_7: `It is intentionally designed not to give any meaning to the attributes in order to promote endless creative imagination.`,
   tabs_5_content_8: `How can I get the ‘Squid Game Card’?`,
   tabs_5_content_9: `You can participate in the 20 rounds of Free Minting Round and pay the gas fee and mint it on [Free Minting] menu or the web3 page of the squid game card smart contract for free.`,
-  tabs_5_content_10: `Users who are willing to buy the ‘Squid Game Card’ can obtain it by purchasing a card in OpenSea(https://opensea.io/collection/squid-game-card-nft).`,
+  tabs_5_content_10: `Users who are willing to buy the ‘Squid Game Card’ can obtain it by purchasing a card in OpenSea(https://opensea.io/collection/leedoproject).`,
   tabs_5_content_11: `Can I still issue squid game cards for free?`,
   tabs_5_content_12: `Yes! Since Free minting rounds of the Squid Game card are not over yet, anyone can mint it for free.`,
   tabs_5_content_13: `For detailed minting method, refer to [Free Minting] page.`,
@@ -163,16 +163,12 @@ $.lang.en = {
   tabs_5_content_37: `If I draw a ‘○○○’ or a ‘ㄱㄱㄱ’ card, can I win 5 ETH prize?`,
   tabs_5_content_38: `No. A card is randomly selected out of 456 cards in each round and if the card has same three consonants, such as ‘○○○’ and also there has been no 5 ETH prize winner by this time then its hodler can receive 5 ETH prize.`,
   tabs_5_content_39: `If 5 ETH prize awarded before, the hodler receives 1 ETH prize.`,
-  tabs_5_content_add_matic_network:
-    "How to add Matic Polygon Mainnet to Metamask wallet.",
-  tabs_5_content_add_matic_network_1:
-    "To add Polygon’s Mainnet, click on the Network selection dropdown and then click on Custom RPC.",
-  tabs_5_content_add_matic_network_2:
-    "Matic Polygon Mainnet Network Information",
+  tabs_5_content_add_matic_network: "How to add Matic Polygon Mainnet to Metamask wallet.",
+  tabs_5_content_add_matic_network_1: "To add Polygon’s Mainnet, click on the Network selection dropdown and then click on Custom RPC.",
+  tabs_5_content_add_matic_network_2: "Matic Polygon Mainnet Network Information",
   tabs_5_content_add_matic_network_3:
     "<b>Network Name : Matic Polygon Mainnet<br>New RPC URL : https://polygon-rpc.com/<br>Chain ID : 137<br>Currency Symbol : MATIC<br>Block Explorer URL : https://polygonscan.com/<b>",
-  tabs_5_content_add_matic_network_4:
-    "Once you’ve added the information click on Save. You will be directly switched to Polygon’s Mainnet now in the network dropdown list. ",
+  tabs_5_content_add_matic_network_4: "Once you’ve added the information click on Save. You will be directly switched to Polygon’s Mainnet now in the network dropdown list. ",
 
   tabs_6_content_1: `<strong>Technical Structure of Squid Game Metaverse</strong>`,
   tabs_6_content_2: `Squid Game Metaverse effectively and flexibly combines various technical resources developed in the blockchain ecosystem with the technical framework for existing web and mobile development environments.<br>Starting with the Ethereum mainnet, it will later expand to scaling chains including Polygon and Layer-2 chains.`,
@@ -223,12 +219,10 @@ $.lang.en = {
   tabs_8_content_17: `cards`,
   tabs_8_content_18: `Available for staking`,
   tabs_8_content_19: `Staked`,
-  tabs_8_content_network_info:
-    "Check your wallet is connected to the Ethereum Mainnet.<br>To Use Check-in counter, please switch to Ethereum Mainnet.",
+  tabs_8_content_network_info: "Check your wallet is connected to the Ethereum Mainnet.<br>To Use Check-in counter, please switch to Ethereum Mainnet.",
   tabs_8_one_time_bonus: "<b>Migrant Settlement Aid</b>",
   tabs_8_one_time_bonus_claim: "<b>Claiming Migrant Settlement Aid</b>",
-  tabs_8_one_time_bonus_info:
-    "Migration Settlement Aid for staking cards can be claimed once per card.",
+  tabs_8_one_time_bonus_info: "Migration Settlement Aid for staking cards can be claimed once per card.",
 
   tabs_9_content_1: "<b>Leedorian Metaverse contract address : </b>",
   tabs_9_content_2: `<b>LEEDO ERC20 token contract address : </b>`,
@@ -240,31 +234,22 @@ $.lang.en = {
 
   tabs_10_title: "Leedo DAO",
   tabs_10_content_1: "<strong>Leedo DAO takes over the project now!</strong>",
-  tabs_10_content_2:
-    "We have successfully launched Leedo DAO on December 30, 2021 (UTC) with 82% of participation rate based on the LEEDO token circulation. ",
+  tabs_10_content_2: "We have successfully launched Leedo DAO on December 30, 2021 (UTC) with 82% of participation rate based on the LEEDO token circulation. ",
   tabs_10_content_3: "View Snapshot Voting Results",
-  tabs_10_content_4:
-    "(1) The Leedo DAO manages all protocol owned assets and is responsible execution of managerial contract transactions to update protocol and contract parameters. ",
-  tabs_10_content_5:
-    "(2) The DAO system consists of two main parts, (a) DAO multisig contract and (b) Snapshot off-chain LEEDO token voting system. ",
-  tabs_10_content_6:
-    "(3) All important matters of Leedo Projects will be decided by the Snapshot votes. ",
-  tabs_10_content_7:
-    "(4) The multisig contract will execute the vote result on all LEEDO project smart contracts. ",
+  tabs_10_content_4: "(1) The Leedo DAO manages all protocol owned assets and is responsible execution of managerial contract transactions to update protocol and contract parameters. ",
+  tabs_10_content_5: "(2) The DAO system consists of two main parts, (a) DAO multisig contract and (b) Snapshot off-chain LEEDO token voting system. ",
+  tabs_10_content_6: "(3) All important matters of Leedo Projects will be decided by the Snapshot votes. ",
+  tabs_10_content_7: "(4) The multisig contract will execute the vote result on all LEEDO project smart contracts. ",
   tabs_10_content_8:
     "(5) The multisig contract has initial 9 signers who have been selected by internal communications among the most active community members and the largest NFT and LEEDO token holders. ",
-  tabs_10_content_9:
-    "(6) The multisig contract needs 5 of 9 signers’ confirmations to execute any transactions. ",
+  tabs_10_content_9: "(6) The multisig contract needs 5 of 9 signers’ confirmations to execute any transactions. ",
   tabs_10_content_10: "(7) Initial DAO multisig contract signers:",
 
-  tabs_10_content_11:
-    "(8) The initial signers can be replaced by Snapshot vote or signers’ own decision.",
+  tabs_10_content_11: "(8) The initial signers can be replaced by Snapshot vote or signers’ own decision.",
   tabs_10_content_12: "Ethereum Multisig",
-  tabs_10_content_13:
-    "https://gnosis-safe.io/app/eth:0xD159e1FFE53d18Aa149696c97185057CC13BD129",
+  tabs_10_content_13: "https://gnosis-safe.io/app/eth:0xD159e1FFE53d18Aa149696c97185057CC13BD129",
   tabs_10_content_14: "Polygon Multisig",
-  tabs_10_content_15:
-    "https://gnosis-safe.io/app/matic:0xa7201253179eDDdf7C42A76b22eae4A8654073bc",
+  tabs_10_content_15: "https://gnosis-safe.io/app/matic:0xa7201253179eDDdf7C42A76b22eae4A8654073bc",
 };
 
 $.lang.ko = {
@@ -377,7 +362,7 @@ $.lang.ko = {
   tabs_4_content_17: `<b>[Write]</b> 버튼을 클릭하세요.`,
   tabs_4_content_18: `지갑에서 [확인] 팝어의 내용을 참조하십시오. 가스가 너무 높지 않다면 발행할 수 있음을 의미합니다. 표시된 대화를 확인하여 ‘claim’을 수행하십시오.`,
   tabs_4_content_19: `오징어 게임 카드 NFT의 수수료는 0 ETH입니다. 널리 퍼지는 것을 목적으로 하는 무료 발행 프로젝트입니다.`,
-  tabs_4_content_20: `OpenSea 링크를 확인하십시오.<a target="_blank" href="https://opensea.io/collection/squid-game-card-nft">https://opensea.io/collection/squid-game-card-nft</a>`,
+  tabs_4_content_20: `OpenSea 링크를 확인하십시오.<a target="_blank" href="https://opensea.io/collection/leedoproject">https://opensea.io/collection/leedoproject</a>`,
   tabs_4_content_21: `456장의 카드가 청구될 때마다 6시간의 라운드 휴식 시간이 있습니다. 휴식 시간에는 아무도 청구할 수 없습니다. 시간 잠금은 Smart Contract에 의해 자동으로 처리됩니다.`,
   tabs_4_content_22: `총 발행량은 456장 21라운드, 9,576장입니다.`,
   tabs_4_content_23: `스마트컨트랙 소유자는 컨트랙을 배포할 때 처음 10개의 카드를 발행하고, 토큰 ID가 9121에서 9576인 마지막 456개의 카드를 발행할 수 있습니다.`,
@@ -421,15 +406,12 @@ $.lang.ko = {
   tabs_5_content_37: `‘○○○’ 카드나 ‘ㄱㄱㄱ’ 같은 카드를 뽑으면 5 이더 주는 건가요?`,
   tabs_5_content_38: `아닙니다. 5 이더를 받는 당첨자는 아직 5 이더 당첨자가 나오지 않은 상태에서, 매 라운드 456개의 카드 중 한개씩 뽑는 당첨 카드로 뽑힌 당첨 카드가 ‘○○○’ 같은 세 자음이 동일한 카드여야 합니다.`,
   tabs_5_content_39: `이미 5 이더 당첨자가 나와서 5 이더를 받아갔다면, 라운드 당첨자가 된 ‘○○○’ 같이 세 자음이 동일한 카드는 1 이더의 당첨금을 받게 됩니다.`,
-  tabs_5_content_add_matic_network:
-    "메타마스크 지갑에 Matic Polygon Mainnet 추가하는 방법.",
-  tabs_5_content_add_matic_network_1:
-    "Polygon의 메인넷을 추가하려면 네트워크 선택 드롭다운을 클릭한 다음 사용자 지정 RPC를 클릭합니다.",
+  tabs_5_content_add_matic_network: "메타마스크 지갑에 Matic Polygon Mainnet 추가하는 방법.",
+  tabs_5_content_add_matic_network_1: "Polygon의 메인넷을 추가하려면 네트워크 선택 드롭다운을 클릭한 다음 사용자 지정 RPC를 클릭합니다.",
   tabs_5_content_add_matic_network_2: "Matic Polygon Mainnet 네트워크 정보",
   tabs_5_content_add_matic_network_3:
     "<b>Network Name : Matic Polygon Mainnet<br>New RPC URL : https://polygon-rpc.com/<br>Chain ID : 137<br>Currency Symbol : MATIC<br>Block Explorer URL : https://polygonscan.com/</b>",
-  tabs_5_content_add_matic_network_4:
-    "정보를 추가했으면 저장을 클릭합니다. 이제 네트워크 드롭다운 목록에서 Polygon의 메인넷으로 직접 전환됩니다.",
+  tabs_5_content_add_matic_network_4: "정보를 추가했으면 저장을 클릭합니다. 이제 네트워크 드롭다운 목록에서 Polygon의 메인넷으로 직접 전환됩니다.",
 
   tabs_6_content_1: `<strong>Technical Structure of Squid Game Metaverse</strong>`,
   tabs_6_content_2: `오징어게임 메타버스는 블록체인 생태계에서 개발된 다양한 기술 자원을 기존 웹 및 모바일 개발 환경을 위한 기술 프레임워크와 효과적이고 유연하게 결합합니다.<br>
@@ -491,13 +473,11 @@ $.lang.ko = {
   tabs_8_content_17: `cards`,
   tabs_8_content_18: `Available for staking`,
   tabs_8_content_19: `Staked`,
-  tabs_8_content_network_info:
-    "지갑이 이더리움 메인넷에 연결되어 있는지 확인하세요.<br>체크인 카운터를 이용하시려면 이더리움 메인넷으로 전환하시기 바랍니다.",
+  tabs_8_content_network_info: "지갑이 이더리움 메인넷에 연결되어 있는지 확인하세요.<br>체크인 카운터를 이용하시려면 이더리움 메인넷으로 전환하시기 바랍니다.",
 
   tabs_8_one_time_bonus: "<b>이주 정착 지원금</b>",
   tabs_8_one_time_bonus_claim: "<b>이주 정착 지원금 청구</b>",
-  tabs_8_one_time_bonus_info:
-    "Staking한 카드에 대한 이주 정착 지원금은 카드당 1회 청구 가능합니다..",
+  tabs_8_one_time_bonus_info: "Staking한 카드에 대한 이주 정착 지원금은 카드당 1회 청구 가능합니다..",
 
   tabs_9_content_1: "<b>Leedorian Metaverse contract address : </b>",
   tabs_9_content_2: `<b>LEEDO ERC20 token contract address : </b>`,
@@ -509,30 +489,20 @@ $.lang.ko = {
 
   tabs_10_title: "Leedo DAO",
   tabs_10_content_1: "<strong>이제 Leedo DAO가 프로젝트를 인수합니다!</strong>",
-  tabs_10_content_2:
-    "2021년 12월 30일(UTC)에 LEEDO 토큰 순환 기준 82%의 참여율로 Leedo DAO를 성공적으로 런칭했습니다.",
+  tabs_10_content_2: "2021년 12월 30일(UTC)에 LEEDO 토큰 순환 기준 82%의 참여율로 Leedo DAO를 성공적으로 런칭했습니다.",
   tabs_10_content_3: "Snapshot 투표 결과 보기",
-  tabs_10_content_4:
-    "(1) Leedo DAO는 모든 프로토콜 소유 자산을 관리하고 프로토콜 및 계약 매개변수를 업데이트하기 위한 관리 계약 트랜잭션의 책임 있는 실행을 담당합니다.",
-  tabs_10_content_5:
-    "(2) DAO 시스템은 (a) DAO 다중 서명 계약과 (b) Snapshot 오프체인 LEEDO 토큰 투표 시스템의 두 가지 주요 부분으로 구성됩니다.",
-  tabs_10_content_6:
-    "(3) Leedo 프로젝트의 모든 중요한 사항은 Snapshot 투표로 결정합니다.",
-  tabs_10_content_7:
-    "(4) Multisig contract은 모든 LEEDO 프로젝트 스마트 계약에 대한 투표 결과를 실행합니다.",
-  tabs_10_content_8:
-    "(5) Multisig contract에는 가장 활동적인 커뮤니티 구성원과 가장 많은 NFT 및 LEEDO 토큰 보유자 중 내부 커뮤니케이션을 통해 선택된 초기 9명의 서명자가 있습니다.",
-  tabs_10_content_9:
-    "(6) Multisig contract은 모든 거래를 실행하기 위해 9명의 서명자 중 5명의 확인이 필요합니다.",
+  tabs_10_content_4: "(1) Leedo DAO는 모든 프로토콜 소유 자산을 관리하고 프로토콜 및 계약 매개변수를 업데이트하기 위한 관리 계약 트랜잭션의 책임 있는 실행을 담당합니다.",
+  tabs_10_content_5: "(2) DAO 시스템은 (a) DAO 다중 서명 계약과 (b) Snapshot 오프체인 LEEDO 토큰 투표 시스템의 두 가지 주요 부분으로 구성됩니다.",
+  tabs_10_content_6: "(3) Leedo 프로젝트의 모든 중요한 사항은 Snapshot 투표로 결정합니다.",
+  tabs_10_content_7: "(4) Multisig contract은 모든 LEEDO 프로젝트 스마트 계약에 대한 투표 결과를 실행합니다.",
+  tabs_10_content_8: "(5) Multisig contract에는 가장 활동적인 커뮤니티 구성원과 가장 많은 NFT 및 LEEDO 토큰 보유자 중 내부 커뮤니케이션을 통해 선택된 초기 9명의 서명자가 있습니다.",
+  tabs_10_content_9: "(6) Multisig contract은 모든 거래를 실행하기 위해 9명의 서명자 중 5명의 확인이 필요합니다.",
   tabs_10_content_10: "(7) 초기 DAO Multisig contract 서명자:",
-  tabs_10_content_11:
-    "(8) 초기 서명자는 Snapshot 투표 또는 서명자의 자체 결정으로 대체될 수 있습니다.",
+  tabs_10_content_11: "(8) 초기 서명자는 Snapshot 투표 또는 서명자의 자체 결정으로 대체될 수 있습니다.",
   tabs_10_content_12: "Ethereum Multisig",
-  tabs_10_content_13:
-    "https://gnosis-safe.io/app/eth:0xD159e1FFE53d18Aa149696c97185057CC13BD129",
+  tabs_10_content_13: "https://gnosis-safe.io/app/eth:0xD159e1FFE53d18Aa149696c97185057CC13BD129",
   tabs_10_content_14: "Polygon Multisig",
-  tabs_10_content_15:
-    "https://gnosis-safe.io/app/matic:0xa7201253179eDDdf7C42A76b22eae4A8654073bc",
+  tabs_10_content_15: "https://gnosis-safe.io/app/matic:0xa7201253179eDDdf7C42A76b22eae4A8654073bc",
 };
 //start en
 setLanguage(lang);

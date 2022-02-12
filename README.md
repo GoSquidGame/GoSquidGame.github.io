@@ -11,8 +11,8 @@ A tool for Squid Game Card Metaverse -- Website, Staking Interface, Leedo Smart 
 ​
 
 - Website: [gosquidgame.com](https://gosquidgame.com/)
-- OpenSea: [opensea.io](https://opensea.io/collection/squid-game-card-nft)
-- Twitter: [@GoSquidGame](https://twitter.com/GoSquidGame)
+- OpenSea: [opensea.io](https://opensea.io/collection/leedoproject)
+- Twitter: [@LeedoProject](https://twitter.com/LeedoProject)
 - Discord: [SquidGame](https://discord.gg/xkTxRjjhVs)
   ​
 
