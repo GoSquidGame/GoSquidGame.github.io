@@ -431,9 +431,7 @@ var leedoerc20Abi = [
     type: "function",
   },
   {
-    inputs: [
-      { internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" },
-    ],
+    inputs: [{ internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" }],
     name: "claim",
     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
     stateMutability: "nonpayable",
@@ -1040,18 +1038,14 @@ var leedovaultAbi = [
     type: "function",
   },
   {
-    inputs: [
-      { internalType: "address", name: "_bridgeAddress", type: "address" },
-    ],
+    inputs: [{ internalType: "address", name: "_bridgeAddress", type: "address" }],
     name: "setBridgeAddr",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
   },
   {
-    inputs: [
-      { internalType: "address", name: "_bridgeAddress", type: "address" },
-    ],
+    inputs: [{ internalType: "address", name: "_bridgeAddress", type: "address" }],
     name: "setBridgeAddrByDao",
     outputs: [],
     stateMutability: "nonpayable",
@@ -1065,18 +1059,14 @@ var leedovaultAbi = [
     type: "function",
   },
   {
-    inputs: [
-      { internalType: "address", name: "_erc20Address", type: "address" },
-    ],
+    inputs: [{ internalType: "address", name: "_erc20Address", type: "address" }],
     name: "setErc20Addr",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
   },
   {
-    inputs: [
-      { internalType: "address", name: "_erc20Address", type: "address" },
-    ],
+    inputs: [{ internalType: "address", name: "_erc20Address", type: "address" }],
     name: "setErc20AddrByDao",
     outputs: [],
     stateMutability: "nonpayable",
@@ -1097,9 +1087,7 @@ var leedovaultAbi = [
     type: "function",
   },
   {
-    inputs: [
-      { internalType: "uint256[]", name: "tokenIds", type: "uint256[]" },
-    ],
+    inputs: [{ internalType: "uint256[]", name: "tokenIds", type: "uint256[]" }],
     name: "stake",
     outputs: [{ internalType: "bool", name: "", type: "bool" }],
     stateMutability: "nonpayable",
@@ -1197,9 +1185,7 @@ var leedovaultAbi = [
     type: "function",
   },
   {
-    inputs: [
-      { internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" },
-    ],
+    inputs: [{ internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" }],
     name: "withdraw",
     outputs: [],
     stateMutability: "nonpayable",
@@ -1408,9 +1394,7 @@ var leedorianAbi = [
     type: "function",
   },
   {
-    inputs: [
-      { internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" },
-    ],
+    inputs: [{ internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" }],
     name: "remove",
     outputs: [],
     stateMutability: "nonpayable",
@@ -1498,14 +1482,9 @@ let arrivedIds = [];
 
 var RewardCounterInterval;
 
-const space_shuttle_img = [
-  "happyNewYear-4.jpg",
-  "hanapegi_comingsoon_banner.jpg",
-  "happyNewYear-2.jpg",
-  "hanapegi_comingsoon_banner.jpg",
-];
+const space_shuttle_img = ["rebanded-banner2.jpg", "rebanded-banner.jpg", "rebanded-banner2.jpg", "rebanded-banner.jpg"];
 
-// showBanner();
+showBanner();
 
 window.addEventListener("load", function () {
   loadWeb3();
@@ -1521,9 +1500,7 @@ function loadWeb3() {
   if (typeof window.ethereum !== "undefined") {
     window.web3 = new Web3(window.ethereum);
   } else {
-    window.web3 = new Web3(
-      "https://mainnet.infura.io/v3/302b2ccfd49a40d480567a132cb7eb1d"
-    );
+    window.web3 = new Web3("https://mainnet.infura.io/v3/302b2ccfd49a40d480567a132cb7eb1d");
   }
 }
 
@@ -1569,13 +1546,8 @@ async function isMintingAvailable(iswalletconnected) {
     const claimTimeLockDate = new Date(claimTimeLock * 1000);
 
     const MintableTime = document.getElementById("free-minting-disable");
-    const breakTime =
-      '<p style="font-size:30px; color:orange;"><b> Break Time ~~!! </b></p>';
-    MintableTime.innerHTML =
-      breakTime +
-      '<p style="color:white"><b>Free Minting available time :</b>' +
-      claimTimeLockDate +
-      "</p>";
+    const breakTime = '<p style="font-size:30px; color:orange;"><b> Break Time ~~!! </b></p>';
+    MintableTime.innerHTML = breakTime + '<p style="color:white"><b>Free Minting available time :</b>' + claimTimeLockDate + "</p>";
 
     // if(iswalletconnected){
     if (isimintable) {
@@ -1875,36 +1847,28 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "tokenId", type: "uint256" }],
           name: "getApproved",
           outputs: [{ internalType: "address", name: "", type: "address" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "getConsonants",
           outputs: [{ internalType: "string[3]", name: "", type: "string[3]" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "getConsonantsIndex",
           outputs: [{ internalType: "uint8[3]", name: "", type: "uint8[3]" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "getGenes",
           outputs: [{ internalType: "uint8[8]", name: "", type: "uint8[8]" }],
           stateMutability: "view",
@@ -1918,9 +1882,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "getSeed",
           outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
           stateMutability: "view",
@@ -1958,18 +1920,14 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "ownerClaim",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "tokenId", type: "uint256" }],
           name: "ownerOf",
           outputs: [{ internalType: "address", name: "", type: "address" }],
           stateMutability: "view",
@@ -2016,9 +1974,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "bytes4", name: "interfaceId", type: "bytes4" },
-          ],
+          inputs: [{ internalType: "bytes4", name: "interfaceId", type: "bytes4" }],
           name: "supportsInterface",
           outputs: [{ internalType: "bool", name: "", type: "bool" }],
           stateMutability: "view",
@@ -2049,9 +2005,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "tokenURI",
           outputs: [{ internalType: "string", name: "", type: "string" }],
           stateMutability: "view",
@@ -2076,9 +2030,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "newOwner", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "newOwner", type: "address" }],
           name: "transferOwnership",
           outputs: [],
           stateMutability: "nonpayable",
@@ -2190,27 +2142,21 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "account", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "account", type: "address" }],
           name: "balanceOf",
           outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "calcRewards",
           outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" },
-          ],
+          inputs: [{ internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" }],
           name: "claim",
           outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
           stateMutability: "nonpayable",
@@ -2255,9 +2201,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_amount", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_amount", type: "uint256" }],
           name: "daoMint",
           outputs: [{ internalType: "bool", name: "", type: "bool" }],
           stateMutability: "nonpayable",
@@ -2271,9 +2215,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_season", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_season", type: "uint256" }],
           name: "daoSetSeason",
           outputs: [],
           stateMutability: "nonpayable",
@@ -2318,9 +2260,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "_daoAddress", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "_daoAddress", type: "address" }],
           name: "initializeDao",
           outputs: [],
           stateMutability: "nonpayable",
@@ -2424,45 +2364,35 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "_daoAddress", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "_daoAddress", type: "address" }],
           name: "setDaoAddr",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_amount", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_amount", type: "uint256" }],
           name: "setDaoMintable",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "_newAddress", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "_newAddress", type: "address" }],
           name: "setNftAddress",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "_vault", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "_vault", type: "address" }],
           name: "setNftVaultAddr",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "_vault", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "_vault", type: "address" }],
           name: "setNftVaultAddrByDao",
           outputs: [],
           stateMutability: "nonpayable",
@@ -2511,9 +2441,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "newOwner", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "newOwner", type: "address" }],
           name: "transferOwnership",
           outputs: [],
           stateMutability: "nonpayable",
@@ -2662,18 +2590,14 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "tokenId", type: "uint256" }],
           name: "calcBridgeRewards",
           outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "account", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "account", type: "address" }],
           name: "calcRewards",
           outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
           stateMutability: "view",
@@ -2715,45 +2639,35 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "tokenId", type: "uint256" }],
           name: "getApproved",
           outputs: [{ internalType: "address", name: "", type: "address" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "getConsonants",
           outputs: [{ internalType: "string[3]", name: "", type: "string[3]" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "getConsonantsIndex",
           outputs: [{ internalType: "uint8[3]", name: "", type: "uint8[3]" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "getGenes",
           outputs: [{ internalType: "uint8[8]", name: "", type: "uint8[8]" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "_daoAddress", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "_daoAddress", type: "address" }],
           name: "initializeDao",
           outputs: [],
           stateMutability: "nonpayable",
@@ -2810,9 +2724,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "tokenId", type: "uint256" }],
           name: "ownerOf",
           outputs: [{ internalType: "address", name: "", type: "address" }],
           stateMutability: "view",
@@ -2899,36 +2811,28 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "_daoAddress", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "_daoAddress", type: "address" }],
           name: "setDaoAddr",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "_erc20Address", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "_erc20Address", type: "address" }],
           name: "setErc20Addr",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "_erc20Address", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "_erc20Address", type: "address" }],
           name: "setErc20AddrByDao",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_expiration", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_expiration", type: "uint256" }],
           name: "setExpiration",
           outputs: [],
           stateMutability: "nonpayable",
@@ -2942,27 +2846,21 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256[]", name: "tokenIds", type: "uint256[]" },
-          ],
+          inputs: [{ internalType: "uint256[]", name: "tokenIds", type: "uint256[]" }],
           name: "stake",
           outputs: [{ internalType: "bool", name: "", type: "bool" }],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_count", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_count", type: "uint256" }],
           name: "stakeByCount",
           outputs: [{ internalType: "uint256[]", name: "", type: "uint256[]" }],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "bytes4", name: "interfaceId", type: "bytes4" },
-          ],
+          inputs: [{ internalType: "bytes4", name: "interfaceId", type: "bytes4" }],
           name: "supportsInterface",
           outputs: [{ internalType: "bool", name: "", type: "bool" }],
           stateMutability: "view",
@@ -2993,18 +2891,14 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "tokenURI",
           outputs: [{ internalType: "string", name: "", type: "string" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "_account", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "_account", type: "address" }],
           name: "tokensOf",
           outputs: [{ internalType: "uint256[]", name: "", type: "uint256[]" }],
           stateMutability: "view",
@@ -3043,18 +2937,14 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "newOwner", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "newOwner", type: "address" }],
           name: "transferOwnership",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" },
-          ],
+          inputs: [{ internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" }],
           name: "withdraw",
           outputs: [],
           stateMutability: "nonpayable",
@@ -3102,9 +2992,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "ownerOf",
           outputs: [{ internalType: "address", name: "", type: "address" }],
           stateMutability: "view",
@@ -3272,36 +3160,28 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "tokenId", type: "uint256" }],
           name: "getApproved",
           outputs: [{ internalType: "address", name: "", type: "address" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "getConsonants",
           outputs: [{ internalType: "string[3]", name: "", type: "string[3]" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "getConsonantsIndex",
           outputs: [{ internalType: "uint8[3]", name: "", type: "uint8[3]" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "getGenes",
           outputs: [{ internalType: "uint8[8]", name: "", type: "uint8[8]" }],
           stateMutability: "view",
@@ -3315,9 +3195,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "getSeed",
           outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
           stateMutability: "view",
@@ -3355,18 +3233,14 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "ownerClaim",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "tokenId", type: "uint256" }],
           name: "ownerOf",
           outputs: [{ internalType: "address", name: "", type: "address" }],
           stateMutability: "view",
@@ -3413,9 +3287,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "bytes4", name: "interfaceId", type: "bytes4" },
-          ],
+          inputs: [{ internalType: "bytes4", name: "interfaceId", type: "bytes4" }],
           name: "supportsInterface",
           outputs: [{ internalType: "bool", name: "", type: "bool" }],
           stateMutability: "view",
@@ -3446,9 +3318,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "tokenURI",
           outputs: [{ internalType: "string", name: "", type: "string" }],
           stateMutability: "view",
@@ -3473,9 +3343,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "newOwner", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "newOwner", type: "address" }],
           name: "transferOwnership",
           outputs: [],
           stateMutability: "nonpayable",
@@ -3587,27 +3455,21 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "account", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "account", type: "address" }],
           name: "balanceOf",
           outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "calcRewards",
           outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" },
-          ],
+          inputs: [{ internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" }],
           name: "claim",
           outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
           stateMutability: "nonpayable",
@@ -3652,9 +3514,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_amount", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_amount", type: "uint256" }],
           name: "daoMint",
           outputs: [{ internalType: "bool", name: "", type: "bool" }],
           stateMutability: "nonpayable",
@@ -3668,9 +3528,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_season", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_season", type: "uint256" }],
           name: "daoSetSeason",
           outputs: [],
           stateMutability: "nonpayable",
@@ -3715,9 +3573,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "_daoAddress", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "_daoAddress", type: "address" }],
           name: "initializeDao",
           outputs: [],
           stateMutability: "nonpayable",
@@ -3821,45 +3677,35 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "_daoAddress", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "_daoAddress", type: "address" }],
           name: "setDaoAddr",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_amount", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_amount", type: "uint256" }],
           name: "setDaoMintable",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "_newAddress", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "_newAddress", type: "address" }],
           name: "setNftAddress",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "_vault", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "_vault", type: "address" }],
           name: "setNftVaultAddr",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "_vault", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "_vault", type: "address" }],
           name: "setNftVaultAddrByDao",
           outputs: [],
           stateMutability: "nonpayable",
@@ -3908,9 +3754,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "newOwner", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "newOwner", type: "address" }],
           name: "transferOwnership",
           outputs: [],
           stateMutability: "nonpayable",
@@ -4059,18 +3903,14 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "tokenId", type: "uint256" }],
           name: "calcBridgeRewards",
           outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "account", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "account", type: "address" }],
           name: "calcRewards",
           outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
           stateMutability: "view",
@@ -4112,45 +3952,35 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "tokenId", type: "uint256" }],
           name: "getApproved",
           outputs: [{ internalType: "address", name: "", type: "address" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "getConsonants",
           outputs: [{ internalType: "string[3]", name: "", type: "string[3]" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "getConsonantsIndex",
           outputs: [{ internalType: "uint8[3]", name: "", type: "uint8[3]" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "getGenes",
           outputs: [{ internalType: "uint8[8]", name: "", type: "uint8[8]" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "_daoAddress", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "_daoAddress", type: "address" }],
           name: "initializeDao",
           outputs: [],
           stateMutability: "nonpayable",
@@ -4207,9 +4037,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "tokenId", type: "uint256" }],
           name: "ownerOf",
           outputs: [{ internalType: "address", name: "", type: "address" }],
           stateMutability: "view",
@@ -4296,36 +4124,28 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "_daoAddress", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "_daoAddress", type: "address" }],
           name: "setDaoAddr",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "_erc20Address", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "_erc20Address", type: "address" }],
           name: "setErc20Addr",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "_erc20Address", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "_erc20Address", type: "address" }],
           name: "setErc20AddrByDao",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_expiration", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_expiration", type: "uint256" }],
           name: "setExpiration",
           outputs: [],
           stateMutability: "nonpayable",
@@ -4339,27 +4159,21 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256[]", name: "tokenIds", type: "uint256[]" },
-          ],
+          inputs: [{ internalType: "uint256[]", name: "tokenIds", type: "uint256[]" }],
           name: "stake",
           outputs: [{ internalType: "bool", name: "", type: "bool" }],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_count", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_count", type: "uint256" }],
           name: "stakeByCount",
           outputs: [{ internalType: "uint256[]", name: "", type: "uint256[]" }],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "bytes4", name: "interfaceId", type: "bytes4" },
-          ],
+          inputs: [{ internalType: "bytes4", name: "interfaceId", type: "bytes4" }],
           name: "supportsInterface",
           outputs: [{ internalType: "bool", name: "", type: "bool" }],
           stateMutability: "view",
@@ -4390,18 +4204,14 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "tokenURI",
           outputs: [{ internalType: "string", name: "", type: "string" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "_account", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "_account", type: "address" }],
           name: "tokensOf",
           outputs: [{ internalType: "uint256[]", name: "", type: "uint256[]" }],
           stateMutability: "view",
@@ -4440,18 +4250,14 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "newOwner", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "newOwner", type: "address" }],
           name: "transferOwnership",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" },
-          ],
+          inputs: [{ internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" }],
           name: "withdraw",
           outputs: [],
           stateMutability: "nonpayable",
@@ -4499,9 +4305,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "ownerOf",
           outputs: [{ internalType: "address", name: "", type: "address" }],
           stateMutability: "view",
@@ -4669,36 +4473,28 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "tokenId", type: "uint256" }],
           name: "getApproved",
           outputs: [{ internalType: "address", name: "", type: "address" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "getConsonants",
           outputs: [{ internalType: "string[3]", name: "", type: "string[3]" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "getConsonantsIndex",
           outputs: [{ internalType: "uint8[3]", name: "", type: "uint8[3]" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "getGenes",
           outputs: [{ internalType: "uint8[8]", name: "", type: "uint8[8]" }],
           stateMutability: "view",
@@ -4712,9 +4508,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "getSeed",
           outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
           stateMutability: "view",
@@ -4752,18 +4546,14 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "ownerClaim",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "tokenId", type: "uint256" }],
           name: "ownerOf",
           outputs: [{ internalType: "address", name: "", type: "address" }],
           stateMutability: "view",
@@ -4810,9 +4600,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "bytes4", name: "interfaceId", type: "bytes4" },
-          ],
+          inputs: [{ internalType: "bytes4", name: "interfaceId", type: "bytes4" }],
           name: "supportsInterface",
           outputs: [{ internalType: "bool", name: "", type: "bool" }],
           stateMutability: "view",
@@ -4843,9 +4631,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "tokenURI",
           outputs: [{ internalType: "string", name: "", type: "string" }],
           stateMutability: "view",
@@ -4870,9 +4656,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "newOwner", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "newOwner", type: "address" }],
           name: "transferOwnership",
           outputs: [],
           stateMutability: "nonpayable",
@@ -4980,27 +4764,21 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "account", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "account", type: "address" }],
           name: "balanceOf",
           outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "calcRewards",
           outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" },
-          ],
+          inputs: [{ internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" }],
           name: "claim",
           outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
           stateMutability: "nonpayable",
@@ -5045,9 +4823,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_amount", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_amount", type: "uint256" }],
           name: "daoMint",
           outputs: [{ internalType: "bool", name: "", type: "bool" }],
           stateMutability: "nonpayable",
@@ -5061,9 +4837,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_season", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_season", type: "uint256" }],
           name: "daoSetSeason",
           outputs: [],
           stateMutability: "nonpayable",
@@ -5108,9 +4882,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "_daoAddr", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "_daoAddr", type: "address" }],
           name: "initializeDao",
           outputs: [],
           stateMutability: "nonpayable",
@@ -5134,9 +4906,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_amount", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_amount", type: "uint256" }],
           name: "mintNftStaking",
           outputs: [{ internalType: "bool", name: "", type: "bool" }],
           stateMutability: "nonpayable",
@@ -5213,36 +4983,28 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "_daoAddr", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "_daoAddr", type: "address" }],
           name: "setDaoAddr",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_amount", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_amount", type: "uint256" }],
           name: "setDaoMintable",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "_newAddr", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "_newAddr", type: "address" }],
           name: "setNftAddress",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "_vault", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "_vault", type: "address" }],
           name: "setNftVaultAddr",
           outputs: [],
           stateMutability: "nonpayable",
@@ -5291,9 +5053,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "newOwner", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "newOwner", type: "address" }],
           name: "transferOwnership",
           outputs: [],
           stateMutability: "nonpayable",
@@ -5438,18 +5198,14 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "tokenId", type: "uint256" }],
           name: "calcBridgeRewards",
           outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "account", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "account", type: "address" }],
           name: "calcRewards",
           outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
           stateMutability: "view",
@@ -5491,18 +5247,14 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "tokenId", type: "uint256" }],
           name: "getApproved",
           outputs: [{ internalType: "address", name: "", type: "address" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "_daoAddr", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "_daoAddr", type: "address" }],
           name: "initializeDao",
           outputs: [],
           stateMutability: "nonpayable",
@@ -5559,9 +5311,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "tokenId", type: "uint256" }],
           name: "ownerOf",
           outputs: [{ internalType: "address", name: "", type: "address" }],
           stateMutability: "view",
@@ -5622,18 +5372,14 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "_daoAddr", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "_daoAddr", type: "address" }],
           name: "setDaoAddr",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_expiration", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_expiration", type: "uint256" }],
           name: "setExpiration",
           outputs: [],
           stateMutability: "nonpayable",
@@ -5647,9 +5393,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256[]", name: "tokenIds", type: "uint256[]" },
-          ],
+          inputs: [{ internalType: "uint256[]", name: "tokenIds", type: "uint256[]" }],
           name: "stake",
           outputs: [{ internalType: "bool", name: "", type: "bool" }],
           stateMutability: "nonpayable",
@@ -5663,9 +5407,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "bytes4", name: "interfaceId", type: "bytes4" },
-          ],
+          inputs: [{ internalType: "bytes4", name: "interfaceId", type: "bytes4" }],
           name: "supportsInterface",
           outputs: [{ internalType: "bool", name: "", type: "bool" }],
           stateMutability: "view",
@@ -5696,18 +5438,14 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "tokenId", type: "uint256" }],
           name: "tokenURI",
           outputs: [{ internalType: "string", name: "", type: "string" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "account", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "account", type: "address" }],
           name: "tokensOf",
           outputs: [{ internalType: "uint256[]", name: "", type: "uint256[]" }],
           stateMutability: "view",
@@ -5746,18 +5484,14 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "newOwner", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "newOwner", type: "address" }],
           name: "transferOwnership",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256[]", name: "tokenIds", type: "uint256[]" },
-          ],
+          inputs: [{ internalType: "uint256[]", name: "tokenIds", type: "uint256[]" }],
           name: "withdraw",
           outputs: [],
           stateMutability: "nonpayable",
@@ -5805,9 +5539,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "ownerOf",
           outputs: [{ internalType: "address", name: "", type: "address" }],
           stateMutability: "view",
@@ -5929,27 +5661,21 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "getConsonants",
           outputs: [{ internalType: "string[3]", name: "", type: "string[3]" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "getConsonantsIndex",
           outputs: [{ internalType: "uint8[3]", name: "", type: "uint8[3]" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "getGenes",
           outputs: [{ internalType: "uint8[8]", name: "", type: "uint8[8]" }],
           stateMutability: "pure",
@@ -5963,9 +5689,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "ownerOf",
           outputs: [{ internalType: "address", name: "", type: "address" }],
           stateMutability: "view",
@@ -5986,9 +5710,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" },
-          ],
+          inputs: [{ internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" }],
           name: "remove",
           outputs: [],
           stateMutability: "nonpayable",
@@ -6002,9 +5724,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "tokenURI",
           outputs: [{ internalType: "string", name: "", type: "string" }],
           stateMutability: "view",
@@ -6036,9 +5756,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "newOwner", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "newOwner", type: "address" }],
           name: "transferOwnership",
           outputs: [],
           stateMutability: "nonpayable",
@@ -6157,27 +5875,21 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "getConsonants",
           outputs: [{ internalType: "string[3]", name: "", type: "string[3]" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "getConsonantsIndex",
           outputs: [{ internalType: "uint8[3]", name: "", type: "uint8[3]" }],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "getGenes",
           outputs: [{ internalType: "uint8[8]", name: "", type: "uint8[8]" }],
           stateMutability: "pure",
@@ -6191,9 +5903,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "ownerOf",
           outputs: [{ internalType: "address", name: "", type: "address" }],
           stateMutability: "view",
@@ -6214,9 +5924,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" },
-          ],
+          inputs: [{ internalType: "uint256[]", name: "_tokenIds", type: "uint256[]" }],
           name: "remove",
           outputs: [],
           stateMutability: "nonpayable",
@@ -6230,9 +5938,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "uint256", name: "_tokenId", type: "uint256" },
-          ],
+          inputs: [{ internalType: "uint256", name: "_tokenId", type: "uint256" }],
           name: "tokenURI",
           outputs: [{ internalType: "string", name: "", type: "string" }],
           stateMutability: "view",
@@ -6264,9 +5970,7 @@ async function getContracts() {
           type: "function",
         },
         {
-          inputs: [
-            { internalType: "address", name: "newOwner", type: "address" },
-          ],
+          inputs: [{ internalType: "address", name: "newOwner", type: "address" }],
           name: "transferOwnership",
           outputs: [],
           stateMutability: "nonpayable",
@@ -6284,14 +5988,8 @@ async function getContracts() {
 
     if (chainId === 1 || chainId === 4 || chainId === 5) {
       nftContract = new web3.eth.Contract(nftAbi, nftAddress);
-      leedoerc20Contract = new web3.eth.Contract(
-        leedoerc20Abi,
-        leedoerc20Address
-      );
-      leedovaultContract = new web3.eth.Contract(
-        leedovaultAbi,
-        leedovaultAddress
-      );
+      leedoerc20Contract = new web3.eth.Contract(leedoerc20Abi, leedoerc20Address);
+      leedovaultContract = new web3.eth.Contract(leedovaultAbi, leedovaultAddress);
 
       utilityContract = new web3.eth.Contract(utilityAbi, utilityAddress);
       $(".nft-address").html(getLink(nftAddress));
@@ -6433,9 +6131,7 @@ showCardList = async (kind) => {
       //
       // tokenByIndexList();
       if (unstakedIds.length == 0) {
-        unstakedIds = await utilityContract.methods
-          .tokensOf(myAddr, false)
-          .call();
+        unstakedIds = await utilityContract.methods.tokensOf(myAddr, false).call();
         tokenId = unstakedIds;
         // console.log('unstakedIds =>',unstakedIds);
       } else {
@@ -6520,16 +6216,13 @@ showCardList = async (kind) => {
   Deck(arr);
   switch (kind) {
     case "unstaked":
-      document.getElementById("deck-title").innerHTML =
-        '<p style="text-align:center; margin-top:10px; margin-bottom:0px;"><b>Check-in now</b></p>';
+      document.getElementById("deck-title").innerHTML = '<p style="text-align:center; margin-top:10px; margin-bottom:0px;"><b>Check-in now</b></p>';
       break;
     case "staked":
-      document.getElementById("deck-title").innerHTML =
-        '<p style="text-align:center; margin-top:10px; margin-bottom:0px;"><b>Check-out now</b></p>';
+      document.getElementById("deck-title").innerHTML = '<p style="text-align:center; margin-top:10px; margin-bottom:0px;"><b>Check-out now</b></p>';
       break;
   }
-  document.getElementById("deck-selected-cnt").innerHTML =
-    '<p style="margin-bottom: 5px;font-size: 12px; color: #818181;">( 0 / 20 ) Maximum 20 cards per transaction.</p>';
+  document.getElementById("deck-selected-cnt").innerHTML = '<p style="margin-bottom: 5px;font-size: 12px; color: #818181;">( 0 / 20 ) Maximum 20 cards per transaction.</p>';
 
   $("#stake-loading").hide();
   $("#staking-body").show();
@@ -6564,9 +6257,7 @@ checkBoxClick = (e) => {
   }
 
   document.getElementById("deck-selected-cnt").innerHTML =
-    '<p style="margin-bottom: 5px;font-size: 12px; color: #818181;">( ' +
-    checkInTokenIdList.length +
-    " / 20 ) Maximum 20 cards per transaction.</p>";
+    '<p style="margin-bottom: 5px;font-size: 12px; color: #818181;">( ' + checkInTokenIdList.length + " / 20 ) Maximum 20 cards per transaction.</p>";
   // console.log('checkInTokenIdList =>',checkInTokenIdList)
 };
 
@@ -6577,19 +6268,16 @@ function checkInBody(kind) {
   if (is_Vault_Approved) {
     switch (stakeKind) {
       case "unstaked":
-        stakeBtn.innerHTML =
-          '<button style="margin-top:10px" id="stake-btn" disabled onclick="checkIn()">Check-in</button>';
+        stakeBtn.innerHTML = '<button style="margin-top:10px" id="stake-btn" disabled onclick="checkIn()">Check-in</button>';
 
         break;
       case "staked":
-        stakeBtn.innerHTML =
-          '<button  style="margin-top:10px" id="stake-btn" disabled onclick="checkOut()">Check-out</button>';
+        stakeBtn.innerHTML = '<button  style="margin-top:10px" id="stake-btn" disabled onclick="checkOut()">Check-out</button>';
 
         break;
     }
   } else {
-    stakeBtn.innerHTML =
-      '<button  style="margin-top:10px" id="stake-btn" onclick="setVaultApproved(true)">Approve</button>';
+    stakeBtn.innerHTML = '<button  style="margin-top:10px" id="stake-btn" onclick="setVaultApproved(true)">Approve</button>';
   }
   document.getElementById("stake-btn-div").appendChild(stakeBtn);
 }
@@ -6599,8 +6287,7 @@ function setRewardsClaimBtn() {
   const screenWidth = document.body.clientWidth;
   let claimBtn = document.createElement("div");
 
-  claimBtn.innerHTML =
-    '<button id="claim-btn" onclick="runRewardsClaim()">Claim</button>';
+  claimBtn.innerHTML = '<button id="claim-btn" onclick="runRewardsClaim()">Claim</button>';
 
   if (screenWidth < 600) {
     document.getElementById("erc20-claim-div-m").innerHTML = "";
@@ -6621,9 +6308,7 @@ async function getApproved(_contract) {
       //   console.log("is_ERC20_Approved => ", is_ERC20_Approved);
       //   break;
       case "leedoVault":
-        is_Vault_Approved = await nftContract.methods
-          .isApprovedForAll(myAddr, leedovaultAddress)
-          .call();
+        is_Vault_Approved = await nftContract.methods.isApprovedForAll(myAddr, leedovaultAddress).call();
         // console.log('is_Vault_Approved => ' ,is_Vault_Approved);
         break;
     }
@@ -6793,9 +6478,7 @@ async function getRewardsBalance() {
   // const {ethers} = require('ethers');
 
   let reWards_wei = await leedovaultContract.methods.calcRewards(myAddr).call();
-  let total_reWards_wei = await leedovaultContract.methods
-    .totalClaims(myAddr)
-    .call();
+  let total_reWards_wei = await leedovaultContract.methods.totalClaims(myAddr).call();
   // console.log('reWards_wei => ',reWards_wei);
 
   // let reWards_gwei = Math.round(reWards_wei)/1000000000000000000;
@@ -6808,12 +6491,8 @@ async function getRewardsBalance() {
 
   runRewardCounter(reWards_gwei);
 
-  reWards_gwei = reWards_gwei
-    .toString()
-    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-  total_reWards_gwei = total_reWards_gwei
-    .toString()
-    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+  reWards_gwei = reWards_gwei.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+  total_reWards_gwei = total_reWards_gwei.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
   $(".erc20-rewards").html(reWards_gwei);
   $(".erc20-claimed-rewards").html(total_reWards_gwei);
 
@@ -6847,9 +6526,7 @@ function runRewardCounter(cur_balance) {
     RewardCounterInterval = setInterval(function () {
       _balance = _balance + blockRewards;
 
-      let formatted__balance = _balance
-        .toString()
-        .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+      let formatted__balance = _balance.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
       // console.log("formatted__balance => ", formatted__balance);
       $(".erc20-rewards").html(formatted__balance);
     }, 1000);
@@ -7085,21 +6762,13 @@ async function showWinnerCard() {
     }
     htmlStr += "<td>";
     htmlStr += '<div style="display: flex;">';
-    htmlStr +=
-      '<p style=" margin-bottom: 0px; ">[ Round ' +
-      round_num +
-      " ] NFT ID :  #" +
-      tokeninfo.id +
-      "</p>";
+    htmlStr += '<p style=" margin-bottom: 0px; ">[ Round ' + round_num + " ] NFT ID :  #" + tokeninfo.id + "</p>";
     htmlStr +=
       '<a style="color: blue; text-decoration: underline; margin-left: 20px;" href="https://opensea.io/assets/0xbe5c953dd0ddb0ce033a98f36c981f1b74d3b33f/' +
       tokeninfo.id +
       '" target="_blank">View in OpenSea </a>';
     htmlStr += "</div>";
-    htmlStr +=
-      '<img style="width: auto; height: auto; max-height: 100px; "  src="' +
-      tokeninfo.image +
-      '"/>';
+    htmlStr += '<img style="width: auto; height: auto; max-height: 100px; "  src="' + tokeninfo.image + '"/>';
     htmlStr += "</td>";
     if (round_num % 2 == 0) {
       htmlStr += "</tr>";
@@ -7121,9 +6790,7 @@ getLatestCardTokenId = async () => {
   // }
   var userCardNumber = await nftContract.methods.balanceOf(myAddr).call();
   // console.log(`userCardNumber: ${userCardNumber}`)
-  var tokenId = await nftContract.methods
-    .tokenOfOwnerByIndex(myAddr, userCardNumber - 1)
-    .call();
+  var tokenId = await nftContract.methods.tokenOfOwnerByIndex(myAddr, userCardNumber - 1).call();
   // console.log(`tokenId: ${tokenId}`);
   return tokenId;
 
@@ -7155,19 +6822,13 @@ getCardInfo = async (tokenId, kind) => {
     switch (kind) {
       case "staked":
       case "bonusclaim":
-        var tokenInfoBase64 = await leedovaultContract.methods
-          .tokenURI(tokenId)
-          .call();
+        var tokenInfoBase64 = await leedovaultContract.methods.tokenURI(tokenId).call();
         break;
       case "unstaked":
-        var tokenInfoBase64 = await nftContract.methods
-          .tokenURI(tokenId)
-          .call();
+        var tokenInfoBase64 = await nftContract.methods.tokenURI(tokenId).call();
         break;
       case "metaverse":
-        var tokenInfoBase64 = await leedorianContract.methods
-          .tokenURI(tokenId)
-          .call();
+        var tokenInfoBase64 = await leedorianContract.methods.tokenURI(tokenId).call();
         break;
     }
     var jsonInfo = JSON.parse(atob(tokenInfoBase64.substring(29)));
@@ -7228,11 +6889,7 @@ async function initializeClock(id, endtime) {
   // const totalSupply = await fetchTotalSupply();
   // const claimTimeLock = await fetchClaimTimeLock();
 
-  const [isMintable, totalSupply, claimTimeLock] = await Promise.all([
-    fetchIsMintable(),
-    fetchTotalSupply(),
-    fetchClaimTimeLock(),
-  ]);
+  const [isMintable, totalSupply, claimTimeLock] = await Promise.all([fetchIsMintable(), fetchTotalSupply(), fetchClaimTimeLock()]);
   // console.log(`isMintable: ${isMintable}`)
   // console.log(`totalSupply: ${totalSupply}`)
   const claimTimeLockDate = new Date(claimTimeLock * 1000);
@@ -7340,29 +6997,12 @@ function getLink(addr) {
     explorer = "";
     console.log("unsupported chainid " + chainId);
   }
-  var shortAddr =
-    addr.substring(0, 6) + "...." + addr.substring(addr.length - 4);
+  var shortAddr = addr.substring(0, 6) + "...." + addr.substring(addr.length - 4);
 
   if (addr.length == 42) {
-    return (
-      '<a target="_blank" style="font-size: 14px; text-decoration: underline;color:#818181;" href="' +
-      explorer +
-      "/address/" +
-      addr +
-      '">' +
-      shortAddr +
-      "</a>"
-    );
+    return '<a target="_blank" style="font-size: 14px; text-decoration: underline;color:#818181;" href="' + explorer + "/address/" + addr + '">' + shortAddr + "</a>";
   } else {
-    return (
-      '<a target="_blank" style="font-size: 14px; text-decoration: underline;color:#818181;" href="' +
-      explorer +
-      "/tx/" +
-      addr +
-      '">' +
-      shortAddr +
-      "</a>"
-    );
+    return '<a target="_blank" style="font-size: 14px; text-decoration: underline;color:#818181;" href="' + explorer + "/tx/" + addr + '">' + shortAddr + "</a>";
   }
 }
 
@@ -7564,10 +7204,7 @@ showMetaverseCardList = async (kind) => {
   );
 
   // console.log("arrived_card_cnt =>", arrived_card_cnt);
-  document.getElementById("div-arrived-cards").innerHTML =
-    '<p style="font-size:20px; text-align: center; margin-bottom: 0px; color: #5a2c99;"><b>Arrived Cards : ' +
-    arrived_card_cnt +
-    " </b></p>";
+  document.getElementById("div-arrived-cards").innerHTML = '<p style="font-size:20px; text-align: center; margin-bottom: 0px; color: #5a2c99;"><b>Arrived Cards : ' + arrived_card_cnt + " </b></p>";
 
   if (cardInfoList.length > 0) {
     $("#no-card-div").hide();
@@ -7603,10 +7240,7 @@ showMetaverseCardList = async (kind) => {
       tokenId.className = "tokenID";
       //   checkBox.className = "checkBox";
 
-      imgBox.innerHTML =
-        '<img style="width: auto; height: auto; max-width: 200px; "  src="' +
-        arr[i].image +
-        '"/>';
+      imgBox.innerHTML = '<img style="width: auto; height: auto; max-width: 200px; "  src="' + arr[i].image + '"/>';
       tokenId.innerHTML = "#" + arr[i].tokenId;
       //   checkBox.innerHTML = `<input style="width:20px;height:20px; " type="checkbox"  value="${arr[i].tokenId}" onclick ="checkBoxClick(this)"/>`;
       card.appendChild(imgBox);
@@ -7650,9 +7284,7 @@ One-time Bonus Claim Start
 async function checkOnetimeBonusClaimAvailable() {
   let latestNetBlockNum = await web3.eth.getBlockNumber();
   // check lastBlocks on vault contract
-  let lastStakedBlock = await leedovaultContract.methods
-    .lastBlocks(myAddr)
-    .call();
+  let lastStakedBlock = await leedovaultContract.methods.lastBlocks(myAddr).call();
 
   let calimAvailableBlock = Number(lastStakedBlock);
   if (chainId === 4) {
@@ -7701,18 +7333,9 @@ async function checkOnetimeBonusClaimAvailable() {
       //   calimAvailableBlock +
       //   " of Ethereum Mainnet.";
 
-      let block_str =
-        '<p style="margin-bottom: 0px;font-size: 12px; color: #818181;">You can claim after Block #';
-      block_str =
-        block_str +
-        '<span><a style="color: blue; text-decoration: underline;" href="https://etherscan.io/block/countdown/' +
-        calimAvailableBlock +
-        '"';
-      block_str =
-        block_str +
-        ' target="_blank">' +
-        calimAvailableBlock +
-        "</a></span>  of Ethereum Mainnet.</p>";
+      let block_str = '<p style="margin-bottom: 0px;font-size: 12px; color: #818181;">You can claim after Block #';
+      block_str = block_str + '<span><a style="color: blue; text-decoration: underline;" href="https://etherscan.io/block/countdown/' + calimAvailableBlock + '"';
+      block_str = block_str + ' target="_blank">' + calimAvailableBlock + "</a></span>  of Ethereum Mainnet.</p>";
       claimable_block.innerHTML = block_str;
     }
   } else {
@@ -7853,13 +7476,10 @@ showBonusClaimCardList = async () => {
       }
     }
     document.getElementById("bonus-deck-selected-cnt").innerHTML =
-      '<p style="margin-bottom: 5px;font-size: 12px; color: #818181;">( ' +
-      claimTokenIdList.length +
-      " / 20 ) Maximum 20 cards per transaction.</p>";
+      '<p style="margin-bottom: 5px;font-size: 12px; color: #818181;">( ' + claimTokenIdList.length + " / 20 ) Maximum 20 cards per transaction.</p>";
   };
 
-  document.getElementById("bonus-deck-selected-cnt").innerHTML =
-    '<p style="margin-bottom: 5px;font-size: 12px; color: #818181;">( 0 / 20 ) Maximum 20 cards per transaction.</p>';
+  document.getElementById("bonus-deck-selected-cnt").innerHTML = '<p style="margin-bottom: 5px;font-size: 12px; color: #818181;">( 0 / 20 ) Maximum 20 cards per transaction.</p>';
 
   $("#one-time-bonus-loading").hide();
 };
@@ -7889,10 +7509,7 @@ async function bonusClaim() {
       // console.log("receipt=>", receipt);
       if (receipt.status) {
         // update unclaim card list
-        bonus_claim_complete.innerHTML =
-          "Bonus claim for " +
-          claimTokenIdList.length +
-          " card(s) has been completed.<br>Check the transaction details in your wallet.";
+        bonus_claim_complete.innerHTML = "Bonus claim for " + claimTokenIdList.length + " card(s) has been completed.<br>Check the transaction details in your wallet.";
         // setTimeout(() => {
         //   target.innerHTML = "";
         // }, 3000);
